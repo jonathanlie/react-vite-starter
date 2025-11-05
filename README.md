@@ -13,6 +13,8 @@ A production-ready React starter kit built with Vite, TypeScript, and modern bes
   - Vitest for unit/integration tests
   - Cypress for E2E testing
 - **🛣️ Routing** - React Router with easy route additions
+- **📝 Forms** - React Hook Form with Zod validation
+- **🗃️ State Management** - Zustand (Redux Toolkit alternative provided)
 - **🔧 Code Quality** - ESLint, Prettier, and TypeScript strict mode
 - **🌍 Environments** - Staging and production configurations
 - **🔄 CI/CD** - GitHub Actions workflow
@@ -117,8 +119,14 @@ react-vite-starter/
 │   │   └── locales/         # Translation files
 │   ├── config/              # Configuration
 │   │   └── env.ts           # Environment variables
-│   ├── test/                # Test utilities
-│   │   └── setup.ts
+│   ├── store/                # State management (Zustand)
+│   │   ├── useAppStore.ts
+│   │   └── index.ts
+│   ├── components/forms/     # Form components
+│   │   └── ContactForm.tsx
+│   ├── test/                 # Test utilities
+│   │   ├── setup.ts
+│   │   └── test-utils.tsx
 │   ├── App.tsx              # Main app component
 │   ├── App.css              # App styles
 │   ├── main.tsx             # Entry point
@@ -158,6 +166,63 @@ resources: {
   },
 }
 ```
+
+## 📝 Forms with React Hook Form
+
+Forms are handled using `react-hook-form` with Zod validation. See `src/components/forms/ContactForm.tsx` for an example.
+
+**Features:**
+
+- Type-safe form validation
+- Accessibility built-in
+- Error handling
+- Minimal re-renders
+
+**Example:**
+
+```tsx
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+const {
+  register,
+  handleSubmit,
+  formState: { errors },
+} = useForm({
+  resolver: zodResolver(mySchema),
+});
+```
+
+See `docs/FORMS_GUIDE.md` for detailed documentation.
+
+## 🗃️ State Management with Zustand
+
+State management is handled using **Zustand** - a modern, lightweight state management solution.
+
+**Why Zustand?**
+
+- Minimal boilerplate (~1KB)
+- TypeScript-first
+- No Provider needed
+- Modern and growing in popularity
+- Perfect for starter kits
+
+**Usage:**
+
+```tsx
+import { useAppStore } from '@/store/useAppStore';
+
+function MyComponent() {
+  const { count, increment } = useAppStore();
+  return <button onClick={increment}>Count: {count}</button>;
+}
+```
+
+**Redux Toolkit Alternative:**
+If you prefer Redux Toolkit, see `docs/REDUX_TOOLKIT_EXAMPLE.md` for implementation details.
+
+**Comparison:**
+See `docs/STATE_MANAGEMENT.md` for a detailed comparison of state management options.
 
 ## 🧪 Testing Strategy
 

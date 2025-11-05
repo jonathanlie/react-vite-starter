@@ -57,6 +57,17 @@ export function Layout({ children }: LayoutProps) {
                   {t('common.about')}
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/forms"
+                  className={location.pathname === '/forms' ? 'active' : ''}
+                  aria-current={
+                    location.pathname === '/forms' ? 'page' : undefined
+                  }
+                >
+                  Forms
+                </Link>
+              </li>
             </ul>
           </motion.div>
           <LanguageSwitcher />

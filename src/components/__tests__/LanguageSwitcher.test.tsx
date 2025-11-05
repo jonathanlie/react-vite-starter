@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { I18nextProvider } from 'react-i18next';
+import i18n from '@/i18n/config';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
 /**
@@ -12,14 +14,22 @@ import { LanguageSwitcher } from '@/components/LanguageSwitcher';
  * - Accessibility labels
  */
 describe('LanguageSwitcher', () => {
+  const renderLanguageSwitcher = () => {
+    return render(
+      <I18nextProvider i18n={i18n}>
+        <LanguageSwitcher />
+      </I18nextProvider>
+    );
+  };
+
   it('renders language selector', () => {
-    render(<LanguageSwitcher />);
+    renderLanguageSwitcher();
     const select = screen.getByLabelText(/language/i);
     expect(select).toBeInTheDocument();
   });
 
   it('contains all available languages', () => {
-    render(<LanguageSwitcher />);
+    renderLanguageSwitcher();
     const select = screen.getByLabelText(/language/i) as HTMLSelectElement;
 
     expect(select.options[0].text).toBe('English');
@@ -28,11 +38,20 @@ describe('LanguageSwitcher', () => {
 
   it('allows language selection', async () => {
     const user = userEvent.setup();
-    render(<LanguageSwitcher />);
+    renderLanguageSwitcher();
     const select = screen.getByLabelText(/language/i) as HTMLSelectElement;
 
     await user.selectOptions(select, 'es');
     expect(select.value).toBe('es');
   });
-});
 
+  it('changes i18n language when selection changes', async () => {
+    const user = userEvent.setup();
+    renderLanguageSwitcher();
+    const select = screen.getByLabelText(/language/i) as HTMLSelectElement;
+
+    expect(i18n.language).toBe('en');
+    await user.selectOptions(select, 'es');
+    expect(i18n.language).toBe('es');
+  });
+});

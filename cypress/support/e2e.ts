@@ -1,21 +1,12 @@
 // ***********************************************************
-// This example support/e2e.ts is processed and
-// loaded automatically before your test files.
+// Cypress E2E Support File
 //
-// This is a great place to put global configuration and
-// behavior that modifies Cypress.
-//
-// You can change the location of this file or turn off
-// automatically serving support files with the
-// 'supportFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/configuration
+// This file is processed and loaded automatically before your test files.
+// Add global configuration and behavior that modifies Cypress here.
 // ***********************************************************
 
-// Import commands.js using ES2015 syntax:
+// Import commands
 import './commands';
 
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
-
+// Import plugins
+import 'cypress-plugin-tab';

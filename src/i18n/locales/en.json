@@ -1,0 +1,25 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "home": "Home",
+    "about": "About",
+    "notFound": "Page Not Found",
+    "loading": "Loading...",
+    "error": "Error",
+    "language": "Language"
+  },
+  "home": {
+    "title": "Home Page",
+    "description": "This is the home page of the React Vite Starter Kit"
+  },
+  "about": {
+    "title": "About Page",
+    "description": "This is the about page"
+  },
+  "notFound": {
+    "title": "404 - Page Not Found",
+    "description": "The page you're looking for doesn't exist.",
+    "backHome": "Back to Home"
+  }
+}
+

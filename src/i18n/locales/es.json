@@ -1,0 +1,25 @@
+{
+  "common": {
+    "welcome": "Bienvenido",
+    "home": "Inicio",
+    "about": "Acerca de",
+    "notFound": "Página No Encontrada",
+    "loading": "Cargando...",
+    "error": "Error",
+    "language": "Idioma"
+  },
+  "home": {
+    "title": "Página de Inicio",
+    "description": "Esta es la página de inicio del React Vite Starter Kit"
+  },
+  "about": {
+    "title": "Página Acerca de",
+    "description": "Esta es la página acerca de"
+  },
+  "notFound": {
+    "title": "404 - Página No Encontrada",
+    "description": "La página que buscas no existe.",
+    "backHome": "Volver al Inicio"
+  }
+}
+

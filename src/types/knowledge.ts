@@ -9,6 +9,7 @@
  * Category classification for knowledge nodes
  */
 export type KnowledgeCategory =
+  | 'root'
   | 'backend'
   | 'frontend'
   | 'devops'

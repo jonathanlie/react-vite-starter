@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import { KnowledgeGraph } from '@/components/knowledge/KnowledgeGraph';
 
 type ViewMode = 'cards' | 'graph';
 
@@ -13,6 +14,11 @@ type ViewMode = 'cards' | 'graph';
 export function KnowledgeWeb() {
   const { t } = useTranslation();
   const [viewMode, setViewMode] = useState<ViewMode>('cards');
+
+  const handleNodeClick = (nodeId: string) => {
+    // TODO: Open modal with markdown content for the selected node
+    console.log('Node clicked:', nodeId);
+  };
 
   return (
     <motion.div
@@ -73,12 +79,7 @@ export function KnowledgeWeb() {
         )}
 
         {viewMode === 'graph' && (
-          <div>
-            {/* TODO: Implement React Flow graph view */}
-            <p className="text-base text-gray-600 dark:text-gray-400">
-              Graph view coming soon...
-            </p>
-          </div>
+          <KnowledgeGraph onNodeClick={handleNodeClick} />
         )}
 
         {/* TODO: Implement modal for markdown content */}

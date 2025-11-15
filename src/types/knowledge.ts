@@ -88,4 +88,3 @@ export interface KnowledgeNodeWithContent extends KnowledgeNode {
 export type LoadMarkdownContent = (
   markdownFile: string
 ) => Promise<React.ComponentType>;
-

@@ -31,24 +31,36 @@ src/
 ## Common Tasks
 
 ### Adding a Route
+
 1. Create page: `src/pages/NewPage.tsx`
 2. Import in `src/App.tsx`
 3. Add `<Route path="/new" element={<NewPage />} />`
 4. Add translations in `src/i18n/locales/*.json`
 
 ### Adding a Component
+
 1. Create: `src/components/ComponentName.tsx`
 2. Include TSDoc comments
 3. Type all props with TypeScript interface
 4. Create test: `src/components/__tests__/ComponentName.test.tsx`
 
+**CRITICAL: Component Structure Conventions**
+
+- **Types must be defined inline** in the component file, not in separate `types.ts` files
+- **No `index.ts` barrel exports** - import components directly from their `.tsx` files
+- **Export types** if they need to be used by other components (e.g., `export interface ComponentProps`)
+- **Follow existing patterns** - check other components in the codebase before introducing new file structures
+- **Never introduce new conventions** without ensuring consistency across all components
+
 ### Adding a Language
+
 1. Create: `src/i18n/locales/lang.json`
 2. Import in `src/i18n/config.ts`
 3. Add to resources object
 4. Add to `LanguageSwitcher` languages array
 
 ### Environment Variables
+
 - Access via `src/config/env.ts`: `import { env } from '@/config/env'`
 - Must prefix with `VITE_` to be accessible
 - Type definitions in `src/vite-env.d.ts`
@@ -56,6 +68,7 @@ src/
 ## Code Patterns
 
 ### Component Pattern
+
 ```tsx
 /**
  * Component Description
@@ -73,12 +86,14 @@ export function Component({ prop }: ComponentProps) {
 ```
 
 ### i18n Pattern
+
 ```tsx
 const { t } = useTranslation();
 return <h1>{t('namespace.key')}</h1>;
 ```
 
 ### Animation Pattern
+
 ```tsx
 import { motion } from 'framer-motion';
 
@@ -90,6 +105,7 @@ import { motion } from 'framer-motion';
 ```
 
 ### Testing Pattern
+
 ```tsx
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
@@ -167,4 +183,3 @@ describe('Component', () => {
 3. **Accessibility First**: WCAG 2.1 compliance
 4. **Test Coverage**: 80%+ target
 5. **Documentation**: TSDoc for all public APIs
-

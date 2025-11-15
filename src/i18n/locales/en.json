@@ -2,7 +2,9 @@
   "common": {
     "welcome": "Welcome",
     "home": "Home",
-    "about": "About",
+    "contact": "Contact",
+    "knowledgeWeb": "Knowledge Web",
+    "workHistory": "Work History",
     "notFound": "Page Not Found",
     "loading": "Loading...",
     "error": "Error",
@@ -12,9 +14,23 @@
     "title": "Home Page",
     "description": "This is the home page of the React Vite Starter Kit"
   },
-  "about": {
-    "title": "About Page",
-    "description": "This is the about page"
+  "contact": {
+    "title": "Contact",
+    "getInTouch": "Get in Touch",
+    "description": "Feel free to reach out via email or download my resume.",
+    "email": "Email",
+    "resume": "Resume",
+    "downloadResume": "Download Resume"
+  },
+  "knowledgeWeb": {
+    "title": "Knowledge Web",
+    "description": "Explore my technical knowledge and skills. Click on any node to view detailed information.",
+    "viewCards": "Cards",
+    "viewGraph": "Graph"
+  },
+  "workHistory": {
+    "title": "Work History",
+    "description": "A detailed overview of my professional experience and contributions at previous companies."
   },
   "notFound": {
     "title": "404 - Page Not Found",
@@ -22,4 +38,3 @@
     "backHome": "Back to Home"
   }
 }
-

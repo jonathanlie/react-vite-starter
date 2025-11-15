@@ -1,8 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from '@/components/Layout';
 import { Home } from '@/pages/Home';
-import { About } from '@/pages/About';
-import { Forms } from '@/pages/Forms';
+import { Contact } from '@/pages/Contact';
+import { KnowledgeWeb } from '@/pages/KnowledgeWeb';
+import { WorkHistory } from '@/pages/WorkHistory';
 import { NotFound } from '@/pages/NotFound';
 import './App.css';
 
@@ -20,8 +21,9 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/forms" element={<Forms />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/knowledge-web" element={<KnowledgeWeb />} />
+        <Route path="/work-history" element={<WorkHistory />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>

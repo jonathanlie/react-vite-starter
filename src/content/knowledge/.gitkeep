@@ -1,0 +1,6 @@
+# Knowledge Web MDX Content Files
+
+Place your MDX files here. Each file should correspond to a knowledge node's `markdownFile` property.
+
+Example: `kafka.mdx` for the node with `markdownFile: 'kafka.mdx'`
+

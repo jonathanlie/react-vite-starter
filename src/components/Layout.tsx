@@ -48,24 +48,39 @@ export function Layout({ children }: LayoutProps) {
               </li>
               <li>
                 <Link
-                  to="/about"
-                  className={location.pathname === '/about' ? 'active' : ''}
+                  to="/contact"
+                  className={location.pathname === '/contact' ? 'active' : ''}
                   aria-current={
-                    location.pathname === '/about' ? 'page' : undefined
+                    location.pathname === '/contact' ? 'page' : undefined
                   }
                 >
-                  {t('common.about')}
+                  {t('common.contact')}
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/forms"
-                  className={location.pathname === '/forms' ? 'active' : ''}
+                  to="/knowledge-web"
+                  className={
+                    location.pathname === '/knowledge-web' ? 'active' : ''
+                  }
                   aria-current={
-                    location.pathname === '/forms' ? 'page' : undefined
+                    location.pathname === '/knowledge-web' ? 'page' : undefined
                   }
                 >
-                  Forms
+                  {t('common.knowledgeWeb')}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/work-history"
+                  className={
+                    location.pathname === '/work-history' ? 'active' : ''
+                  }
+                  aria-current={
+                    location.pathname === '/work-history' ? 'page' : undefined
+                  }
+                >
+                  {t('common.workHistory')}
                 </Link>
               </li>
             </ul>

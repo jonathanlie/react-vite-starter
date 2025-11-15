@@ -2,7 +2,9 @@
   "common": {
     "welcome": "Bienvenido",
     "home": "Inicio",
-    "about": "Acerca de",
+    "contact": "Contacto",
+    "knowledgeWeb": "Red de Conocimiento",
+    "workHistory": "Historial Laboral",
     "notFound": "Página No Encontrada",
     "loading": "Cargando...",
     "error": "Error",
@@ -12,9 +14,23 @@
     "title": "Página de Inicio",
     "description": "Esta es la página de inicio del React Vite Starter Kit"
   },
-  "about": {
-    "title": "Página Acerca de",
-    "description": "Esta es la página acerca de"
+  "contact": {
+    "title": "Contacto",
+    "getInTouch": "Ponerse en Contacto",
+    "description": "No dude en contactarme por correo electrónico o descargar mi currículum.",
+    "email": "Correo Electrónico",
+    "resume": "Currículum",
+    "downloadResume": "Descargar Currículum"
+  },
+  "knowledgeWeb": {
+    "title": "Red de Conocimiento",
+    "description": "Explora mis conocimientos y habilidades técnicas. Haz clic en cualquier nodo para ver información detallada.",
+    "viewCards": "Tarjetas",
+    "viewGraph": "Gráfico"
+  },
+  "workHistory": {
+    "title": "Historial Laboral",
+    "description": "Una descripción detallada de mi experiencia profesional y contribuciones en empresas anteriores."
   },
   "notFound": {
     "title": "404 - Página No Encontrada",

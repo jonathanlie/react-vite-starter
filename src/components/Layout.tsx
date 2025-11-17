@@ -41,17 +41,6 @@ export function Layout({ children }: LayoutProps) {
                   className={location.pathname === '/' ? 'active' : ''}
                   aria-current={location.pathname === '/' ? 'page' : undefined}
                 >
-                  {t('common.home')}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  className={location.pathname === '/contact' ? 'active' : ''}
-                  aria-current={
-                    location.pathname === '/contact' ? 'page' : undefined
-                  }
-                >
                   {t('common.contact')}
                 </Link>
               </li>

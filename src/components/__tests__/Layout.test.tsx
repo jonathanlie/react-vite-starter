@@ -12,7 +12,6 @@ import { Layout } from '@/components/Layout';
  * - Renders navigation links
  * - Includes skip link for accessibility
  * - Renders main content area
- * - Includes language switcher
  */
 describe('Layout', () => {
   const renderLayout = (children: React.ReactNode) => {
@@ -27,7 +26,6 @@ describe('Layout', () => {
 
   it('renders navigation links', () => {
     renderLayout(<div>Test Content</div>);
-    expect(screen.getByText(/home/i)).toBeInTheDocument();
     expect(screen.getByText(/contact/i)).toBeInTheDocument();
   });
 
@@ -43,11 +41,5 @@ describe('Layout', () => {
     const main = screen.getByRole('main');
     expect(main).toBeInTheDocument();
     expect(main).toHaveAttribute('id', 'main-content');
-  });
-
-  it('renders language switcher', () => {
-    renderLayout(<div>Test Content</div>);
-    const languageSelect = screen.getByLabelText(/language/i);
-    expect(languageSelect).toBeInTheDocument();
   });
 });

@@ -67,9 +67,7 @@ function getTargetX(d: D3Node, context: ForceContext): number {
     if (parentPos) {
       return parentPos.x;
     }
-    const parentKnowledgeNode = knowledges.find(
-      (n) => n.id === directParentId
-    );
+    const parentKnowledgeNode = knowledges.find((n) => n.id === directParentId);
     if (
       parentKnowledgeNode?.category === 'root' &&
       rootPositions.has(directParentId)

@@ -59,7 +59,8 @@ export const loadMarkdownContent: LoadMarkdownContent = async (
     // Vite will statically analyze this at build time and create separate chunks
     // for each MDX file, enabling true lazy loading without pre-loading all files
     // Using relative path from utils directory to content directory
-    const module = await import(`../content/knowledge/${markdownFile}`);
+    // @vite-ignore: Intentionally using dynamic imports for lazy loading MDX files
+    const module = await import(/* @vite-ignore */ `../content/knowledge/${markdownFile}`);
 
     // MDX files export a default React component
     const Component = module.default;

@@ -1,4 +1,4 @@
-import { knowledgeNodes } from '@/data/knowledgeNodes';
+import { knowledges } from '@/data/knowledges';
 
 /**
  * Find the root node that a given node is connected to
@@ -16,7 +16,7 @@ export function findRootForNode(
   if (visited.has(nodeId)) return null;
   visited.add(nodeId);
 
-  const node = knowledgeNodes.find((n) => n.id === nodeId);
+  const node = knowledges.find((n) => n.id === nodeId);
   if (!node) return null;
 
   // If it's a root node, return it
@@ -25,7 +25,7 @@ export function findRootForNode(
   // Check if any related node is a root
   for (const relatedId of node.related) {
     if (visibleNodeIds.has(relatedId)) {
-      const relatedNode = knowledgeNodes.find((n) => n.id === relatedId);
+      const relatedNode = knowledges.find((n) => n.id === relatedId);
       if (relatedNode?.category === 'root') {
         return relatedId;
       }
@@ -50,20 +50,20 @@ export function findHubNode(
   nodeId: string,
   visibleNodeIds: Set<string>
 ): string | null {
-  const node = knowledgeNodes.find((n) => n.id === nodeId);
+  const node = knowledges.find((n) => n.id === nodeId);
   if (!node || node.category === 'root') return null;
 
   // Strategy 1: Check if any related node is a hub (has multiple visible connections)
   // This catches cases like CSS Modules (connects to SASS, SCSS, frontend)
   for (const relatedId of node.related) {
     if (visibleNodeIds.has(relatedId)) {
-      const relatedNode = knowledgeNodes.find((n) => n.id === relatedId);
+      const relatedNode = knowledges.find((n) => n.id === relatedId);
       if (!relatedNode || relatedNode.category === 'root') continue;
 
       // Count how many visible non-root nodes this related node connects to
       const nonRootConnections = relatedNode.related.filter((id) => {
         if (!visibleNodeIds.has(id)) return false;
-        const connectedNode = knowledgeNodes.find((n) => n.id === id);
+        const connectedNode = knowledges.find((n) => n.id === id);
         return connectedNode && connectedNode.category !== 'root';
       });
 
@@ -81,7 +81,7 @@ export function findHubNode(
     visibleNodeIds.has(id)
   );
   const nonRootConnections = visibleConnections.filter((id) => {
-    const relatedNode = knowledgeNodes.find((n) => n.id === id);
+    const relatedNode = knowledges.find((n) => n.id === id);
     return relatedNode && relatedNode.category !== 'root';
   });
 
@@ -90,7 +90,7 @@ export function findHubNode(
     // Check if at least 2 of those connections are mutual (both nodes reference each other)
     let mutualCount = 0;
     for (const relatedId of nonRootConnections) {
-      const relatedNode = knowledgeNodes.find((n) => n.id === relatedId);
+      const relatedNode = knowledges.find((n) => n.id === relatedId);
       if (relatedNode?.related.includes(nodeId)) {
         mutualCount++;
       }
@@ -106,7 +106,7 @@ export function findHubNode(
   // then node B is likely a hub
   for (const relatedId of node.related) {
     if (visibleNodeIds.has(relatedId)) {
-      const relatedNode = knowledgeNodes.find((n) => n.id === relatedId);
+      const relatedNode = knowledges.find((n) => n.id === relatedId);
       if (!relatedNode || relatedNode.category === 'root') continue;
 
       // Check if this related node connects to other nodes that the current node also connects to
@@ -115,7 +115,7 @@ export function findHubNode(
       );
       // If they share 1+ non-root connections, the related node is likely a hub
       const sharedNonRoot = sharedConnections.filter((id) => {
-        const sharedNode = knowledgeNodes.find((n) => n.id === id);
+        const sharedNode = knowledges.find((n) => n.id === id);
         return sharedNode && sharedNode.category !== 'root';
       });
       if (sharedNonRoot.length >= 1) {

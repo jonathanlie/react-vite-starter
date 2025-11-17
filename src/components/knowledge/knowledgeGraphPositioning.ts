@@ -1,5 +1,5 @@
 import { KnowledgeNode } from '@/types/knowledge';
-import { knowledgeNodes } from '@/data/knowledgeNodes';
+import { knowledges } from '@/data/knowledges';
 import { LAYOUT_CONSTANTS } from './knowledgeGraphConfig';
 import { findRootForNode, findHubNode } from './knowledgeGraphHierarchy';
 
@@ -57,7 +57,7 @@ export function calculateNodePosition(
   if (directParentId) {
     let parentPos = previousPositions.get(directParentId);
     if (!parentPos) {
-      const parentKnowledgeNode = knowledgeNodes.find(
+      const parentKnowledgeNode = knowledges.find(
         (n) => n.id === directParentId
       );
       if (
@@ -69,11 +69,11 @@ export function calculateNodePosition(
     }
 
     if (parentPos) {
-      const parentNode = knowledgeNodes.find((n) => n.id === directParentId);
+      const parentNode = knowledges.find((n) => n.id === directParentId);
       if (parentNode) {
         const siblings = parentNode.related
           .filter((id) => visibleNodeIds.has(id))
-          .map((id) => knowledgeNodes.find((n) => n.id === id))
+          .map((id) => knowledges.find((n) => n.id === id))
           .filter((n): n is KnowledgeNode => n !== undefined);
 
         const siblingIndex = siblings.findIndex((n) => n.id === node.id);

@@ -12,7 +12,7 @@ import ReactFlow, {
 } from 'reactflow';
 import { SimulationLinkDatum } from 'd3-force';
 import { KnowledgeNode } from '@/types/knowledge';
-import { knowledgeNodes, getNodeById } from '@/data/knowledgeNodes';
+import { knowledges, getKnowledgeById } from '@/data/knowledges';
 import { KnowledgeGraphNode } from './KnowledgeGraphNode';
 import { categoryColors, getRootNodes } from './knowledgeGraphConfig';
 import { D3Node, KnowledgeGraphProps } from './knowledgeGraphTypes';
@@ -30,9 +30,9 @@ const nodeTypes = {
 function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
   const { fitView } = useReactFlow();
   const [expandedNodes, setExpandedNodes] = useState<Set<string>>(new Set());
-  const rootNodeIds = useMemo(() => new Set(getRootNodes(knowledgeNodes)), []);
+  const rootNodeIds = useMemo(() => new Set(getRootNodes(knowledges)), []);
   const [visibleNodeIds, setVisibleNodeIds] = useState<Set<string>>(
-    () => new Set(getRootNodes(knowledgeNodes))
+    () => new Set(getRootNodes(knowledges))
   );
 
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
@@ -51,7 +51,7 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
    */
   const handleExpand = useCallback(
     (nodeId: string) => {
-      const node = getNodeById(nodeId);
+      const node = getKnowledgeById(nodeId);
       if (!node) return;
 
       setExpandedNodes((prev) => {
@@ -69,7 +69,7 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
 
           if (willBeExpanded) {
             node.related.forEach((relatedId) => {
-              if (getNodeById(relatedId)) {
+              if (getKnowledgeById(relatedId)) {
                 nextVisible.add(relatedId);
                 parentNodeMap.current.set(relatedId, nodeId);
               }
@@ -81,7 +81,7 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
               const isReferencedByOthers = Array.from(next).some(
                 (expandedId) => {
                   if (expandedId === nodeId) return false;
-                  const expandedNode = getNodeById(expandedId);
+                  const expandedNode = getKnowledgeById(expandedId);
                   return expandedNode?.related.includes(relatedId);
                 }
               );
@@ -110,7 +110,7 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
     const edgesList: Edge[] = [];
     const edgeSet = new Set<string>();
 
-    knowledgeNodes.forEach((node) => {
+    knowledges.forEach((node) => {
       if (!visibleNodeIds.has(node.id) || !expandedNodes.has(node.id)) return;
 
       node.related.forEach((relatedId) => {
@@ -151,7 +151,7 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
    * Previous positions are preserved for smooth transitions when nodes move.
    */
   useEffect(() => {
-    const visibleNodes = knowledgeNodes.filter((node) =>
+    const visibleNodes = knowledges.filter((node) =>
       visibleNodeIds.has(node.id)
     );
 
@@ -225,9 +225,9 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
       });
 
       const reactFlowNodes = d3Nodes.map((d3Node) => {
-        const knowledgeNode = knowledgeNodes.find((n) => n.id === d3Node.id)!;
+        const knowledgeNode = knowledges.find((n) => n.id === d3Node.id)!;
         const relatedCount = knowledgeNode.related.filter((id) =>
-          knowledgeNodes.some((n) => n.id === id)
+          knowledges.some((n) => n.id === id)
         ).length;
 
         return {

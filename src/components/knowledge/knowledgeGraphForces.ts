@@ -10,7 +10,7 @@ import {
 } from 'd3-force';
 import { D3Node } from './knowledgeGraphTypes';
 import { LAYOUT_CONSTANTS, categoryFocalPoints } from './knowledgeGraphConfig';
-import { knowledgeNodes } from '@/data/knowledgeNodes';
+import { knowledges } from '@/data/knowledges';
 
 interface ForceContext {
   d3Nodes: D3Node[];
@@ -67,7 +67,7 @@ function getTargetX(d: D3Node, context: ForceContext): number {
     if (parentPos) {
       return parentPos.x;
     }
-    const parentKnowledgeNode = knowledgeNodes.find(
+    const parentKnowledgeNode = knowledges.find(
       (n) => n.id === directParentId
     );
     if (
@@ -125,7 +125,7 @@ function getTargetY(d: D3Node, context: ForceContext): number {
       if (parentPos) {
         parentY = parentPos.y;
       } else {
-        const parentKnowledgeNode = knowledgeNodes.find(
+        const parentKnowledgeNode = knowledges.find(
           (n) => n.id === directParentId
         );
         if (

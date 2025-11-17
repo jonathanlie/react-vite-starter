@@ -1,19 +1,19 @@
 import { KnowledgeNode } from '@/types/knowledge';
 
 /**
- * Knowledge Nodes Data
+ * Knowledge Data
  *
- * Centralized data structure for all knowledge web nodes.
- * Each node references an external MDX file for detailed content.
+ * Centralized data structure for all knowledge items.
+ * Each knowledge item references an external MDX file for detailed content.
  *
- * To add a new node:
- * 1. Create the MDX file in src/content/knowledge/{node-id}.mdx
- * 2. Add the node definition below with markdownFile pointing to the MDX file
+ * To add a new knowledge item:
+ * 1. Create the MDX file in src/content/knowledge/{knowledge-id}.mdx
+ * 2. Add the knowledge definition below with markdownFile pointing to the MDX file
  * 3. Update related arrays to establish connections
  */
 
-export const knowledgeNodes: KnowledgeNode[] = [
-  // Root Nodes (Start visible)
+export const knowledges: KnowledgeNode[] = [
+  // Root Knowledges (Start visible)
   {
     id: 'frontend',
     title: 'Frontend',
@@ -147,59 +147,68 @@ export const knowledgeNodes: KnowledgeNode[] = [
 ];
 
 /**
- * Get a knowledge node by its ID
+ * Get a knowledge item by its ID
  *
- * @param id - The unique identifier of the node
- * @returns The knowledge node if found, undefined otherwise
+ * @param id - The unique identifier of the knowledge
+ * @returns The knowledge item if found, undefined otherwise
  */
-export function getNodeById(id: string): KnowledgeNode | undefined {
-  return knowledgeNodes.find((node) => node.id === id);
+export function getKnowledgeById(id: string): KnowledgeNode | undefined {
+  return knowledges.find((knowledge) => knowledge.id === id);
 }
 
 /**
- * Get all related nodes for a given node ID
+ * Get all related knowledge items for a given knowledge ID
  *
- * @param id - The unique identifier of the node
- * @returns Array of related knowledge nodes
+ * @param id - The unique identifier of the knowledge
+ * @returns Array of related knowledge items
  */
-export function getRelatedNodes(id: string): KnowledgeNode[] {
-  const node = getNodeById(id);
-  if (!node) return [];
+export function getRelatedKnowledges(id: string): KnowledgeNode[] {
+  const knowledge = getKnowledgeById(id);
+  if (!knowledge) return [];
 
-  return node.related
-    .map((relatedId) => getNodeById(relatedId))
-    .filter((node): node is KnowledgeNode => node !== undefined);
+  return knowledge.related
+    .map((relatedId) => getKnowledgeById(relatedId))
+    .filter((knowledge): knowledge is KnowledgeNode => knowledge !== undefined);
 }
 
 /**
- * Get all nodes filtered by category
+ * Get all knowledge items filtered by category
  *
  * @param category - The category to filter by
- * @returns Array of knowledge nodes in the specified category
+ * @returns Array of knowledge items in the specified category
  */
-export function getNodesByCategory(
+export function getKnowledgesByCategory(
   category: KnowledgeNode['category']
 ): KnowledgeNode[] {
-  return knowledgeNodes.filter((node) => node.category === category);
+  return knowledges.filter((knowledge) => knowledge.category === category);
 }
 
 /**
- * Get all nodes filtered by tag
+ * Get all knowledge items filtered by tag
  *
  * @param tag - The tag to filter by
- * @returns Array of knowledge nodes with the specified tag
+ * @returns Array of knowledge items with the specified tag
  */
-export function getNodesByTag(tag: string): KnowledgeNode[] {
-  return knowledgeNodes.filter((node) => node.tags && node.tags.includes(tag));
+export function getKnowledgesByTag(tag: string): KnowledgeNode[] {
+  return knowledges.filter(
+    (knowledge) => knowledge.tags && knowledge.tags.includes(tag)
+  );
 }
 
 /**
- * Get all unique categories from all nodes
+ * Get all unique categories from all knowledge items
  *
  * @returns Array of unique category values
  */
 export function getAllCategories(): KnowledgeNode['category'][] {
   return Array.from(
-    new Set(knowledgeNodes.map((node) => node.category))
+    new Set(knowledges.map((knowledge) => knowledge.category))
   ) as KnowledgeNode['category'][];
 }
+
+// Legacy exports for backward compatibility during migration
+export const knowledgeNodes = knowledges;
+export const getNodeById = getKnowledgeById;
+export const getRelatedNodes = getRelatedKnowledges;
+export const getNodesByCategory = getKnowledgesByCategory;
+export const getNodesByTag = getKnowledgesByTag;

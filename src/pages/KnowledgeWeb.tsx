@@ -6,14 +6,14 @@ import { KnowledgeGraph } from '@/components/knowledge/KnowledgeGraph';
 import { KnowledgeList } from '@/components/knowledge/KnowledgeList';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Input } from '@/components/ui/input';
-import { knowledgeNodes } from '@/data/knowledgeNodes';
+import { knowledges } from '@/data/knowledges';
 
 type ViewMode = 'cards' | 'graph';
 
 /**
  * Knowledge Web Page
  *
- * Displays knowledge nodes in both card grid and graph visualization formats.
+ * Displays knowledge items in both card grid and graph visualization formats.
  * Supports switching between views and opening detailed markdown content in modals.
  */
 export function KnowledgeWeb() {
@@ -34,7 +34,7 @@ export function KnowledgeWeb() {
   // Fuzzy search configuration
   const fuse = useMemo(
     () =>
-      new Fuse(knowledgeNodes, {
+      new Fuse(knowledges, {
         keys: ['title', 'content', 'category', 'tags'],
         threshold: 0.3,
         includeScore: true,
@@ -42,19 +42,19 @@ export function KnowledgeWeb() {
     []
   );
 
-  // Filter nodes based on debounced search term
-  const filteredNodes = useMemo(() => {
+  // Filter knowledges based on debounced search term
+  const filteredKnowledges = useMemo(() => {
     if (!debouncedSearchTerm.trim()) {
-      return knowledgeNodes;
+      return knowledges;
     }
 
     const results = fuse.search(debouncedSearchTerm);
     return results.map((result) => result.item);
   }, [debouncedSearchTerm, fuse]);
 
-  const handleNodeClick = (nodeId: string) => {
-    // TODO: Open modal with markdown content for the selected node
-    console.log('Node clicked:', nodeId);
+  const handleKnowledgeClick = (knowledgeId: string) => {
+    // TODO: Open modal with markdown content for the selected knowledge
+    console.log('Knowledge clicked:', knowledgeId);
   };
 
   return (
@@ -107,14 +107,14 @@ export function KnowledgeWeb() {
               />
             </div>
             <KnowledgeList
-              nodes={filteredNodes}
-              onNodeClick={handleNodeClick}
+              nodes={filteredKnowledges}
+              onNodeClick={handleKnowledgeClick}
             />
           </>
         )}
 
         {viewMode === 'graph' && (
-          <KnowledgeGraph onNodeClick={handleNodeClick} />
+          <KnowledgeGraph onNodeClick={handleKnowledgeClick} />
         )}
 
         {/* TODO: Implement modal for markdown content */}

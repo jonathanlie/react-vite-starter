@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { KnowledgeGraph } from '@/components/knowledge/KnowledgeGraph';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 
 type ViewMode = 'cards' | 'graph';
 
@@ -40,32 +41,21 @@ export function KnowledgeWeb() {
           )}
         </p>
 
-        <div className="flex gap-2 mb-6">
-          <button
-            type="button"
-            onClick={() => setViewMode('cards')}
-            className={`px-4 py-2 rounded-md font-medium transition-colors duration-200 ${
-              viewMode === 'cards'
-                ? 'bg-blue-600 text-white hover:bg-blue-700'
-                : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
-            }`}
-            aria-pressed={viewMode === 'cards'}
-          >
+        <ToggleGroup
+          type="single"
+          value={viewMode}
+          onValueChange={(value) => {
+            if (value) setViewMode(value as ViewMode);
+          }}
+          className="mb-6"
+        >
+          <ToggleGroupItem value="cards" aria-label="Cards view">
             {t('knowledgeWeb.viewCards', 'Cards')}
-          </button>
-          <button
-            type="button"
-            onClick={() => setViewMode('graph')}
-            className={`px-4 py-2 rounded-md font-medium transition-colors duration-200 ${
-              viewMode === 'graph'
-                ? 'bg-blue-600 text-white hover:bg-blue-700'
-                : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
-            }`}
-            aria-pressed={viewMode === 'graph'}
-          >
+          </ToggleGroupItem>
+          <ToggleGroupItem value="graph" aria-label="Graph view">
             {t('knowledgeWeb.viewGraph', 'Graph')}
-          </button>
-        </div>
+          </ToggleGroupItem>
+        </ToggleGroup>
       </div>
 
       <section className="mb-8 lg:mb-12">

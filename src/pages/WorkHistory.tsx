@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import { WorkHistoryTimeline } from '@/components/workHistory/WorkHistoryTimeline';
+import { getAllWorkHistory } from '@/data/workHistoryEntries';
 
 /**
  * Work History Page
@@ -8,6 +10,7 @@ import { motion } from 'framer-motion';
  */
 export function WorkHistory() {
   const { t } = useTranslation();
+  const entries = getAllWorkHistory();
 
   return (
     <motion.div
@@ -22,14 +25,14 @@ export function WorkHistory() {
       </h1>
 
       <section className="mb-8 lg:mb-12">
-        <p className="text-base text-gray-600 dark:text-gray-400 mb-6">
+        <p className="text-base text-gray-600 dark:text-gray-400 mb-8 lg:mb-12">
           {t(
             'workHistory.description',
             'A detailed overview of my professional experience and contributions at previous companies.'
           )}
         </p>
 
-        {/* TODO: Implement work history timeline/list */}
+        <WorkHistoryTimeline entries={entries} />
       </section>
     </motion.div>
   );

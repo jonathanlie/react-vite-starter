@@ -62,7 +62,6 @@ export const useAppStore = create<AppState>()(
       partialize: (state) => ({
         // Only persist certain fields
         theme: state.theme,
-        sidebarOpen: state.sidebarOpen,
       }),
     }
   )

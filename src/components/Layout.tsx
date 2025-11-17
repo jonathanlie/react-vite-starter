@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
 interface LayoutProps {
   children: ReactNode;
@@ -16,7 +15,6 @@ interface LayoutProps {
  * - Semantic HTML structure
  * - Skip to main content link for screen readers
  * - Navigation with ARIA labels
- * - Language switcher
  */
 export function Layout({ children }: LayoutProps) {
   const { t } = useTranslation();
@@ -85,7 +83,6 @@ export function Layout({ children }: LayoutProps) {
               </li>
             </ul>
           </motion.div>
-          <LanguageSwitcher />
         </nav>
       </header>
 

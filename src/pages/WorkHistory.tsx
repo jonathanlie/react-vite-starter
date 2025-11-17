@@ -18,7 +18,7 @@ export function WorkHistory() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
-      className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 lg:py-12"
+      className="max-w-7xl mx-auto px-2 md:px-3 lg:px-4 py-8 lg:py-12"
     >
       <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 lg:mb-12">
         {t('workHistory.title', 'Work History')}

@@ -151,20 +151,31 @@ export function calculateNodePosition(
 }
 
 /**
- * Positions root nodes horizontally centered with equal spacing.
- * This creates a clear visual separation between different knowledge domains.
+ * Positions root nodes in a circular arrangement around the center.
+ * This creates a balanced, visually appealing layout for the knowledge domains.
  */
 export function calculateRootPositions(
   rootNodes: Knowledge[]
 ): Map<string, { x: number; y: number }> {
   const rootPositions = new Map<string, { x: number; y: number }>();
 
+  if (rootNodes.length === 0) {
+    return rootPositions;
+  }
+
+  // Radius of the circle - adjust based on number of nodes for better spacing
+  const radius = Math.max(200, rootNodes.length * 50);
+  const centerX = LAYOUT_CONSTANTS.CENTER_X;
+  const centerY = LAYOUT_CONSTANTS.CENTER_Y;
+
   rootNodes.forEach((rootNode, index) => {
-    const startX =
-      LAYOUT_CONSTANTS.CENTER_X -
-      ((rootNodes.length - 1) * LAYOUT_CONSTANTS.ROOT_SPACING) / 2;
-    const x = startX + index * LAYOUT_CONSTANTS.ROOT_SPACING;
-    const y = LAYOUT_CONSTANTS.ROOT_Y;
+    // Calculate angle for each node, evenly distributed around the circle
+    // Start from top (12 o'clock) and go clockwise
+    const angle = (index / rootNodes.length) * Math.PI * 2 - Math.PI / 2;
+
+    // Calculate x and y positions on the circle
+    const x = centerX + radius * Math.cos(angle);
+    const y = centerY + radius * Math.sin(angle);
 
     rootPositions.set(rootNode.id, { x, y });
   });

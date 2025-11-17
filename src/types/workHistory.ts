@@ -49,4 +49,3 @@ export interface WorkHistoryEntry {
   /** Markdown content describing achievements and responsibilities */
   content: string;
 }
-

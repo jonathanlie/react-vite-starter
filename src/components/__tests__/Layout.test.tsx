@@ -28,7 +28,7 @@ describe('Layout', () => {
   it('renders navigation links', () => {
     renderLayout(<div>Test Content</div>);
     expect(screen.getByText(/home/i)).toBeInTheDocument();
-    expect(screen.getByText(/about/i)).toBeInTheDocument();
+    expect(screen.getByText(/contact/i)).toBeInTheDocument();
   });
 
   it('includes skip link for accessibility', () => {

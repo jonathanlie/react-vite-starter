@@ -51,7 +51,8 @@ beforeAll(async () => {
           },
           home: {
             title: 'Página de Inicio',
-            description: 'Esta es la página de inicio del React Vite Starter Kit',
+            description:
+              'Esta es la página de inicio del React Vite Starter Kit',
           },
           about: {
             title: 'Página Acerca de',
@@ -95,4 +96,3 @@ Object.defineProperty(window, 'matchMedia', {
     dispatchEvent: vi.fn(),
   })),
 });
-

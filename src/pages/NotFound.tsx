@@ -26,4 +26,3 @@ export function NotFound() {
     </motion.div>
   );
 }
-

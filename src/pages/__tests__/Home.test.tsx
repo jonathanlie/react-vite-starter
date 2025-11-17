@@ -41,4 +41,3 @@ describe('Home', () => {
     expect(screen.getByText('Testing')).toBeInTheDocument();
   });
 });
-

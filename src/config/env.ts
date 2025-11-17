@@ -30,9 +30,7 @@ function getEnvConfig(): EnvConfig {
     'VITE_API_URL',
   ] as const;
 
-  const missing = requiredEnvVars.filter(
-    (key) => !import.meta.env[key]
-  );
+  const missing = requiredEnvVars.filter((key) => !import.meta.env[key]);
 
   if (missing.length > 0 && import.meta.env.PROD) {
     throw new Error(
@@ -52,4 +50,3 @@ function getEnvConfig(): EnvConfig {
 }
 
 export const env = getEnvConfig();
-

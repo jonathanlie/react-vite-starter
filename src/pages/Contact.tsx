@@ -60,4 +60,3 @@ export function Contact() {
     </motion.div>
   );
 }
-

@@ -14,9 +14,6 @@
     @apply top-0;
   }
 
-  header {
-    @apply bg-[#1a1a1a] px-8 py-4 border-b border-[#333] hidden lg:block;
-  }
   .nav-list {
     @apply flex list-none m-0 p-0 gap-8;
   }

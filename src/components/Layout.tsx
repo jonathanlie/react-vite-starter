@@ -1,41 +1,15 @@
 import { ReactNode } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { cn } from '@/lib/utils';
-import { navLinkVariants } from '@/components/ui/nav-link-variants';
+import { NavLink } from '@/components/common/NavLink';
+import { MenuButton } from '@/components/common/MenuButton';
+import { Sidebar } from '@/components/common/Sidebar';
 
 interface LayoutProps {
   children: ReactNode;
 }
 
-interface NavLinkProps {
-  to: string;
-  children: React.ReactNode;
-  currentPath: string;
-}
-
-/**
- * Navigation link component styled to match shadcn/ui docs design.
- */
-function NavLink({ to, children, currentPath }: NavLinkProps) {
-  const isActive = currentPath === to;
-
-  return (
-    <Link
-      to={to}
-      className={cn(
-        navLinkVariants({ variant: isActive ? 'active' : 'default' })
-      )}
-      aria-current={isActive ? 'page' : undefined}
-    >
-      {children}
-    </Link>
-  );
-}
-
 export function Layout({ children }: LayoutProps) {
   const { t } = useTranslation();
-  const location = useLocation();
 
   return (
     <div className="app-layout">
@@ -44,25 +18,27 @@ export function Layout({ children }: LayoutProps) {
         Skip to main content
       </a>
 
-      <header role="banner" className="border-b border-border bg-background">
+      <header
+        role="banner"
+        className="relative z-60 border-b border-border bg-background p-3"
+      >
         <nav
-          role="navigation"
           aria-label="Main navigation"
-          className="container flex h-8 items-center justify-start px-4"
+          className="container flex h-8 items-center justify-start"
         >
-          <nav className="hidden lg:flex items-center gap-1">
-            <NavLink to="/" currentPath={location.pathname}>
-              {t('common.contact')}
-            </NavLink>
-            <NavLink to="/knowledge-web" currentPath={location.pathname}>
-              {t('common.knowledgeWeb')}
-            </NavLink>
-            <NavLink to="/work-history" currentPath={location.pathname}>
-              {t('common.workHistory')}
-            </NavLink>
-          </nav>
+          <div className="flex items-center gap-2 lg:hidden">
+            <MenuButton />
+            <span className="text-lg font-medium">Menu</span>
+          </div>
+          <div className="hidden lg:flex items-center gap-1">
+            <NavLink to="/">{t('common.contact')}</NavLink>
+            <NavLink to="/knowledge-web">{t('common.knowledgeWeb')}</NavLink>
+            <NavLink to="/work-history">{t('common.workHistory')}</NavLink>
+          </div>
         </nav>
       </header>
+
+      <Sidebar />
 
       <main id="main-content" role="main">
         {children}

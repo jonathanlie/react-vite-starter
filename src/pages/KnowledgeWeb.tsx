@@ -83,7 +83,7 @@ export function KnowledgeWeb() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
-      className="max-w-7xl mx-auto px-2 md:px-3 lg:px-4 py-8 lg:py-12"
+      className="max-w-7xl mx-auto px-3 md:px-4 lg:px-6 py-8 lg:py-12"
     >
       <div className="mb-8 lg:mb-12">
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">

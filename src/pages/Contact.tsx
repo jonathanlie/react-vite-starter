@@ -33,7 +33,7 @@ export function Contact() {
       className="w-full"
     >
       {/* Profile Section */}
-      <section className="w-full bg-[hsl(var(--page-background))] px-4 md:px-6 lg:px-8 py-8 lg:py-12">
+      <section className="w-full bg-[hsl(var(--page-background))] px-3 md:px-4 lg:px-6 py-8 lg:py-12">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-12 items-start lg:items-center lg:justify-center">
             {/* Profile Picture */}
@@ -61,7 +61,7 @@ export function Contact() {
       </section>
 
       {/* Contact Cards Section */}
-      <section className="w-full bg-[hsl(var(--page-background))] px-4 md:px-6 lg:px-8 py-8 lg:py-12">
+      <section className="w-full bg-[hsl(var(--page-background))] px-3 md:px-4 lg:px-6 py-8 lg:py-12">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-6 md:gap-8">
             {/* Email Card */}

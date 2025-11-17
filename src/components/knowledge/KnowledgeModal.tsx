@@ -107,7 +107,6 @@ export function KnowledgeModal({
             </div>
           </div>
           <DialogDescription className="text-sm md:text-base text-gray-600 dark:text-gray-400 mt-2">
-            {node.content}
           </DialogDescription>
         </DialogHeader>
 

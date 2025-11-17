@@ -40,7 +40,7 @@ export function Contact() {
             <div className="shrink-0 w-full md:w-auto mx-auto lg:mx-0">
               <div className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700 mx-auto md:mx-0">
                 <img
-                  src="/profile.jpg"
+                  src="/profile.png"
                   alt={t('contact.profileAlt', 'Jonathan Lie')}
                   className="w-full h-full object-cover rounded-full"
                 />

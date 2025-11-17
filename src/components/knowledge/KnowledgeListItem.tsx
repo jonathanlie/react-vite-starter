@@ -29,12 +29,14 @@ export function KnowledgeListItem({ node, onClick }: KnowledgeListItemProps) {
           <CardTitle className="text-xl md:text-2xl font-bold text-[#E0E0E0] dark:text-[#E0E0E0] leading-tight">
             {node.title}
           </CardTitle>
-          <Badge
-            variant="secondary"
-            className="shrink-0 bg-[#2A2A2A] text-[#B0B0B0] border-0 rounded-md px-2.5 py-1 text-xs font-medium"
-          >
-            {node.category}
-          </Badge>
+          {node.category !== 'root' && (
+            <Badge
+              variant="secondary"
+              className="shrink-0 bg-[#2A2A2A] text-[#B0B0B0] border-0 rounded-md px-2.5 py-1 text-xs font-medium"
+            >
+              {node.category}
+            </Badge>
+          )}
         </div>
         <CardDescription className="text-sm md:text-base text-[#B0B0B0] dark:text-[#B0B0B0] leading-relaxed mt-2">
           {node.content}

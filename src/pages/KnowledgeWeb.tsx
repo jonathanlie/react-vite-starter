@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Fuse from 'fuse.js';
 import { KnowledgeGraph } from '@/components/knowledge/KnowledgeGraph';
 import { KnowledgeList } from '@/components/knowledge/KnowledgeList';
+import { KnowledgeModal } from '@/components/knowledge/KnowledgeModal';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { SearchInput } from '@/components/common/SearchInput';
 import { PaginationControls } from '@/components/common/PaginationControls';
@@ -24,6 +25,8 @@ export function KnowledgeWeb() {
   const [viewMode, setViewMode] = useState<ViewMode>('cards');
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Reset to page 1 when search term changes
   const handleSearchChange = (debouncedValue: string) => {
@@ -64,8 +67,14 @@ export function KnowledgeWeb() {
   }, [filteredKnowledges, currentPage]);
 
   const handleKnowledgeClick = (knowledgeId: string) => {
-    // TODO: Open modal with markdown content for the selected knowledge
-    console.log('Knowledge clicked:', knowledgeId);
+    setSelectedNodeId(knowledgeId);
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    // Keep selectedNodeId until modal animation completes
+    // It will be reset when modal closes
   };
 
   return (
@@ -130,9 +139,13 @@ export function KnowledgeWeb() {
         {viewMode === 'graph' && (
           <KnowledgeGraph onNodeClick={handleKnowledgeClick} />
         )}
-
-        {/* TODO: Implement modal for markdown content */}
       </section>
+
+      <KnowledgeModal
+        nodeId={selectedNodeId}
+        isOpen={isModalOpen}
+        onClose={handleModalClose}
+      />
     </motion.div>
   );
 }

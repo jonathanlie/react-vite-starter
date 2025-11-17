@@ -1,11 +1,11 @@
-import { useState, useEffect, useMemo, useRef } from 'react';
+import { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import Fuse from 'fuse.js';
 import { KnowledgeGraph } from '@/components/knowledge/KnowledgeGraph';
 import { KnowledgeList } from '@/components/knowledge/KnowledgeList';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
-import { Input } from '@/components/ui/input';
+import { SearchInput } from '@/components/common/SearchInput';
 import { PaginationControls } from '@/components/common/PaginationControls';
 import { knowledges } from '@/data/knowledges';
 
@@ -23,23 +23,16 @@ export function KnowledgeWeb() {
   const { t } = useTranslation();
   const [viewMode, setViewMode] = useState<ViewMode>('cards');
   const [searchTerm, setSearchTerm] = useState('');
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const previousSearchTermRef = useRef(searchTerm);
 
-  // Debounce search term (300ms delay) and reset page when search changes
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const searchChanged = previousSearchTermRef.current !== searchTerm;
-      previousSearchTermRef.current = searchTerm;
-      setDebouncedSearchTerm(searchTerm);
-      if (searchChanged && currentPage !== 1) {
-        setCurrentPage(1);
-      }
-    }, 300);
-
-    return () => clearTimeout(timer);
-  }, [searchTerm, currentPage]);
+  // Reset to page 1 when search term changes
+  const handleSearchChange = (debouncedValue: string) => {
+    const searchChanged = searchTerm !== debouncedValue;
+    setSearchTerm(debouncedValue);
+    if (searchChanged && currentPage !== 1) {
+      setCurrentPage(1);
+    }
+  };
 
   // Fuzzy search configuration
   const fuse = useMemo(
@@ -52,15 +45,15 @@ export function KnowledgeWeb() {
     []
   );
 
-  // Filter knowledges based on debounced search term
+  // Filter knowledges based on search term
   const filteredKnowledges = useMemo(() => {
-    if (!debouncedSearchTerm.trim()) {
+    if (!searchTerm.trim()) {
       return knowledges;
     }
 
-    const results = fuse.search(debouncedSearchTerm);
+    const results = fuse.search(searchTerm);
     return results.map((result) => result.item);
-  }, [debouncedSearchTerm, fuse]);
+  }, [searchTerm, fuse]);
 
   // Calculate pagination
   const totalPages = Math.ceil(filteredKnowledges.length / ITEMS_PER_PAGE);
@@ -116,11 +109,9 @@ export function KnowledgeWeb() {
         {viewMode === 'cards' && (
           <>
             <div className="mb-6">
-              <Input
-                type="text"
+              <SearchInput
+                onSearchChange={handleSearchChange}
                 placeholder="Search knowledge..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full max-w-md"
               />
             </div>

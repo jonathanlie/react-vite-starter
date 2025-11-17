@@ -9,6 +9,7 @@ import ReactFlow, {
   useReactFlow,
   ReactFlowProvider,
   Edge,
+  BackgroundVariant,
 } from 'reactflow';
 import { SimulationLinkDatum } from 'd3-force';
 import { Knowledge } from '@/types/knowledge';
@@ -135,8 +136,8 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
               source: parentId,
               target: childNode.id,
               type: 'default',
-              animated: false,
-              style: { stroke: '#94a3b8', strokeWidth: 2 },
+              animated: true,
+              style: { stroke: '#555' },
             });
             edgeSet.add(edgeKey);
           }
@@ -336,7 +337,13 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
         animated: false,
       }}
     >
-      <Background color="#e5e7eb" gap={16} />
+      <Background
+        variant={BackgroundVariant.Dots}
+        color="#444"
+        gap={24}
+        size={1}
+        style={{ opacity: 0.2 }}
+      />
       <Controls />
       <MiniMap
         nodeColor={(node) => {

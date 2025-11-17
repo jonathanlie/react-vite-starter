@@ -141,10 +141,18 @@
   }
 
   .knowledge-card {
-    background: linear-gradient(135deg, #1A1A1A 0%, #1C1C1C 100%);
+    background: linear-gradient(135deg, #1a1a1a 0%, #1c1c1c 100%);
   }
 
   .knowledge-card:hover {
-    background: linear-gradient(135deg, #1C1C1C 0%, #1E1E1E 100%);
+    background: linear-gradient(135deg, #1c1c1c 0%, #1e1e1e 100%);
+  }
+
+  .react-flow__controls {
+    @apply flex flex-col gap-1;
+  }
+
+  .react-flow__controls-button {
+    @apply bg-white/30 rounded-full;
   }
 }

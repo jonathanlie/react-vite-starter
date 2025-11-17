@@ -1,5 +1,6 @@
-import { memo, useEffect, useRef } from 'react';
+import { memo, useEffect, useRef, useMemo } from 'react';
 import { Handle, Position, NodeProps } from 'reactflow';
+import { Knowledge } from '@/types/knowledge';
 
 interface KnowledgeGraphNodeData {
   label: string;
@@ -14,6 +15,22 @@ interface KnowledgeGraphNodeData {
 }
 
 /**
+ * Get glow color based on category for glassmorphism effect
+ */
+function getGlowColor(category: Knowledge['category']): string {
+  const glowColors: Record<Knowledge['category'], string> = {
+    root: 'rgba(99, 102, 241, 0.3)', // Indigo
+    backend: 'rgba(59, 130, 246, 0.3)', // Blue
+    frontend: 'rgba(16, 185, 129, 0.3)', // Green
+    devops: 'rgba(245, 158, 11, 0.3)', // Amber
+    database: 'rgba(139, 92, 246, 0.3)', // Purple
+    tooling: 'rgba(239, 68, 68, 0.3)', // Red
+    concept: 'rgba(107, 114, 128, 0.3)', // Gray
+  };
+  return glowColors[category] || glowColors.concept;
+}
+
+/**
  * Custom Node Component for Knowledge Graph
  *
  * Displays a compact circular knowledge node with category-based styling.
@@ -25,6 +42,12 @@ export const KnowledgeGraphNode = memo(
     const innerRef = useRef<HTMLDivElement>(null);
     const hasAnimatedRef = useRef(false);
     const nodeIdRef = useRef<string | undefined>(undefined);
+
+    // Get glow color based on category
+    const glowColor = useMemo(
+      () => getGlowColor(data.category as Knowledge['category']),
+      [data.category]
+    );
 
     // Animate node appearance when it's marked as new
     useEffect(() => {
@@ -83,32 +106,37 @@ export const KnowledgeGraphNode = memo(
         {/* Inner wrapper for animation - React Flow controls outer div positioning */}
         <div
           ref={innerRef}
-          className="relative flex items-center justify-center shadow-md bg-white dark:bg-gray-800 border-2 cursor-pointer hover:shadow-lg hover:scale-110"
+          className="relative flex items-center justify-center rounded-full cursor-pointer backdrop-blur-md border transition-all duration-300 hover:scale-110"
           style={{
             width: '100%',
             height: '100%',
-            borderRadius: '50%',
-            borderColor: data.color,
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+            borderColor: 'rgba(255, 255, 255, 0.1)',
+            borderWidth: '1px',
+            boxShadow: `0 0 15px ${glowColor}`,
             // Animation handled by useEffect, but ensure transition is always present
             transition:
-              'opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
+              'opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease-in-out',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow = `0 0 25px ${glowColor.replace('0.3', '0.6')}`;
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = `0 0 15px ${glowColor}`;
           }}
         >
+          {/* Hidden handles for read-only graph */}
           <Handle
             type="target"
             position={Position.Top}
-            className="w-2 h-2"
-            style={{ backgroundColor: data.color }}
+            className="opacity-0"
           />
 
           <div
             className="flex items-center justify-center px-2 py-1 text-center"
             style={{ width: '100%', height: '100%' }}
           >
-            <div
-              className="text-xs font-bold leading-tight px-1"
-              style={{ color: data.color }}
-            >
+            <div className="text-xs font-medium leading-tight px-1 text-white">
               {data.label}
             </div>
           </div>
@@ -128,11 +156,11 @@ export const KnowledgeGraphNode = memo(
             </button>
           )}
 
+          {/* Hidden handles for read-only graph */}
           <Handle
             type="source"
             position={Position.Bottom}
-            className="w-2 h-2"
-            style={{ backgroundColor: data.color }}
+            className="opacity-0"
           />
         </div>
       </div>

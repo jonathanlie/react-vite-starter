@@ -1,13 +1,28 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
 
 /**
  * Contact Page
  *
- * Displays contact information including email and resume download link.
+ * Displays professional summary with profile picture, contact information,
+ * and resume download link.
  */
 export function Contact() {
   const { t } = useTranslation();
+  const [copied, setCopied] = useState(false);
+  const email = 'jonathanlie94@gmail.com';
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
+  };
 
   return (
     <motion.div
@@ -15,47 +30,90 @@ export function Contact() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
-      className="max-w-7xl mx-auto px-2 md:px-3 lg:px-4 py-8 lg:py-12"
+      className="w-full"
     >
-      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 lg:mb-12">
-        {t('contact.title', 'Contact')}
-      </h1>
+      {/* Profile Section */}
+      <section className="w-full bg-[hsl(var(--page-background))] px-4 md:px-6 lg:px-8 py-8 lg:py-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-12 items-start lg:items-center lg:justify-center">
+            {/* Profile Picture */}
+            <div className="shrink-0 w-full md:w-auto mx-auto lg:mx-0">
+              <div className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700 mx-auto md:mx-0">
+                <img
+                  src="/profile.jpg"
+                  alt={t('contact.profileAlt', 'Jonathan Lie')}
+                  className="w-full h-full object-cover rounded-full"
+                />
+              </div>
+            </div>
 
-      <section className="mb-8 lg:mb-12">
-        <h2 className="text-xl md:text-2xl font-semibold mb-6">
-          {t('contact.getInTouch', 'Get in Touch')}
-        </h2>
-        <p className="text-base text-gray-600 dark:text-gray-400 mb-4">
-          {t(
-            'contact.description',
-            'Feel free to reach out via email or download my resume.'
-          )}
-        </p>
+            {/* Professional Summary */}
+            <div className="flex-1 lg:flex-initial max-w-[700px]">
+              <p className="text-base leading-relaxed text-gray-900 dark:text-gray-100 whitespace-pre-line">
+                {t(
+                  'contact.summary',
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                )}
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section className="mb-8 lg:mb-12">
-        <h2 className="text-xl md:text-2xl font-semibold mb-6">
-          {t('contact.email', 'Email')}
-        </h2>
-        <a
-          href="mailto:your.email@example.com"
-          className="text-base text-blue-600 dark:text-blue-400 hover:underline"
-        >
-          your.email@example.com
-        </a>
-      </section>
+      {/* Contact Cards Section */}
+      <section className="w-full bg-[hsl(var(--page-background))] px-4 md:px-6 lg:px-8 py-8 lg:py-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+            {/* Email Card */}
+            <div className="flex-1 bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-[0_4px_6px_0_hsla(0,0%,0%,0.2)]">
+              <div className="h-1 bg-blue-600"></div>
+              <div className="p-6 md:p-8">
+                <h2 className="text-xl md:text-2xl font-semibold mb-2">
+                  {t('contact.emailTitle', 'Get in Touch')}
+                </h2>
+                <p className="text-base text-gray-600 dark:text-gray-400 mb-6">
+                  {t(
+                    'contact.emailDescription',
+                    'Feel free to reach out via email for any inquiries or opportunities.'
+                  )}
+                </p>
+                <Button
+                  onClick={handleCopyEmail}
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium"
+                >
+                  {copied
+                    ? t('contact.emailCopied', 'Copied!')
+                    : t('contact.copyEmail', 'Copy Email Address')}
+                </Button>
+              </div>
+            </div>
 
-      <section className="mb-8 lg:mb-12">
-        <h2 className="text-xl md:text-2xl font-semibold mb-6">
-          {t('contact.resume', 'Resume')}
-        </h2>
-        <a
-          href="/resume.pdf"
-          download
-          className="inline-block px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 font-medium transition-colors duration-200"
-        >
-          {t('contact.downloadResume', 'Download Resume')}
-        </a>
+            {/* Resume Card */}
+            <div className="flex-1 bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-[0_4px_6px_0_hsla(0,0%,0%,0.2)]">
+              <div className="h-1 bg-purple-600"></div>
+              <div className="p-6 md:p-8">
+                <h2 className="text-xl md:text-2xl font-semibold mb-2">
+                  {t('contact.resumeTitle', 'Resume')}
+                </h2>
+                <p className="text-base text-gray-600 dark:text-gray-400 mb-6">
+                  {t(
+                    'contact.resumeDescription',
+                    'Download my resume to learn more about my experience and qualifications.'
+                  )}
+                </p>
+                <Button
+                  asChild
+                  variant="ghost"
+                  className="px-6 py-3 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800"
+                >
+                  <a href="/resume.pdf" download>
+                    {t('contact.viewResume', 'View Resume (PDF)')}
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </motion.div>
   );

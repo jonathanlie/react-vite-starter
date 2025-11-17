@@ -16,11 +16,15 @@
   },
   "contact": {
     "title": "Contacto",
-    "getInTouch": "Ponerse en Contacto",
-    "description": "No dude en contactarme por correo electrónico o descargar mi currículum.",
-    "email": "Correo Electrónico",
-    "resume": "Currículum",
-    "downloadResume": "Descargar Currículum"
+    "profileAlt": "Jonathan Lie",
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "emailTitle": "Ponerse en Contacto",
+    "emailDescription": "No dude en contactarme por correo electrónico para cualquier consulta u oportunidad.",
+    "copyEmail": "Copiar Dirección de Correo",
+    "emailCopied": "¡Copiado!",
+    "resumeTitle": "Currículum",
+    "resumeDescription": "Descargue mi currículum para conocer más sobre mi experiencia y calificaciones.",
+    "viewResume": "Ver Currículum (PDF)"
   },
   "knowledgeWeb": {
     "title": "Red de Conocimiento",

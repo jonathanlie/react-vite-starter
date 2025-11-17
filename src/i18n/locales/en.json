@@ -16,11 +16,15 @@
   },
   "contact": {
     "title": "Contact",
-    "getInTouch": "Get in Touch",
-    "description": "Feel free to reach out via email or download my resume.",
-    "email": "Email",
-    "resume": "Resume",
-    "downloadResume": "Download Resume"
+    "profileAlt": "Jonathan Lie",
+    "summary": "Hi, I’m Jonathan. I’ve been writing code professionally since 2016.\n\nI started my career focused on UI/UX, but curiosity pushed me deeper into the stack. Today, I’m comfortable anywhere between the database and the DOM. I’ve led small teams, architected frontend apps from scratch, and built complex multitenant systems.\n\nCurrently, I'm focused on mastering AI tools to accelerate my workflows, while actively leveling up my skills in less familiar areas such as infrastructure and DevOps. I thrive in lean, transparent environments where the goal is shipping value straight and fast.\n\nAnd, of course, landing my next role (!!).\n\nIf I’m not at my laptop, you’ll likely find me lost in an RPG, playing guitar, or catching up on anime.",
+    "emailTitle": "Get in Touch",
+    "emailDescription": "Feel free to reach out via email for any inquiries or opportunities.",
+    "copyEmail": "Copy Email Address",
+    "emailCopied": "Copied!",
+    "resumeTitle": "Resume",
+    "resumeDescription": "Download my resume to learn more about my experience and qualifications.",
+    "viewResume": "View Resume (PDF)"
   },
   "knowledgeWeb": {
     "title": "Knowledge Web",

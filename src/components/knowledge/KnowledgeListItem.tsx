@@ -21,26 +21,48 @@ export function KnowledgeListItem({ node, onClick }: KnowledgeListItemProps) {
 
   return (
     <Card
-      className="cursor-pointer bg-gray-50 dark:bg-gray-800 transition-shadow hover:shadow-md"
+      className="knowledge-card cursor-pointer border-0 text-left transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-[0_4px_12px_0_hsla(0,0%,0%,0.3)] shadow-[0_2px_8px_0_hsla(0,0%,0%,0.15)]"
       onClick={handleClick}
     >
-      <CardHeader>
-        <CardTitle className="text-xl">{node.title}</CardTitle>
-        <CardDescription>{node.content}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="flex flex-wrap gap-2">
-          <Badge variant="secondary">{node.category}</Badge>
-          {node.tags?.map((tag) => (
-            <Badge key={tag} variant="outline">
-              {tag}
-            </Badge>
-          ))}
+      <CardHeader className="p-6 pb-4">
+        <div className="flex items-start justify-between gap-4 mb-2">
+          <CardTitle className="text-xl md:text-2xl font-bold text-[#E0E0E0] dark:text-[#E0E0E0] leading-tight">
+            {node.title}
+          </CardTitle>
+          <Badge
+            variant="secondary"
+            className="shrink-0 bg-[#2A2A2A] text-[#B0B0B0] border-0 rounded-md px-2.5 py-1 text-xs font-medium"
+          >
+            {node.category}
+          </Badge>
         </div>
-      </CardContent>
+        <CardDescription className="text-sm md:text-base text-[#B0B0B0] dark:text-[#B0B0B0] leading-relaxed mt-2">
+          {node.content}
+        </CardDescription>
+      </CardHeader>
+      {node.tags && node.tags.length > 0 && (
+        <CardContent className="p-6 pt-0">
+          <div className="flex flex-wrap gap-2">
+            {node.tags.map((tag) => (
+              <Badge
+                key={tag}
+                variant="outline"
+                className="bg-transparent border-[#2A2A2A] text-[#B0B0B0] rounded-md px-2 py-0.5 text-xs"
+              >
+                {tag}
+              </Badge>
+            ))}
+          </div>
+        </CardContent>
+      )}
       {node.level && (
-        <CardFooter>
-          <Badge variant="default">{node.level}</Badge>
+        <CardFooter className="p-6 pt-0">
+          <Badge
+            variant="default"
+            className="bg-[#2A2A2A] text-[#B0B0B0] border-0 rounded-md px-2.5 py-1 text-xs font-medium"
+          >
+            {node.level}
+          </Badge>
         </CardFooter>
       )}
     </Card>

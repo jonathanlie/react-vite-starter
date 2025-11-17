@@ -139,4 +139,12 @@
       transition-duration: 0.01ms !important;
     }
   }
+
+  .knowledge-card {
+    background: linear-gradient(135deg, #1A1A1A 0%, #1C1C1C 100%);
+  }
+
+  .knowledge-card:hover {
+    background: linear-gradient(135deg, #1C1C1C 0%, #1E1E1E 100%);
+  }
 }

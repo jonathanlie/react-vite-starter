@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import Fuse from 'fuse.js';
@@ -6,6 +6,14 @@ import { KnowledgeGraph } from '@/components/knowledge/KnowledgeGraph';
 import { KnowledgeList } from '@/components/knowledge/KnowledgeList';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Input } from '@/components/ui/input';
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from '@/components/ui/pagination';
 import { knowledges } from '@/data/knowledges';
 
 type ViewMode = 'cards' | 'graph';
@@ -16,20 +24,29 @@ type ViewMode = 'cards' | 'graph';
  * Displays knowledge items in both card grid and graph visualization formats.
  * Supports switching between views and opening detailed markdown content in modals.
  */
+const ITEMS_PER_PAGE = 12;
+
 export function KnowledgeWeb() {
   const { t } = useTranslation();
   const [viewMode, setViewMode] = useState<ViewMode>('cards');
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const previousSearchTermRef = useRef(searchTerm);
 
-  // Debounce search term (300ms delay)
+  // Debounce search term (300ms delay) and reset page when search changes
   useEffect(() => {
     const timer = setTimeout(() => {
+      const searchChanged = previousSearchTermRef.current !== searchTerm;
+      previousSearchTermRef.current = searchTerm;
       setDebouncedSearchTerm(searchTerm);
+      if (searchChanged && currentPage !== 1) {
+        setCurrentPage(1);
+      }
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [searchTerm]);
+  }, [searchTerm, currentPage]);
 
   // Fuzzy search configuration
   const fuse = useMemo(
@@ -51,6 +68,14 @@ export function KnowledgeWeb() {
     const results = fuse.search(debouncedSearchTerm);
     return results.map((result) => result.item);
   }, [debouncedSearchTerm, fuse]);
+
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredKnowledges.length / ITEMS_PER_PAGE);
+  const paginatedKnowledges = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    return filteredKnowledges.slice(startIndex, endIndex);
+  }, [filteredKnowledges, currentPage]);
 
   const handleKnowledgeClick = (knowledgeId: string) => {
     // TODO: Open modal with markdown content for the selected knowledge
@@ -107,9 +132,67 @@ export function KnowledgeWeb() {
               />
             </div>
             <KnowledgeList
-              nodes={filteredKnowledges}
+              nodes={paginatedKnowledges}
               onNodeClick={handleKnowledgeClick}
             />
+            {totalPages > 1 && (
+              <Pagination className="mt-8">
+                <PaginationContent>
+                  <PaginationItem>
+                    <PaginationPrevious
+                      href="#"
+                      size="default"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (currentPage > 1) {
+                          setCurrentPage(currentPage - 1);
+                        }
+                      }}
+                      className={
+                        currentPage === 1
+                          ? 'pointer-events-none opacity-50'
+                          : 'cursor-pointer'
+                      }
+                    />
+                  </PaginationItem>
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                    (page) => (
+                      <PaginationItem key={page}>
+                        <PaginationLink
+                          href="#"
+                          size="icon"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setCurrentPage(page);
+                          }}
+                          isActive={currentPage === page}
+                          className="cursor-pointer"
+                        >
+                          {page}
+                        </PaginationLink>
+                      </PaginationItem>
+                    )
+                  )}
+                  <PaginationItem>
+                    <PaginationNext
+                      href="#"
+                      size="default"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (currentPage < totalPages) {
+                          setCurrentPage(currentPage + 1);
+                        }
+                      }}
+                      className={
+                        currentPage === totalPages
+                          ? 'pointer-events-none opacity-50'
+                          : 'cursor-pointer'
+                      }
+                    />
+                  </PaginationItem>
+                </PaginationContent>
+              </Pagination>
+            )}
           </>
         )}
 

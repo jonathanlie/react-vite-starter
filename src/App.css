@@ -82,14 +82,6 @@
     @apply bg-[#646cff] text-white;
   }
 
-  footer {
-    @apply bg-[#1a1a1a] p-8 text-center border-t border-[#333] mt-auto;
-  }
-
-  footer p {
-    @apply m-0 text-[#888];
-  }
-
   .section {
     @apply mb-12;
   }

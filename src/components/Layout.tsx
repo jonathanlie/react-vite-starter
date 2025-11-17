@@ -43,10 +43,6 @@ export function Layout({ children }: LayoutProps) {
       <main id="main-content" role="main">
         {children}
       </main>
-
-      <footer role="contentinfo">
-        <p>&copy; {new Date().getFullYear()} React Vite Starter Kit</p>
-      </footer>
     </div>
   );
 }

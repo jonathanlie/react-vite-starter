@@ -52,7 +52,7 @@ export function WorkHistoryEntry({ entry, index }: WorkHistoryEntryProps) {
         <ReactMarkdown
           components={{
             ul: ({ children }) => (
-              <ul className="space-y-3 list-none">{children}</ul>
+              <ul className="space-y-3 list-none mb-4">{children}</ul>
             ),
             li: ({ children }) => (
               <li className="flex items-start text-base text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -61,9 +61,14 @@ export function WorkHistoryEntry({ entry, index }: WorkHistoryEntryProps) {
               </li>
             ),
             p: ({ children }) => (
-              <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-3 last:mb-0">
+              <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4 last:mb-0">
                 {children}
               </p>
+            ),
+            strong: ({ children }) => (
+              <strong className="font-semibold text-gray-900 dark:text-gray-100">
+                {children}
+              </strong>
             ),
           }}
         >

@@ -43,6 +43,8 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
   );
   const previouslyVisibleRef = useRef<Set<string>>(new Set());
   const parentNodeMap = useRef<Map<string, string>>(new Map());
+  const isInitialLoadRef = useRef(true);
+  const lastExpandedNodeRef = useRef<string | null>(null);
 
   /**
    * Toggles node expansion state and manages visibility of related nodes.
@@ -69,12 +71,18 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
 
           if (willBeExpanded) {
             // Show children: nodes that have this node as their related parent
+            const childIds: string[] = [];
             knowledges.forEach((childNode) => {
               if (childNode.related === nodeId) {
                 nextVisible.add(childNode.id);
                 parentNodeMap.current.set(childNode.id, nodeId);
+                childIds.push(childNode.id);
               }
             });
+            // Track the expanded node to fit view to it after simulation
+            if (childIds.length > 0) {
+              lastExpandedNodeRef.current = nodeId;
+            }
           } else {
             // Hide children: nodes that have this node as their related parent
             knowledges.forEach((childNode) => {
@@ -270,7 +278,32 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
           }))
         );
 
-        fitView({ padding: 0.2, duration: 300 });
+        // Only fit view on initial load to show all root nodes
+        if (isInitialLoadRef.current) {
+          fitView({ padding: 0.2, duration: 300 });
+          isInitialLoadRef.current = false;
+        } else if (lastExpandedNodeRef.current) {
+          // When a node is expanded, fit view to the expanded area (parent + children)
+          const expandedNodeId = lastExpandedNodeRef.current;
+          const expandedNodeIds = [
+            expandedNodeId,
+            ...knowledges
+              .filter((n) => n.related === expandedNodeId)
+              .map((n) => n.id),
+          ];
+          const nodesToFit = reactFlowNodes.filter((n) =>
+            expandedNodeIds.includes(n.id)
+          );
+          if (nodesToFit.length > 0) {
+            fitView({
+              nodes: nodesToFit,
+              padding: 0.3,
+              duration: 400,
+              maxZoom: 1.5,
+            });
+          }
+          lastExpandedNodeRef.current = null;
+        }
       }, 100);
     });
 
@@ -296,8 +329,6 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
       onEdgesChange={onEdgesChange}
       nodeTypes={nodeTypes}
       connectionMode={ConnectionMode.Loose}
-      fitView
-      fitViewOptions={{ padding: 0.2, duration: 300 }}
       minZoom={0.1}
       maxZoom={2}
       defaultEdgeOptions={{
@@ -320,7 +351,7 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
 
 export function KnowledgeGraph({ onNodeClick }: KnowledgeGraphProps) {
   return (
-    <div className="w-full h-[600px] rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+    <div className="w-[calc(100%-4rem)] mx-auto h-[calc(100vh-200px)] min-h-[800px] border-t border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
       <ReactFlowProvider>
         <LayoutFlow onNodeClick={onNodeClick} />
       </ReactFlowProvider>

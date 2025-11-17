@@ -33,14 +33,14 @@ export function Contact() {
       className="w-full"
     >
       {/* Profile Section */}
-      <section className="w-full bg-[hsl(var(--page-background))] px-3 md:px-4 lg:px-6 py-8 lg:py-12">
+      <section className="w-full bg-gray-950 px-3 md:px-4 lg:px-6 py-8 lg:py-12">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-12 items-start lg:items-center lg:justify-center">
             {/* Profile Picture */}
             <div className="shrink-0 w-full md:w-auto mx-auto lg:mx-0">
               <div className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700 mx-auto md:mx-0">
                 <img
-                  src="/profile.png"
+                  src="/profile.jpg"
                   alt={t('contact.profileAlt', 'Jonathan Lie')}
                   className="w-full h-full object-cover rounded-full"
                 />
@@ -61,7 +61,7 @@ export function Contact() {
       </section>
 
       {/* Contact Cards Section */}
-      <section className="w-full bg-[hsl(var(--page-background))] px-3 md:px-4 lg:px-6 py-8 lg:py-12">
+      <section className="w-full bg-gray-950 px-3 md:px-4 lg:px-6 py-8 lg:py-12">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-6 md:gap-8">
             {/* Email Card */}

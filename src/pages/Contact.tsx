@@ -65,13 +65,13 @@ export function Contact() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-6 md:gap-8">
             {/* Email Card */}
-            <div className="flex-1 bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-[0_4px_6px_0_hsla(0,0%,0%,0.2)]">
+            <div className="flex-1 bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-[0_4px_6px_0_hsla(0,0%,0%,0.2)] flex flex-col">
               <div className="h-1 bg-blue-600"></div>
-              <div className="p-6 md:p-8">
+              <div className="p-6 md:p-8 flex flex-col flex-1">
                 <h2 className="text-xl md:text-2xl font-semibold mb-2">
                   {t('contact.emailTitle', 'Get in Touch')}
                 </h2>
-                <p className="text-base text-gray-600 dark:text-gray-400 mb-6">
+                <p className="text-base text-gray-600 dark:text-gray-400 mb-6 flex-1">
                   {t(
                     'contact.emailDescription',
                     'Feel free to reach out via email for any inquiries or opportunities.'
@@ -79,7 +79,7 @@ export function Contact() {
                 </p>
                 <Button
                   onClick={handleCopyEmail}
-                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium"
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium mt-auto w-auto self-start"
                 >
                   {copied
                     ? t('contact.emailCopied', 'Copied!')
@@ -89,13 +89,13 @@ export function Contact() {
             </div>
 
             {/* Resume Card */}
-            <div className="flex-1 bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-[0_4px_6px_0_hsla(0,0%,0%,0.2)]">
+            <div className="flex-1 bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-[0_4px_6px_0_hsla(0,0%,0%,0.2)] flex flex-col">
               <div className="h-1 bg-purple-600"></div>
-              <div className="p-6 md:p-8">
+              <div className="p-6 md:p-8 flex flex-col flex-1">
                 <h2 className="text-xl md:text-2xl font-semibold mb-2">
                   {t('contact.resumeTitle', 'Resume')}
                 </h2>
-                <p className="text-base text-gray-600 dark:text-gray-400 mb-6">
+                <p className="text-base text-gray-600 dark:text-gray-400 mb-6 flex-1">
                   {t(
                     'contact.resumeDescription',
                     'Download my resume to learn more about my experience and qualifications.'
@@ -104,7 +104,7 @@ export function Contact() {
                 <Button
                   asChild
                   variant="ghost"
-                  className="px-6 py-3 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800"
+                  className="px-6 py-3 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 mt-auto w-auto self-start"
                 >
                   <a href="/resume.pdf" download>
                     {t('contact.viewResume', 'View Resume (PDF)')}

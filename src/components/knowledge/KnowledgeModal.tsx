@@ -157,15 +157,10 @@ export function KnowledgeModal({
  * Applies markdown styling similar to WorkHistoryEntry for consistency.
  * Uses Tailwind classes with global CSS for MDX-generated elements.
  */
-function MarkdownContentWrapper({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function MarkdownContentWrapper({ children }: { children: React.ReactNode }) {
   return (
     <div className="markdown-content [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mt-8 [&_h1]:mb-4 [&_h1]:text-gray-900 dark:[&_h1]:text-gray-100 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-6 [&_h2]:mb-3 [&_h2]:text-gray-900 dark:[&_h2]:text-gray-100 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-5 [&_h3]:mb-2 [&_h3]:text-gray-900 dark:[&_h3]:text-gray-100 [&_p]:text-base [&_p]:leading-relaxed [&_p]:mb-4 [&_p]:text-gray-700 dark:[&_p]:text-gray-300 [&_ul]:list-none [&_ul]:mb-4 [&_ul]:pl-0 [&_li]:flex [&_li]:items-start [&_li]:text-base [&_li]:leading-relaxed [&_li]:mb-3 [&_li]:text-gray-700 dark:[&_li]:text-gray-300 [&_li]:before:content-[''] [&_li]:before:w-1.5 [&_li]:before:h-1.5 [&_li]:before:rounded-full [&_li]:before:bg-gray-400 dark:[&_li]:before:bg-gray-500 [&_li]:before:mr-3 [&_li]:before:mt-2 [&_li]:before:shrink-0 [&_strong]:font-semibold [&_strong]:text-gray-900 dark:[&_strong]:text-gray-100 [&_code]:bg-gray-100 dark:[&_code]:bg-gray-800 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm [&_code]:font-mono [&_pre]:bg-gray-100 dark:[&_pre]:bg-gray-800 [&_pre]:p-4 [&_pre]:rounded-lg [&_pre]:overflow-x-auto [&_pre]:mb-4 [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_a]:text-blue-500 dark:[&_a]:text-blue-400 [&_a]:underline [&_a]:hover:text-blue-600 dark:[&_a]:hover:text-blue-300">
       {children}
     </div>
   );
 }
-

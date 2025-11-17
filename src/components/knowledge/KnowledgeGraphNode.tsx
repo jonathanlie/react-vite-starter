@@ -126,11 +126,7 @@ export const KnowledgeGraphNode = memo(
           }}
         >
           {/* Hidden handles for read-only graph */}
-          <Handle
-            type="target"
-            position={Position.Top}
-            className="opacity-0"
-          />
+          <Handle type="target" position={Position.Top} className="opacity-0" />
 
           <div
             className="flex items-center justify-center px-2 py-1 text-center"

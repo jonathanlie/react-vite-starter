@@ -60,7 +60,9 @@ export const loadMarkdownContent: LoadMarkdownContent = async (
     // for each MDX file, enabling true lazy loading without pre-loading all files
     // Using relative path from utils directory to content directory
     // @vite-ignore: Intentionally using dynamic imports for lazy loading MDX files
-    const module = await import(/* @vite-ignore */ `../content/knowledge/${markdownFile}`);
+    const module = await import(
+      /* @vite-ignore */ `../content/knowledge/${markdownFile}`
+    );
 
     // MDX files export a default React component
     const Component = module.default;

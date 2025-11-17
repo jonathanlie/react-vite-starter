@@ -71,10 +71,9 @@ export function calculateNodePosition(
     if (parentPos) {
       const parentNode = knowledges.find((n) => n.id === directParentId);
       if (parentNode) {
-        const siblings = parentNode.related
-          .filter((id) => visibleNodeIds.has(id))
-          .map((id) => knowledges.find((n) => n.id === id))
-          .filter((n): n is Knowledge => n !== undefined);
+        const siblings = parentNode.related && visibleNodeIds.has(parentNode.related)
+          ? [knowledges.find((n) => n.id === parentNode.related)].filter((n): n is Knowledge => n !== undefined)
+          : [];
 
         const siblingIndex = siblings.findIndex((n) => n.id === node.id);
         const totalSiblings = siblings.length;

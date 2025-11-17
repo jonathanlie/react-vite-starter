@@ -68,27 +68,26 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
           const nextVisible = new Set(prevVisible);
 
           if (willBeExpanded) {
-            node.related.forEach((relatedId) => {
-              if (getKnowledgeById(relatedId)) {
-                nextVisible.add(relatedId);
-                parentNodeMap.current.set(relatedId, nodeId);
+            // Show children: nodes that have this node as their related parent
+            knowledges.forEach((childNode) => {
+              if (childNode.related === nodeId) {
+                nextVisible.add(childNode.id);
+                parentNodeMap.current.set(childNode.id, nodeId);
               }
             });
           } else {
-            node.related.forEach((relatedId) => {
-              if (rootNodeIds.has(relatedId)) return;
-
-              const isReferencedByOthers = Array.from(next).some(
-                (expandedId) => {
-                  if (expandedId === nodeId) return false;
-                  const expandedNode = getKnowledgeById(expandedId);
-                  return expandedNode?.related.includes(relatedId);
+            // Hide children: nodes that have this node as their related parent
+            knowledges.forEach((childNode) => {
+              if (childNode.related === nodeId) {
+                // Don't hide if it's a root node (roots are always visible)
+                if (rootNodeIds.has(childNode.id)) {
+                  return;
                 }
-              );
 
-              if (!isReferencedByOthers) {
-                nextVisible.delete(relatedId);
-                parentNodeMap.current.delete(relatedId);
+                // With single relationships, each child has only one parent
+                // So if we're collapsing this parent, hide the child
+                nextVisible.delete(childNode.id);
+                parentNodeMap.current.delete(childNode.id);
               }
             });
           }
@@ -104,31 +103,35 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
 
   /**
    * Builds React Flow edges from visible and expanded nodes.
-   * Only creates edges for nodes that are both visible and expanded, preventing duplicate edges.
+   * Creates edges from parent nodes to their children when the parent is expanded.
    */
   const flowEdges = useMemo(() => {
     const edgesList: Edge[] = [];
     const edgeSet = new Set<string>();
 
-    knowledges.forEach((node) => {
-      if (!visibleNodeIds.has(node.id) || !expandedNodes.has(node.id)) return;
+    // For each expanded node, create edges to its children
+    expandedNodes.forEach((parentId) => {
+      if (!visibleNodeIds.has(parentId)) return;
 
-      node.related.forEach((relatedId) => {
-        if (!visibleNodeIds.has(relatedId)) return;
+      // Find all children (nodes that have this parent as their related)
+      knowledges.forEach((childNode) => {
+        if (
+          childNode.related === parentId &&
+          visibleNodeIds.has(childNode.id)
+        ) {
+          const edgeKey = `${parentId}-${childNode.id}`;
 
-        const edgeKey1 = `${node.id}-${relatedId}`;
-        const edgeKey2 = `${relatedId}-${node.id}`;
-
-        if (!edgeSet.has(edgeKey1) && !edgeSet.has(edgeKey2)) {
-          edgesList.push({
-            id: edgeKey1,
-            source: node.id,
-            target: relatedId,
-            type: 'default',
-            animated: false,
-            style: { stroke: '#94a3b8', strokeWidth: 2 },
-          });
-          edgeSet.add(edgeKey1);
+          if (!edgeSet.has(edgeKey)) {
+            edgesList.push({
+              id: edgeKey,
+              source: parentId,
+              target: childNode.id,
+              type: 'default',
+              animated: false,
+              style: { stroke: '#94a3b8', strokeWidth: 2 },
+            });
+            edgeSet.add(edgeKey);
+          }
         }
       });
     });
@@ -226,8 +229,9 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
 
       const reactFlowNodes = d3Nodes.map((d3Node) => {
         const knowledgeNode = knowledges.find((n) => n.id === d3Node.id)!;
-        const relatedCount = knowledgeNode.related.filter((id) =>
-          knowledges.some((n) => n.id === id)
+        // Count children: nodes that have this node as their related parent
+        const relatedCount = knowledges.filter(
+          (n) => n.related === d3Node.id
         ).length;
 
         return {

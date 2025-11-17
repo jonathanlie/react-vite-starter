@@ -55,10 +55,11 @@ export interface Knowledge {
   markdownFile: string;
 
   /**
-   * Array of related knowledge IDs
-   * Used to create edges/connections in the graph visualization
+   * Related knowledge ID (optional)
+   * Used to create edges/connections in the graph visualization.
+   * Each knowledge entity can be related to one other knowledge entity.
    */
-  related: string[];
+  related?: string;
 
   /**
    * Optional skill proficiency level

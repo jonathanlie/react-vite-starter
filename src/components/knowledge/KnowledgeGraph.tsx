@@ -330,6 +330,7 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
       onEdgesChange={onEdgesChange}
       nodeTypes={nodeTypes}
       connectionMode={ConnectionMode.Loose}
+      nodesDraggable={false}
       minZoom={0.1}
       maxZoom={2}
       defaultEdgeOptions={{

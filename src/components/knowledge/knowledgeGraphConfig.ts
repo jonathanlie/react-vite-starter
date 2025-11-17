@@ -1,6 +1,6 @@
-import { KnowledgeNode } from '@/types/knowledge';
+import { Knowledge } from '@/types/knowledge';
 
-export const categoryColors: Record<KnowledgeNode['category'], string> = {
+export const categoryColors: Record<Knowledge['category'], string> = {
   root: '#6366f1',
   backend: '#3b82f6',
   frontend: '#10b981',
@@ -14,7 +14,7 @@ export const categoryColors: Record<KnowledgeNode['category'], string> = {
  * Target X coordinates for each category to create visual clusters.
  * Root nodes override this with calculated positions.
  */
-export const categoryFocalPoints: Record<KnowledgeNode['category'], number> = {
+export const categoryFocalPoints: Record<Knowledge['category'], number> = {
   root: 400,
   frontend: 300,
   backend: 500,
@@ -38,7 +38,7 @@ export const LAYOUT_CONSTANTS = {
   FAN_ANGLE_RANGE: (Math.PI * 2) / 3,
 } as const;
 
-export function getRootNodes(nodes: KnowledgeNode[]): string[] {
+export function getRootNodes(nodes: Knowledge[]): string[] {
   return nodes
     .filter((node) => node.category === 'root')
     .map((node) => node.id);

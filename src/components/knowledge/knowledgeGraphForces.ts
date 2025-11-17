@@ -67,9 +67,9 @@ function getTargetX(d: D3Node, context: ForceContext): number {
     if (parentPos) {
       return parentPos.x;
     }
-    const parentKnowledgeNode = knowledges.find((n) => n.id === directParentId);
+    const parentKnowledge = knowledges.find((n) => n.id === directParentId);
     if (
-      parentKnowledgeNode?.category === 'root' &&
+      parentKnowledge?.category === 'root' &&
       rootPositions.has(directParentId)
     ) {
       return rootPositions.get(directParentId)!.x;
@@ -123,11 +123,9 @@ function getTargetY(d: D3Node, context: ForceContext): number {
       if (parentPos) {
         parentY = parentPos.y;
       } else {
-        const parentKnowledgeNode = knowledges.find(
-          (n) => n.id === directParentId
-        );
+        const parentKnowledge = knowledges.find((n) => n.id === directParentId);
         if (
-          parentKnowledgeNode?.category === 'root' &&
+          parentKnowledge?.category === 'root' &&
           rootPositions.has(directParentId)
         ) {
           parentY = rootPositions.get(directParentId)!.y;

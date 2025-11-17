@@ -1,8 +1,8 @@
-import { KnowledgeNode } from '@/types/knowledge';
+import { Knowledge } from '@/types/knowledge';
 import { KnowledgeListItem } from './KnowledgeListItem';
 
 interface KnowledgeListProps {
-  nodes: KnowledgeNode[];
+  nodes: Knowledge[];
   onNodeClick?: (nodeId: string) => void;
 }
 

@@ -1,4 +1,4 @@
-import { KnowledgeNode } from '@/types/knowledge';
+import { Knowledge } from '@/types/knowledge';
 import {
   Card,
   CardContent,
@@ -10,7 +10,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 
 interface KnowledgeListItemProps {
-  node: KnowledgeNode;
+  node: Knowledge;
   onClick?: (nodeId: string) => void;
 }
 

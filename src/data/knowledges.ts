@@ -1,4 +1,4 @@
-import { KnowledgeNode } from '@/types/knowledge';
+import { Knowledge } from '@/types/knowledge';
 
 /**
  * Knowledge Data
@@ -12,7 +12,7 @@ import { KnowledgeNode } from '@/types/knowledge';
  * 3. Update related arrays to establish connections
  */
 
-export const knowledges: KnowledgeNode[] = [
+export const knowledges: Knowledge[] = [
   // Root Knowledges (Start visible)
   {
     id: 'frontend',
@@ -152,7 +152,7 @@ export const knowledges: KnowledgeNode[] = [
  * @param id - The unique identifier of the knowledge
  * @returns The knowledge item if found, undefined otherwise
  */
-export function getKnowledgeById(id: string): KnowledgeNode | undefined {
+export function getKnowledgeById(id: string): Knowledge | undefined {
   return knowledges.find((knowledge) => knowledge.id === id);
 }
 
@@ -162,13 +162,13 @@ export function getKnowledgeById(id: string): KnowledgeNode | undefined {
  * @param id - The unique identifier of the knowledge
  * @returns Array of related knowledge items
  */
-export function getRelatedKnowledges(id: string): KnowledgeNode[] {
+export function getRelatedKnowledges(id: string): Knowledge[] {
   const knowledge = getKnowledgeById(id);
   if (!knowledge) return [];
 
   return knowledge.related
     .map((relatedId) => getKnowledgeById(relatedId))
-    .filter((knowledge): knowledge is KnowledgeNode => knowledge !== undefined);
+    .filter((knowledge): knowledge is Knowledge => knowledge !== undefined);
 }
 
 /**
@@ -178,8 +178,8 @@ export function getRelatedKnowledges(id: string): KnowledgeNode[] {
  * @returns Array of knowledge items in the specified category
  */
 export function getKnowledgesByCategory(
-  category: KnowledgeNode['category']
-): KnowledgeNode[] {
+  category: Knowledge['category']
+): Knowledge[] {
   return knowledges.filter((knowledge) => knowledge.category === category);
 }
 
@@ -189,7 +189,7 @@ export function getKnowledgesByCategory(
  * @param tag - The tag to filter by
  * @returns Array of knowledge items with the specified tag
  */
-export function getKnowledgesByTag(tag: string): KnowledgeNode[] {
+export function getKnowledgesByTag(tag: string): Knowledge[] {
   return knowledges.filter(
     (knowledge) => knowledge.tags && knowledge.tags.includes(tag)
   );
@@ -200,10 +200,10 @@ export function getKnowledgesByTag(tag: string): KnowledgeNode[] {
  *
  * @returns Array of unique category values
  */
-export function getAllCategories(): KnowledgeNode['category'][] {
+export function getAllCategories(): Knowledge['category'][] {
   return Array.from(
     new Set(knowledges.map((knowledge) => knowledge.category))
-  ) as KnowledgeNode['category'][];
+  ) as Knowledge['category'][];
 }
 
 // Legacy exports for backward compatibility during migration

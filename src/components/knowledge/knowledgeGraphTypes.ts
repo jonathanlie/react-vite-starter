@@ -1,9 +1,9 @@
 import { SimulationNodeDatum } from 'd3-force';
-import { KnowledgeNode } from '@/types/knowledge';
+import { Knowledge } from '@/types/knowledge';
 
 export interface D3Node extends SimulationNodeDatum {
   id: string;
-  category: KnowledgeNode['category'];
+  category: Knowledge['category'];
   targetX?: number;
   parentRoot?: string;
   hubNode?: string;

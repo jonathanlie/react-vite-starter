@@ -11,7 +11,7 @@ import ReactFlow, {
   Edge,
 } from 'reactflow';
 import { SimulationLinkDatum } from 'd3-force';
-import { KnowledgeNode } from '@/types/knowledge';
+import { Knowledge } from '@/types/knowledge';
 import { knowledges, getKnowledgeById } from '@/data/knowledges';
 import { KnowledgeGraphNode } from './KnowledgeGraphNode';
 import { categoryColors, getRootNodes } from './knowledgeGraphConfig';
@@ -305,7 +305,7 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
       <Controls />
       <MiniMap
         nodeColor={(node) => {
-          const category = node.data?.category as KnowledgeNode['category'];
+          const category = node.data?.category as Knowledge['category'];
           return category ? categoryColors[category] : '#94a3b8';
         }}
         maskColor="rgba(0, 0, 0, 0.1)"

@@ -1,12 +1,12 @@
 /**
- * Knowledge Web Node Types
+ * Knowledge Web Types
  *
- * Defines the schema for knowledge nodes in the knowledge web visualization.
- * Each node represents a skill, technology, or concept with relationships to other nodes.
+ * Defines the schema for knowledge entities in the knowledge web visualization.
+ * Each knowledge represents a skill, technology, or concept with relationships to other knowledge entities.
  */
 
 /**
- * Category classification for knowledge nodes
+ * Category classification for knowledge entities
  */
 export type KnowledgeCategory =
   | 'root'
@@ -23,19 +23,19 @@ export type KnowledgeCategory =
 export type SkillLevel = 'beginner' | 'intermediate' | 'advanced';
 
 /**
- * Knowledge Node Schema
+ * Knowledge Schema
  *
- * Represents a single node in the knowledge web with:
+ * Represents a single knowledge entity in the knowledge web with:
  * - Basic metadata (id, title, category)
  * - Short description for initial load (performance optimization)
  * - External MDX file reference for detailed content (lazy-loaded)
- * - Relationship mapping to other nodes
+ * - Relationship mapping to other knowledge entities
  */
-export interface KnowledgeNode {
-  /** Unique identifier for the node (kebab-case recommended) */
+export interface Knowledge {
+  /** Unique identifier for the knowledge (kebab-case recommended) */
   id: string;
 
-  /** Display title of the node */
+  /** Display title of the knowledge */
   title: string;
 
   /** Category classification */
@@ -50,12 +50,12 @@ export interface KnowledgeNode {
   /**
    * Path to external MDX file containing detailed markdown content
    * Format: relative path from src/content/knowledge/ (e.g., "kafka.mdx")
-   * The modal will lazy-load this content when the node is clicked.
+   * The modal will lazy-load this content when the knowledge is clicked.
    */
   markdownFile: string;
 
   /**
-   * Array of related node IDs
+   * Array of related knowledge IDs
    * Used to create edges/connections in the graph visualization
    */
   related: string[];
@@ -72,12 +72,12 @@ export interface KnowledgeNode {
 }
 
 /**
- * Knowledge Node with loaded markdown content
+ * Knowledge with loaded markdown content
  *
- * Extended interface for nodes that have had their markdown content loaded.
+ * Extended interface for knowledge entities that have had their markdown content loaded.
  * Used internally by components that render the detailed content.
  */
-export interface KnowledgeNodeWithContent extends KnowledgeNode {
+export interface KnowledgeWithContent extends Knowledge {
   /** Loaded markdown content (React component from MDX) */
   markdownComponent: React.ComponentType;
 }

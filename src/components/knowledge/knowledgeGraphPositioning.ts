@@ -1,11 +1,11 @@
-import { KnowledgeNode } from '@/types/knowledge';
+import { Knowledge } from '@/types/knowledge';
 import { knowledges } from '@/data/knowledges';
 import { LAYOUT_CONSTANTS } from './knowledgeGraphConfig';
 import { findRootForNode, findHubNode } from './knowledgeGraphHierarchy';
 
 interface PositionContext {
   visibleNodeIds: Set<string>;
-  visibleNodes: KnowledgeNode[];
+  visibleNodes: Knowledge[];
   rootPositions: Map<string, { x: number; y: number }>;
   previousPositions: Map<string, { x: number; y: number }>;
   parentNodeMap: Map<string, string>;
@@ -20,7 +20,7 @@ interface PositionContext {
  * 5. Random position (last resort)
  */
 export function calculateNodePosition(
-  node: KnowledgeNode,
+  node: Knowledge,
   context: PositionContext
 ): { initialX: number; initialY: number; targetX?: number } {
   const {
@@ -57,11 +57,11 @@ export function calculateNodePosition(
   if (directParentId) {
     let parentPos = previousPositions.get(directParentId);
     if (!parentPos) {
-      const parentKnowledgeNode = knowledges.find(
+      const parentKnowledge = knowledges.find(
         (n) => n.id === directParentId
       );
       if (
-        parentKnowledgeNode?.category === 'root' &&
+        parentKnowledge?.category === 'root' &&
         rootPositions.has(directParentId)
       ) {
         parentPos = rootPositions.get(directParentId)!;
@@ -74,7 +74,7 @@ export function calculateNodePosition(
         const siblings = parentNode.related
           .filter((id) => visibleNodeIds.has(id))
           .map((id) => knowledges.find((n) => n.id === id))
-          .filter((n): n is KnowledgeNode => n !== undefined);
+          .filter((n): n is Knowledge => n !== undefined);
 
         const siblingIndex = siblings.findIndex((n) => n.id === node.id);
         const totalSiblings = siblings.length;
@@ -156,7 +156,7 @@ export function calculateNodePosition(
  * This creates a clear visual separation between different knowledge domains.
  */
 export function calculateRootPositions(
-  rootNodes: KnowledgeNode[]
+  rootNodes: Knowledge[]
 ): Map<string, { x: number; y: number }> {
   const rootPositions = new Map<string, { x: number; y: number }>();
 

@@ -1,21 +1,38 @@
 import { ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
+import { cn } from '@/lib/utils';
+import { navLinkVariants } from '@/components/ui/nav-link-variants';
 
 interface LayoutProps {
   children: ReactNode;
 }
 
+interface NavLinkProps {
+  to: string;
+  children: React.ReactNode;
+  currentPath: string;
+}
+
 /**
- * Layout Component
- *
- * Provides the main application shell with navigation and accessibility features.
- * Includes:
- * - Semantic HTML structure
- * - Skip to main content link for screen readers
- * - Navigation with ARIA labels
+ * Navigation link component styled to match shadcn/ui docs design.
  */
+function NavLink({ to, children, currentPath }: NavLinkProps) {
+  const isActive = currentPath === to;
+
+  return (
+    <Link
+      to={to}
+      className={cn(
+        navLinkVariants({ variant: isActive ? 'active' : 'default' })
+      )}
+      aria-current={isActive ? 'page' : undefined}
+    >
+      {children}
+    </Link>
+  );
+}
+
 export function Layout({ children }: LayoutProps) {
   const { t } = useTranslation();
   const location = useLocation();
@@ -27,51 +44,23 @@ export function Layout({ children }: LayoutProps) {
         Skip to main content
       </a>
 
-      <header role="banner">
-        <nav role="navigation" aria-label="Main navigation">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <ul className="nav-list">
-              <li>
-                <Link
-                  to="/"
-                  className={location.pathname === '/' ? 'active' : ''}
-                  aria-current={location.pathname === '/' ? 'page' : undefined}
-                >
-                  {t('common.contact')}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/knowledge-web"
-                  className={
-                    location.pathname === '/knowledge-web' ? 'active' : ''
-                  }
-                  aria-current={
-                    location.pathname === '/knowledge-web' ? 'page' : undefined
-                  }
-                >
-                  {t('common.knowledgeWeb')}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/work-history"
-                  className={
-                    location.pathname === '/work-history' ? 'active' : ''
-                  }
-                  aria-current={
-                    location.pathname === '/work-history' ? 'page' : undefined
-                  }
-                >
-                  {t('common.workHistory')}
-                </Link>
-              </li>
-            </ul>
-          </motion.div>
+      <header role="banner" className="border-b border-border bg-background">
+        <nav
+          role="navigation"
+          aria-label="Main navigation"
+          className="container flex h-8 items-center justify-start px-4"
+        >
+          <nav className="hidden lg:flex items-center gap-1">
+            <NavLink to="/" currentPath={location.pathname}>
+              {t('common.contact')}
+            </NavLink>
+            <NavLink to="/knowledge-web" currentPath={location.pathname}>
+              {t('common.knowledgeWeb')}
+            </NavLink>
+            <NavLink to="/work-history" currentPath={location.pathname}>
+              {t('common.workHistory')}
+            </NavLink>
+          </nav>
         </nav>
       </header>
 

@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { KnowledgeGraph } from '@/components/knowledge/KnowledgeGraph';
+import { KnowledgeList } from '@/components/knowledge/KnowledgeList';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
+import { knowledgeNodes } from '@/data/knowledgeNodes';
 
 type ViewMode = 'cards' | 'graph';
 
@@ -60,12 +62,7 @@ export function KnowledgeWeb() {
 
       <section className="mb-8 lg:mb-12">
         {viewMode === 'cards' && (
-          <div>
-            {/* TODO: Implement card grid view */}
-            <p className="text-base text-gray-600 dark:text-gray-400">
-              Cards view coming soon...
-            </p>
-          </div>
+          <KnowledgeList nodes={knowledgeNodes} onNodeClick={handleNodeClick} />
         )}
 
         {viewMode === 'graph' && (

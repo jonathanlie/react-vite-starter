@@ -103,7 +103,7 @@ npm run type-check
 ## 📁 Project Structure
 
 ```
-react-vite-starter/
+personal-portfolio/
 ├── src/
 │   ├── components/          # Reusable components
 │   │   ├── __tests__/       # Component tests

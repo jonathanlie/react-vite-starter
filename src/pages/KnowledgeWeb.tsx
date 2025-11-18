@@ -1,14 +1,24 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, lazy, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import Fuse from 'fuse.js';
-import { KnowledgeGraph } from '@/components/knowledge/KnowledgeGraph';
+import { Loader2 } from 'lucide-react';
 import { KnowledgeList } from '@/components/knowledge/KnowledgeList';
 import { KnowledgeModal } from '@/components/knowledge/KnowledgeModal';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { SearchInput } from '@/components/common/SearchInput';
 import { PaginationControls } from '@/components/common/PaginationControls';
 import { knowledges } from '@/data/knowledges';
+
+/**
+ * Lazy-loaded KnowledgeGraph component
+ * Only loaded when graph view is selected, reducing initial bundle size
+ */
+const KnowledgeGraph = lazy(() =>
+  import('@/components/knowledge/KnowledgeGraph').then((module) => ({
+    default: module.KnowledgeGraph,
+  }))
+);
 
 type ViewMode = 'cards' | 'graph';
 
@@ -137,7 +147,15 @@ export function KnowledgeWeb() {
         )}
 
         {viewMode === 'graph' && (
-          <KnowledgeGraph onNodeClick={handleKnowledgeClick} />
+          <Suspense
+            fallback={
+              <div className="flex items-center justify-center h-[calc(100vh-200px)] min-h-[800px]">
+                <Loader2 className="h-8 w-8 animate-spin text-gray-400" />
+              </div>
+            }
+          >
+            <KnowledgeGraph onNodeClick={handleKnowledgeClick} />
+          </Suspense>
         )}
       </section>
 

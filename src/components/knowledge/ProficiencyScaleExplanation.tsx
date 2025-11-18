@@ -16,28 +16,28 @@ export function ProficiencyScaleExplanation() {
       range: '1-2',
       descriptionKey: 'proficiencyScale.conceptual.description',
       segments: 1,
-      color: 'bg-blue-500',
+      color: '#1eff00', // Green - Conceptual
     },
     {
       nameKey: 'proficiencyScale.operational.name',
       range: '3-5',
       descriptionKey: 'proficiencyScale.operational.description',
       segments: 2,
-      color: 'bg-green-500',
+      color: '#0070ff', // Blue - Operational
     },
     {
       nameKey: 'proficiencyScale.proficient.name',
       range: '6-7',
       descriptionKey: 'proficiencyScale.proficient.description',
       segments: 3,
-      color: 'bg-yellow-500',
+      color: '#a335ee', // Purple - Proficient
     },
     {
       nameKey: 'proficiencyScale.architectural.name',
       range: '8-10',
       descriptionKey: 'proficiencyScale.architectural.description',
       segments: 4,
-      color: 'bg-purple-500',
+      color: '#ff8000', // Orange - Architectural
     },
   ];
 
@@ -68,10 +68,14 @@ export function ProficiencyScaleExplanation() {
                   <div
                     key={segment}
                     className={`w-8 h-2 rounded ${
-                      segment <= tier.segments
-                        ? tier.color
-                        : 'bg-gray-300 dark:bg-gray-600'
+                      !(segment <= tier.segments)
+                        ? 'bg-gray-300 dark:bg-gray-600'
+                        : ''
                     }`}
+                    style={{
+                      backgroundColor:
+                        segment <= tier.segments ? tier.color : undefined,
+                    }}
                     aria-label={
                       segment <= tier.segments
                         ? `Segment ${segment} active`

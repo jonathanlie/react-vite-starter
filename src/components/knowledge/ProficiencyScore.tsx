@@ -1,5 +1,3 @@
-import { Knowledge } from '@/types/knowledge';
-
 interface ProficiencyScoreProps {
   /** Proficiency score from 1-10 */
   score: number;
@@ -22,17 +20,17 @@ function getSegmentsForScore(score: number): number {
 }
 
 /**
- * Get the color for the segments based on proficiency score
+ * Get the color for the segments based on proficiency score (FFLogs color scheme)
  *
  * @param score - Proficiency score (1-10)
- * @returns Tailwind color class for the segments
+ * @returns Hex color code for the segments
  */
 function getColorForScore(score: number): string {
-  if (score >= 1 && score <= 2) return 'bg-blue-500'; // Conceptual
-  if (score >= 3 && score <= 5) return 'bg-green-500'; // Operational
-  if (score >= 6 && score <= 7) return 'bg-yellow-500'; // Proficient
-  if (score >= 8 && score <= 10) return 'bg-purple-500'; // Architectural
-  return 'bg-gray-500'; // Invalid score
+  if (score >= 1 && score <= 2) return '#1eff00'; // Green - Conceptual
+  if (score >= 3 && score <= 5) return '#0070ff'; // Blue - Operational
+  if (score >= 6 && score <= 7) return '#a335ee'; // Purple - Proficient
+  if (score >= 8 && score <= 10) return '#ff8000'; // Orange - Architectural
+  return '#808080'; // Invalid score
 }
 
 /**
@@ -65,10 +63,12 @@ export function ProficiencyScore({
         <div
           key={segment}
           className={`w-8 h-2 rounded transition-colors ${
-            segment <= segmentsToLight
-              ? segmentColor
-              : 'bg-gray-300 dark:bg-gray-600'
+            !(segment <= segmentsToLight) ? 'bg-gray-300 dark:bg-gray-600' : ''
           }`}
+          style={{
+            backgroundColor:
+              segment <= segmentsToLight ? segmentColor : undefined,
+          }}
           aria-label={
             segment <= segmentsToLight
               ? `Segment ${segment} active`
@@ -78,14 +78,4 @@ export function ProficiencyScore({
       ))}
     </div>
   );
-}
-
-/**
- * Helper function to get proficiency score from a Knowledge object
- *
- * @param knowledge - Knowledge object
- * @returns Proficiency score or undefined
- */
-export function getProficiencyScore(knowledge: Knowledge): number | undefined {
-  return knowledge.proficiencyScore;
 }

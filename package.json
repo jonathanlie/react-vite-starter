@@ -94,6 +94,7 @@
     "reactflow": "^11.11.4",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.16",
+    "tailwindcss-animate": "^1.0.7",
     "zod": "^4.1.12",
     "zustand": "^5.0.8"
   }

@@ -106,7 +106,12 @@ export function Contact() {
                   variant="ghost"
                   className="px-6 py-3 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 mt-auto w-auto self-start"
                 >
-                  <a href="/resume.pdf" download>
+                  <a
+                    href="/resume.pdf"
+                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {t('contact.viewResume', 'View Resume (PDF)')}
                   </a>
                 </Button>

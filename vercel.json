@@ -6,7 +6,11 @@
   "framework": "vite",
   "rewrites": [
     {
-      "source": "/:path*",
+      "source": "/(.*)\\.pdf",
+      "destination": "/$1.pdf"
+    },
+    {
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ],

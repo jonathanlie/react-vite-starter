@@ -32,6 +32,25 @@
     "viewCards": "Cards",
     "viewGraph": "Graph"
   },
+  "proficiencyScale": {
+    "title": "Proficiency Scale",
+    "conceptual": {
+      "name": "Conceptual",
+      "description": "You can discuss the core concepts, its trade-offs, and know where to find the documentation. (No hands-on production experience.)"
+    },
+    "operational": {
+      "name": "Operational",
+      "description": "You can safely use, debug, and maintain existing production code. You can make controlled configuration changes and participate in on-call for systems using this technology."
+    },
+    "proficient": {
+      "name": "Proficient",
+      "description": "You can independently design, build, and deploy new features or modules using best practices. You are the go-to person on the team for fixes and features within this technology."
+    },
+    "architectural": {
+      "name": "Architectural",
+      "description": "You can define coding standards, set up the project structure from scratch, enforce design patterns, and mentor other engineers effectively."
+    }
+  },
   "workHistory": {
     "title": "Work History",
     "description": "A detailed overview of my professional experience and contributions at previous companies."

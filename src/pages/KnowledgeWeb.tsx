@@ -5,6 +5,7 @@ import Fuse from 'fuse.js';
 import { Loader2 } from 'lucide-react';
 import { KnowledgeList } from '@/components/knowledge/KnowledgeList';
 import { KnowledgeModal } from '@/components/knowledge/KnowledgeModal';
+import { ProficiencyScaleExplanation } from '@/components/knowledge/ProficiencyScaleExplanation';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { SearchInput } from '@/components/common/SearchInput';
 import { knowledges } from '@/data/knowledges';
@@ -89,6 +90,8 @@ export function KnowledgeWeb() {
             'Explore my technical knowledge and skills. Click on any node to view detailed information.'
           )}
         </p>
+
+        <ProficiencyScaleExplanation />
 
         <ToggleGroup
           type="single"

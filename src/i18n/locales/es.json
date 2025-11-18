@@ -32,6 +32,25 @@
     "viewCards": "Tarjetas",
     "viewGraph": "Gráfico"
   },
+  "proficiencyScale": {
+    "title": "Escala de Competencia",
+    "conceptual": {
+      "name": "Conceptual",
+      "description": "Puedes discutir los conceptos principales, sus ventajas y desventajas, y sabes dónde encontrar la documentación. (Sin experiencia práctica en producción.)"
+    },
+    "operational": {
+      "name": "Operacional",
+      "description": "Puedes usar, depurar y mantener código de producción existente de forma segura. Puedes hacer cambios de configuración controlados y participar en guardias para sistemas que usan esta tecnología."
+    },
+    "proficient": {
+      "name": "Competente",
+      "description": "Puedes diseñar, construir e implementar de forma independiente nuevas características o módulos usando mejores prácticas. Eres la persona de referencia en el equipo para correcciones y características dentro de esta tecnología."
+    },
+    "architectural": {
+      "name": "Arquitectónico",
+      "description": "Puedes definir estándares de codificación, configurar la estructura del proyecto desde cero, hacer cumplir patrones de diseño y mentorizar eficazmente a otros ingenieros."
+    }
+  },
   "workHistory": {
     "title": "Historial Laboral",
     "description": "Una descripción detallada de mi experiencia profesional y contribuciones en empresas anteriores."

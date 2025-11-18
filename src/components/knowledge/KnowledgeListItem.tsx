@@ -19,10 +19,20 @@ export function KnowledgeListItem({ node, onClick }: KnowledgeListItemProps) {
     onClick?.(node.id);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleClick();
+    }
+  };
+
   return (
     <Card
-      className="knowledge-card cursor-pointer border-0 text-left transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-[0_4px_12px_0_hsla(0,0%,0%,0.3)] shadow-[0_2px_8px_0_hsla(0,0%,0%,0.15)]"
+      role="button"
+      tabIndex={0}
+      className="knowledge-card cursor-pointer border-0 text-left transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-[0_4px_12px_0_hsla(0,0%,0%,0.3)] shadow-[0_2px_8px_0_hsla(0,0%,0%,0.15)] outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]"
       onClick={handleClick}
+      onKeyDown={handleKeyDown}
     >
       <CardHeader className="p-6 pb-4">
         <div className="flex items-start justify-between gap-4 mb-2">

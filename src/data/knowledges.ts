@@ -1219,6 +1219,41 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     proficiencyScore: 7,
   },
 
+  // Tooling - AI
+  {
+    id: 'ai',
+    title: 'AI',
+    category: 'tooling',
+    markdownFile: 'ai.mdx',
+    related: 'tooling',
+    level: 'intermediate',
+    proficiencyScore: 6,
+  },
+
+  // Tooling - AI - Cursor
+  {
+    id: 'cursor',
+    title: 'Cursor',
+    category: 'tooling',
+    markdownFile: 'cursor.mdx',
+    related: 'ai',
+    level: 'intermediate',
+    tags: ['tooling', 'ai', 'ide'],
+    proficiencyScore: 8,
+  },
+
+  // Tooling - AI - Gemini
+  {
+    id: 'gemini',
+    title: 'Gemini',
+    category: 'tooling',
+    markdownFile: 'gemini.mdx',
+    related: 'ai',
+    level: 'intermediate',
+    tags: ['tooling', 'ai'],
+    proficiencyScore: 7,
+  },
+
   // Concepts
   {
     id: 'concepts',

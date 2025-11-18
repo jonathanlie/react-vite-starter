@@ -8,6 +8,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     category: 'root',
     markdownFile: 'frontend.mdx',
     level: 'advanced',
+    proficiencyScore: 7,
   },
 
   // Frontend - Frameworks / Libraries
@@ -18,6 +19,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'frameworks-libraries.mdx',
     related: 'frontend',
     level: 'intermediate',
+    proficiencyScore: 10,
   },
 
   // Frontend - Frameworks / Libraries - Angular
@@ -29,6 +31,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'frameworks-libraries',
     level: 'advanced',
     tags: ['frontend', 'framework'],
+    proficiencyScore: 5,
   },
 
   // Frontend - Frameworks / Libraries - AngularJS
@@ -40,6 +43,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'frameworks-libraries',
     level: 'intermediate',
     tags: ['frontend', 'framework', 'legacy'],
+    proficiencyScore: 10,
   },
 
   // Frontend - Frameworks / Libraries - React
@@ -51,6 +55,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'frameworks-libraries',
     level: 'intermediate',
     tags: ['frontend', 'framework', 'mobile'],
+    proficiencyScore: 5,
   },
 
   // Frontend - Frameworks / Libraries - React Native
@@ -62,6 +67,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'frameworks-libraries',
     level: 'intermediate',
     tags: ['frontend', 'framework', 'mobile'],
+    proficiencyScore: 7,
   },
 
   // Frontend - Frameworks / Libraries - VueJS
@@ -73,6 +79,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'frameworks-libraries',
     level: 'intermediate',
     tags: ['frontend', 'framework'],
+    proficiencyScore: 3,
   },
 
   // Frontend - State Management
@@ -83,6 +90,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'state-management.mdx',
     related: 'frontend',
     level: 'intermediate',
+    proficiencyScore: 3,
   },
 
   // Frontend - State Management - Reflux
@@ -94,6 +102,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'state-management',
     level: 'intermediate',
     tags: ['frontend', 'state-management'],
+    proficiencyScore: 3,
   },
 
   // Frontend - State Management - NgRx
@@ -105,6 +114,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'state-management',
     level: 'intermediate',
     tags: ['frontend', 'state-management', 'angular'],
+    proficiencyScore: 7,
   },
 
   // Frontend - State Management - Redux
@@ -116,6 +126,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'state-management',
     level: 'intermediate',
     tags: ['frontend', 'state-management'],
+    proficiencyScore: 9,
   },
 
   // Frontend - State Management - Zustand
@@ -127,6 +138,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'state-management',
     level: 'intermediate',
     tags: ['frontend', 'state-management', 'react'],
+    proficiencyScore: 10,
   },
 
   // Frontend - Typescript
@@ -137,6 +149,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'typescript.mdx',
     related: 'frontend',
     level: 'intermediate',
+    proficiencyScore: 4,
   },
 
   // Frontend - Typescript - Generics
@@ -148,6 +161,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'typescript',
     level: 'intermediate',
     tags: ['frontend', 'typescript'],
+    proficiencyScore: 6,
   },
 
   // Frontend - Typescript - Utility Types
@@ -159,6 +173,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'typescript',
     level: 'intermediate',
     tags: ['frontend', 'typescript'],
+    proficiencyScore: 6,
   },
 
   // Frontend - Typescript - Type Guards
@@ -170,6 +185,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'typescript',
     level: 'intermediate',
     tags: ['frontend', 'typescript'],
+    proficiencyScore: 5,
   },
 
   // Frontend - Styling
@@ -180,6 +196,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'styling.mdx',
     related: 'frontend',
     level: 'intermediate',
+    proficiencyScore: 3,
   },
 
   // Frontend - Styling - Tailwind CSS
@@ -191,6 +208,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'styling',
     level: 'intermediate',
     tags: ['frontend', 'styling', 'css'],
+    proficiencyScore: 3,
   },
 
   // Frontend - Styling - CSS-in-JS
@@ -202,6 +220,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'styling',
     level: 'intermediate',
     tags: ['frontend', 'styling'],
+    proficiencyScore: 3,
   },
 
   // Frontend - Styling - CSS Preprocessors
@@ -213,6 +232,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'styling',
     level: 'intermediate',
     tags: ['frontend', 'styling', 'css'],
+    proficiencyScore: 6,
   },
 
   // Frontend - Build Tools
@@ -223,6 +243,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'build-tools.mdx',
     related: 'frontend',
     level: 'intermediate',
+    proficiencyScore: 1,
   },
 
   // Frontend - Build Tools - Vite
@@ -234,6 +255,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'build-tools',
     level: 'intermediate',
     tags: ['frontend', 'build-tools'],
+    proficiencyScore: 3,
   },
 
   // Frontend - Build Tools - Webpack
@@ -245,6 +267,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'build-tools',
     level: 'intermediate',
     tags: ['frontend', 'build-tools'],
+    proficiencyScore: 3,
   },
 
   // Frontend - Build Tools - Babel
@@ -256,6 +279,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'build-tools',
     level: 'intermediate',
     tags: ['frontend', 'build-tools'],
+    proficiencyScore: 1,
   },
 
   // Frontend - Internationalization - i18n
@@ -267,6 +291,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'frontend',
     level: 'advanced',
     tags: ['frontend', 'i18n', 'accessibility'],
+    proficiencyScore: 10,
   },
 
   // Frontend - Internationalization - i18n - RTL (Right-to-Left)
@@ -278,6 +303,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'internationalization-i18n',
     level: 'advanced',
     tags: ['frontend', 'i18n', 'rtl', 'accessibility'],
+    proficiencyScore: 9,
   },
 
   // Frontend - Accessibility - a11y
@@ -288,6 +314,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'accessibility-a11y.mdx',
     related: 'frontend',
     level: 'intermediate',
+    proficiencyScore: 7,
   },
 
   // Frontend - Accessibility - a11y - aria attributes
@@ -299,6 +326,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'accessibility-a11y',
     level: 'intermediate',
     tags: ['frontend', 'accessibility', 'a11y'],
+    proficiencyScore: 1,
   },
 
   // Frontend - Accessibility - a11y - keyboard navigation
@@ -310,6 +338,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'accessibility-a11y',
     level: 'intermediate',
     tags: ['frontend', 'accessibility', 'a11y'],
+    proficiencyScore: 5,
   },
 
   // Frontend - Accessibility - a11y - voiceover
@@ -321,6 +350,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'accessibility-a11y',
     level: 'intermediate',
     tags: ['frontend', 'accessibility', 'a11y'],
+    proficiencyScore: 6,
   },
 
   // Frontend - Accessibility - a11y - semantic HTML
@@ -332,6 +362,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'accessibility-a11y',
     level: 'intermediate',
     tags: ['frontend', 'accessibility', 'a11y', 'html'],
+    proficiencyScore: 9,
   },
 
   // Frontend - Frontend Testing
@@ -342,6 +373,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'frontend-testing.mdx',
     related: 'frontend',
     level: 'intermediate',
+    proficiencyScore: 6,
   },
 
   // Frontend - Frontend Testing - Jest
@@ -353,6 +385,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'frontend-testing',
     level: 'intermediate',
     tags: ['frontend', 'testing'],
+    proficiencyScore: 3,
   },
 
   // Frontend - Frontend Testing - Jasmine
@@ -364,6 +397,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'frontend-testing',
     level: 'intermediate',
     tags: ['frontend', 'testing'],
+    proficiencyScore: 4,
   },
 
   // Frontend - Frontend Testing - Playwright
@@ -375,6 +409,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'frontend-testing',
     level: 'intermediate',
     tags: ['frontend', 'testing', 'e2e'],
+    proficiencyScore: 6,
   },
 
   // Frontend - Web Performance
@@ -386,6 +421,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'frontend',
     level: 'advanced',
     tags: ['frontend', 'optimization', 'performance'],
+    proficiencyScore: 6,
   },
 
   // Frontend - Web Performance - Code splitting
@@ -397,6 +433,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'web-performance',
     level: 'advanced',
     tags: ['frontend', 'optimization', 'performance'],
+    proficiencyScore: 1,
   },
 
   // Frontend - Web Performance - Lazy loading
@@ -408,6 +445,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'web-performance',
     level: 'advanced',
     tags: ['frontend', 'optimization', 'performance'],
+    proficiencyScore: 5,
   },
 
   // Backend
@@ -417,6 +455,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     category: 'root',
     markdownFile: 'backend.mdx',
     level: 'intermediate',
+    proficiencyScore: 5,
   },
 
   // Backend - Languages / Runtimes
@@ -427,6 +466,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'languages-runtimes.mdx',
     related: 'backend',
     level: 'intermediate',
+    proficiencyScore: 10,
   },
 
   // Backend - Languages / Runtimes - Ruby
@@ -438,6 +478,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'languages-runtimes',
     level: 'intermediate',
     tags: ['backend', 'language'],
+    proficiencyScore: 7,
   },
 
   // Backend - Languages / Runtimes - Python
@@ -449,6 +490,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'languages-runtimes',
     level: 'intermediate',
     tags: ['backend', 'language'],
+    proficiencyScore: 5,
   },
 
   // Backend - Frameworks / Libraries (Ruby)
@@ -459,6 +501,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'frameworks-libraries-ruby.mdx',
     related: 'backend',
     level: 'intermediate',
+    proficiencyScore: 6,
   },
 
   // Backend - Frameworks / Libraries (Ruby) - Ruby on Rails
@@ -470,6 +513,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'frameworks-libraries-ruby',
     level: 'intermediate',
     tags: ['backend', 'framework', 'ruby'],
+    proficiencyScore: 10,
   },
 
   // Backend - Frameworks / Libraries (Ruby) - Sidekiq
@@ -481,6 +525,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'frameworks-libraries-ruby',
     level: 'intermediate',
     tags: ['backend', 'ruby', 'background-jobs'],
+    proficiencyScore: 3,
   },
 
   // Backend - Frameworks / Libraries (Ruby) - ActionCable
@@ -492,6 +537,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'frameworks-libraries-ruby',
     level: 'intermediate',
     tags: ['backend', 'ruby', 'rails', 'websocket'],
+    proficiencyScore: 8,
   },
 
   // Backend - Frameworks / Libraries (Ruby) - Dry::Validation
@@ -503,6 +549,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'frameworks-libraries-ruby',
     level: 'intermediate',
     tags: ['backend', 'ruby', 'validation'],
+    proficiencyScore: 8,
   },
 
   // Backend - Frameworks / Libraries (Ruby) - MJML - Liquid
@@ -514,6 +561,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'frameworks-libraries-ruby',
     level: 'intermediate',
     tags: ['backend', 'email', 'templates'],
+    proficiencyScore: 3,
   },
 
   // Backend - Messaging / Event Streaming
@@ -524,6 +572,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'messaging-event-streaming.mdx',
     related: 'backend',
     level: 'intermediate',
+    proficiencyScore: 1,
   },
 
   // Backend - Messaging / Event Streaming - Kafka
@@ -535,6 +584,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'messaging-event-streaming',
     level: 'intermediate',
     tags: ['backend', 'messaging', 'event-streaming'],
+    proficiencyScore: 10,
   },
 
   // Backend - Authentication / Authorization
@@ -545,6 +595,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'authentication-authorization.mdx',
     related: 'backend',
     level: 'intermediate',
+    proficiencyScore: 4,
   },
 
   // Backend - Authentication / Authorization - OAuth2
@@ -556,6 +607,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'authentication-authorization',
     level: 'intermediate',
     tags: ['backend', 'authentication', 'authorization'],
+    proficiencyScore: 5,
   },
 
   // Backend - Authentication / Authorization - JWT
@@ -567,6 +619,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'authentication-authorization',
     level: 'intermediate',
     tags: ['backend', 'authentication'],
+    proficiencyScore: 3,
   },
 
   // Backend - Authentication / Authorization - Single Sign-On
@@ -578,6 +631,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'authentication-authorization',
     level: 'intermediate',
     tags: ['backend', 'authentication', 'sso'],
+    proficiencyScore: 10,
   },
 
   // Backend - API Design
@@ -589,6 +643,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'backend',
     level: 'intermediate',
     tags: ['backend', 'api', 'openapi'],
+    proficiencyScore: 10,
   },
 
   // Backend - API Design - REST
@@ -600,6 +655,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'api-design',
     level: 'intermediate',
     tags: ['backend', 'api'],
+    proficiencyScore: 1,
   },
 
   // Backend - API Design - GraphQL
@@ -611,6 +667,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'api-design',
     level: 'intermediate',
     tags: ['backend', 'api'],
+    proficiencyScore: 2,
   },
 
   // Backend - API Design - gRPC
@@ -622,6 +679,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'api-design',
     level: 'intermediate',
     tags: ['backend', 'api'],
+    proficiencyScore: 10,
   },
 
   // Backend - Backend Testing
@@ -632,6 +690,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'backend-testing.mdx',
     related: 'backend',
     level: 'intermediate',
+    proficiencyScore: 10,
   },
 
   // Backend - Backend Testing - RSpec
@@ -643,6 +702,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'backend-testing',
     level: 'intermediate',
     tags: ['backend', 'testing', 'ruby'],
+    proficiencyScore: 1,
   },
 
   // Backend - Backend Testing - Postman
@@ -654,6 +714,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'backend-testing',
     level: 'intermediate',
     tags: ['backend', 'testing', 'api'],
+    proficiencyScore: 10,
   },
 
   // Backend - Backend Testing - FactoryBot
@@ -665,6 +726,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'backend-testing',
     level: 'intermediate',
     tags: ['backend', 'testing', 'ruby'],
+    proficiencyScore: 10,
   },
 
   // Backend - Backend Testing - Gatling
@@ -676,6 +738,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'backend-testing',
     level: 'intermediate',
     tags: ['backend', 'testing', 'performance'],
+    proficiencyScore: 3,
   },
 
   // Devops
@@ -685,6 +748,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     category: 'root',
     markdownFile: 'devops.mdx',
     level: 'intermediate',
+    proficiencyScore: 4,
   },
 
   // Devops - Infrastructure as Code (IaC)
@@ -695,6 +759,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'infrastructure-as-code-iac.mdx',
     related: 'devops',
     level: 'intermediate',
+    proficiencyScore: 4,
   },
 
   // Devops - Infrastructure as Code (IaC) - Terraform
@@ -706,6 +771,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'infrastructure-as-code-iac',
     level: 'intermediate',
     tags: ['devops', 'iac'],
+    proficiencyScore: 8,
   },
 
   // Devops - Containerization & Orchestration
@@ -716,6 +782,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'containerization-orchestration.mdx',
     related: 'devops',
     level: 'intermediate',
+    proficiencyScore: 5,
   },
 
   // Devops - Containerization & Orchestration - Docker
@@ -727,6 +794,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'containerization-orchestration',
     level: 'intermediate',
     tags: ['devops', 'containerization'],
+    proficiencyScore: 4,
   },
 
   // Devops - Containerization & Orchestration - Docker - Docker Compose
@@ -738,6 +806,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'docker',
     level: 'intermediate',
     tags: ['devops', 'containerization', 'docker'],
+    proficiencyScore: 5,
   },
 
   // Devops - Containerization & Orchestration - Kubernetes (k8s)
@@ -749,6 +818,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'containerization-orchestration',
     level: 'intermediate',
     tags: ['devops', 'orchestration'],
+    proficiencyScore: 7,
   },
 
   // Devops - Cloud
@@ -759,6 +829,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'cloud.mdx',
     related: 'devops',
     level: 'intermediate',
+    proficiencyScore: 8,
   },
 
   // Devops - Cloud - AWS
@@ -770,6 +841,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'cloud',
     level: 'intermediate',
     tags: ['devops', 'cloud'],
+    proficiencyScore: 8,
   },
 
   // Devops - Cloud - AWS - EC2
@@ -781,6 +853,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'aws',
     level: 'intermediate',
     tags: ['devops', 'cloud', 'aws'],
+    proficiencyScore: 2,
   },
 
   // Devops - Cloud - AWS - S3
@@ -792,6 +865,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'aws',
     level: 'intermediate',
     tags: ['devops', 'cloud', 'aws'],
+    proficiencyScore: 6,
   },
 
   // Devops - Cloud - AWS - RDS
@@ -803,6 +877,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'aws',
     level: 'intermediate',
     tags: ['devops', 'cloud', 'aws', 'database'],
+    proficiencyScore: 7,
   },
 
   // Devops - Cloud - AWS - IAM
@@ -814,6 +889,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'aws',
     level: 'intermediate',
     tags: ['devops', 'cloud', 'aws', 'security'],
+    proficiencyScore: 10,
   },
 
   // Devops - Cloud - AWS - VPC
@@ -825,6 +901,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'aws',
     level: 'intermediate',
     tags: ['devops', 'cloud', 'aws', 'networking'],
+    proficiencyScore: 3,
   },
 
   // Devops - CI/CD
@@ -835,6 +912,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'ci-cd.mdx',
     related: 'devops',
     level: 'intermediate',
+    proficiencyScore: 6,
   },
 
   // Devops - CI/CD - Github Actions
@@ -846,6 +924,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'ci-cd',
     level: 'intermediate',
     tags: ['devops', 'ci-cd'],
+    proficiencyScore: 9,
   },
 
   // Devops - CI/CD - Jenkins
@@ -857,6 +936,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'ci-cd',
     level: 'intermediate',
     tags: ['devops', 'ci-cd'],
+    proficiencyScore: 6,
   },
 
   // Devops - CI/CD - CircleCI
@@ -868,6 +948,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'ci-cd',
     level: 'intermediate',
     tags: ['devops', 'ci-cd'],
+    proficiencyScore: 4,
   },
 
   // Tooling
@@ -877,6 +958,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     category: 'root',
     markdownFile: 'tooling.mdx',
     level: 'intermediate',
+    proficiencyScore: 7,
   },
 
   // Tooling - Version Control
@@ -887,6 +969,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'version-control.mdx',
     related: 'tooling',
     level: 'intermediate',
+    proficiencyScore: 10,
   },
 
   // Tooling - Version Control - Git
@@ -898,6 +981,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'version-control',
     level: 'intermediate',
     tags: ['tooling', 'version-control'],
+    proficiencyScore: 9,
   },
 
   // Tooling - Observability
@@ -909,6 +993,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'tooling',
     level: 'intermediate',
     tags: ['tooling', 'monitoring'],
+    proficiencyScore: 8,
   },
 
   // Tooling - Observability - Grafana
@@ -920,6 +1005,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'observability',
     level: 'intermediate',
     tags: ['tooling', 'observability', 'monitoring'],
+    proficiencyScore: 8,
   },
 
   // Tooling - Observability - Appsignal
@@ -931,6 +1017,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'observability',
     level: 'intermediate',
     tags: ['tooling', 'observability', 'monitoring'],
+    proficiencyScore: 10,
   },
 
   // Tooling - Observability - Rollbar
@@ -942,6 +1029,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'observability',
     level: 'intermediate',
     tags: ['tooling', 'observability', 'monitoring'],
+    proficiencyScore: 2,
   },
 
   // Tooling - Observability - Datadog
@@ -953,6 +1041,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'observability',
     level: 'intermediate',
     tags: ['tooling', 'observability', 'monitoring'],
+    proficiencyScore: 6,
   },
 
   // Tooling - Observability - Prometheus
@@ -964,6 +1053,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'observability',
     level: 'intermediate',
     tags: ['tooling', 'observability', 'monitoring'],
+    proficiencyScore: 6,
   },
 
   // Tooling - Content (Headless CMS)
@@ -974,6 +1064,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'content-headless-cms.mdx',
     related: 'tooling',
     level: 'intermediate',
+    proficiencyScore: 1,
   },
 
   // Tooling - Content (Headless CMS) - PhraseApp
@@ -985,6 +1076,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'content-headless-cms',
     level: 'intermediate',
     tags: ['tooling', 'i18n', 'cms'],
+    proficiencyScore: 3,
   },
 
   // Tooling - Content (Headless CMS) - Prismic
@@ -996,6 +1088,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'content-headless-cms',
     level: 'intermediate',
     tags: ['tooling', 'cms'],
+    proficiencyScore: 2,
   },
 
   // Tooling - Testing (Cross-Browser)
@@ -1006,6 +1099,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'testing-cross-browser.mdx',
     related: 'tooling',
     level: 'intermediate',
+    proficiencyScore: 8,
   },
 
   // Tooling - Testing (Cross-Browser) - Browserstack
@@ -1017,6 +1111,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'testing-cross-browser',
     level: 'intermediate',
     tags: ['tooling', 'testing'],
+    proficiencyScore: 1,
   },
 
   // Tooling - Third-Party APIs / Services
@@ -1027,6 +1122,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'third-party-apis-services.mdx',
     related: 'tooling',
     level: 'intermediate',
+    proficiencyScore: 5,
   },
 
   // Tooling - Third-Party APIs / Services - Geospatial
@@ -1038,6 +1134,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'third-party-apis-services',
     level: 'intermediate',
     tags: ['tooling', 'api', 'maps'],
+    proficiencyScore: 8,
   },
 
   // Tooling - Third-Party APIs / Services - Geospatial - Google Maps
@@ -1049,6 +1146,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'geospatial',
     level: 'intermediate',
     tags: ['tooling', 'api', 'maps', 'geospatial'],
+    proficiencyScore: 1,
   },
 
   // Tooling - Third-Party APIs / Services - Geospatial - Mapbox
@@ -1060,6 +1158,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'geospatial',
     level: 'intermediate',
     tags: ['tooling', 'api', 'maps', 'geospatial'],
+    proficiencyScore: 3,
   },
 
   // Tooling - Third-Party APIs / Services - Payment
@@ -1070,6 +1169,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'payment.mdx',
     related: 'third-party-apis-services',
     level: 'intermediate',
+    proficiencyScore: 10,
   },
 
   // Tooling - Third-Party APIs / Services - Payment - Stripe
@@ -1081,6 +1181,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'payment',
     level: 'intermediate',
     tags: ['tooling', 'api', 'payment'],
+    proficiencyScore: 5,
   },
 
   // Tooling - Third-Party APIs / Services - Communication
@@ -1091,6 +1192,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'communication.mdx',
     related: 'third-party-apis-services',
     level: 'intermediate',
+    proficiencyScore: 9,
   },
 
   // Tooling - Third-Party APIs / Services - Communication - Twilio
@@ -1102,6 +1204,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'communication',
     level: 'intermediate',
     tags: ['tooling', 'api', 'communication'],
+    proficiencyScore: 5,
   },
 
   // Tooling - Third-Party APIs / Services - Communication - Mailgun
@@ -1113,6 +1216,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'communication',
     level: 'intermediate',
     tags: ['tooling', 'api', 'communication', 'email'],
+    proficiencyScore: 7,
   },
 
   // Concepts
@@ -1122,6 +1226,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     category: 'root',
     markdownFile: 'concepts.mdx',
     level: 'advanced',
+    proficiencyScore: 6,
   },
 
   // Concepts - General Principles
@@ -1132,6 +1237,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'general-principles.mdx',
     related: 'concepts',
     level: 'advanced',
+    proficiencyScore: 1,
   },
 
   // Concepts - General Principles - Idempotency
@@ -1143,6 +1249,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'general-principles',
     level: 'advanced',
     tags: ['concept', 'principle'],
+    proficiencyScore: 8,
   },
 
   // Concepts - General Principles - SOLID
@@ -1154,6 +1261,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'general-principles',
     level: 'advanced',
     tags: ['concept', 'principle'],
+    proficiencyScore: 8,
   },
 
   // Concepts - General Principles - DRY
@@ -1165,6 +1273,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'general-principles',
     level: 'advanced',
     tags: ['concept', 'principle'],
+    proficiencyScore: 5,
   },
 
   // Concepts - General Principles - Multitenancy
@@ -1176,6 +1285,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'general-principles',
     level: 'advanced',
     tags: ['concept', 'architecture', 'saas'],
+    proficiencyScore: 9,
   },
 
   // Concepts - Design Patterns
@@ -1186,6 +1296,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'design-patterns.mdx',
     related: 'concepts',
     level: 'advanced',
+    proficiencyScore: 2,
   },
 
   // Concepts - Design Patterns - Chain of Responsibility
@@ -1197,6 +1308,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'design-patterns',
     level: 'advanced',
     tags: ['concept', 'design-pattern'],
+    proficiencyScore: 4,
   },
 
   // Concepts - Design Patterns - Adapter
@@ -1208,6 +1320,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'design-patterns',
     level: 'advanced',
     tags: ['concept', 'design-pattern'],
+    proficiencyScore: 2,
   },
 
   // Concepts - Design Patterns - Singleton
@@ -1219,6 +1332,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'design-patterns',
     level: 'advanced',
     tags: ['concept', 'design-pattern'],
+    proficiencyScore: 6,
   },
 
   // Concepts - Design Patterns - Factory
@@ -1230,6 +1344,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'design-patterns',
     level: 'advanced',
     tags: ['concept', 'design-pattern'],
+    proficiencyScore: 6,
   },
 
   // Concepts - Design Patterns - Observer
@@ -1241,6 +1356,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'design-patterns',
     level: 'advanced',
     tags: ['concept', 'design-pattern'],
+    proficiencyScore: 3,
   },
 
   // Concepts - Design Patterns - Decorators
@@ -1252,6 +1368,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'design-patterns',
     level: 'advanced',
     tags: ['concept', 'design-pattern'],
+    proficiencyScore: 7,
   },
 
   // Database
@@ -1261,6 +1378,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     category: 'root',
     markdownFile: 'database.mdx',
     level: 'intermediate',
+    proficiencyScore: 6,
   },
 
   // Database - Relational
@@ -1271,6 +1389,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'relational.mdx',
     related: 'database',
     level: 'intermediate',
+    proficiencyScore: 9,
   },
 
   // Database - Relational - PostgreSQL
@@ -1282,6 +1401,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'relational',
     level: 'intermediate',
     tags: ['database', 'sql', 'relational'],
+    proficiencyScore: 3,
   },
 
   // Database - Relational - Indexing
@@ -1293,6 +1413,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'relational',
     level: 'intermediate',
     tags: ['database', 'sql', 'relational', 'optimization'],
+    proficiencyScore: 9,
   },
 
   // Database - Relational - Locking
@@ -1304,6 +1425,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'relational',
     level: 'intermediate',
     tags: ['database', 'sql', 'relational'],
+    proficiencyScore: 9,
   },
 
   // Database - Relational - Transactions (ACID)
@@ -1315,6 +1437,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'relational',
     level: 'intermediate',
     tags: ['database', 'sql', 'relational'],
+    proficiencyScore: 7,
   },
 
   // Database - Relational - Sharding
@@ -1326,6 +1449,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'relational',
     level: 'intermediate',
     tags: ['database', 'sql', 'relational', 'scaling'],
+    proficiencyScore: 9,
   },
 
   // Database - In-Memory
@@ -1336,6 +1460,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'in-memory.mdx',
     related: 'database',
     level: 'intermediate',
+    proficiencyScore: 9,
   },
 
   // Database - In-Memory - Redis
@@ -1347,6 +1472,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'in-memory',
     level: 'intermediate',
     tags: ['database', 'nosql', 'caching', 'queues'],
+    proficiencyScore: 3,
   },
 
   // Database - In-Memory - Cache Keys
@@ -1358,6 +1484,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'in-memory',
     level: 'intermediate',
     tags: ['database', 'caching'],
+    proficiencyScore: 6,
   },
 
   // Database - In-Memory - Caching Strategies
@@ -1369,6 +1496,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'in-memory',
     level: 'intermediate',
     tags: ['database', 'caching'],
+    proficiencyScore: 9,
   },
 
   // Database - NoSQL
@@ -1379,6 +1507,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'nosql.mdx',
     related: 'database',
     level: 'intermediate',
+    proficiencyScore: 2,
   },
 
   // Database - NoSQL - MongoDB
@@ -1390,6 +1519,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'nosql',
     level: 'intermediate',
     tags: ['database', 'nosql'],
+    proficiencyScore: 2,
   },
 
   // Database - NoSQL - DynamoDB
@@ -1401,6 +1531,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'nosql',
     level: 'intermediate',
     tags: ['database', 'nosql', 'aws'],
+    proficiencyScore: 10,
   },
 ];
 

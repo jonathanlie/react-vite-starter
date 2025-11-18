@@ -67,6 +67,12 @@ export interface Knowledge {
   level?: SkillLevel;
 
   /**
+   * Proficiency score on a scale of 1-10
+   * 1-2: Conceptual, 3-5: Operational, 6-7: Proficient, 8-10: Architectural
+   */
+  proficiencyScore?: number;
+
+  /**
    * Optional additional tags for filtering and search
    */
   tags?: string[];

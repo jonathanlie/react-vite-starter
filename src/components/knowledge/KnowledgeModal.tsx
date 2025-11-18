@@ -11,6 +11,7 @@ import { Badge } from '@/components/ui/badge';
 import { loadMarkdownContent, MarkdownLoadError } from '@/utils/loadMarkdown';
 import { getKnowledgeById } from '@/data/knowledges';
 import type { ComponentType } from 'react';
+import type { KnowledgeCategory } from '@/types/knowledge';
 
 interface KnowledgeModalProps {
   /** The ID of the knowledge node to display */
@@ -19,6 +20,27 @@ interface KnowledgeModalProps {
   isOpen: boolean;
   /** Callback when the modal should be closed */
   onClose: () => void;
+}
+
+/**
+ * Get cyber-style badge classes based on category
+ *
+ * Returns Tailwind classes for low-opacity colored backgrounds with matching borders.
+ */
+function getCategoryBadgeClasses(category: KnowledgeCategory): string {
+  const baseClasses = 'px-2.5 py-0.5 rounded-md text-xs font-medium border';
+
+  const categoryStyles: Record<KnowledgeCategory, string> = {
+    concept: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+    frontend: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
+    backend: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+    devops: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
+    database: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/20',
+    tooling: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20',
+    root: 'bg-gray-500/10 text-gray-400 border-gray-500/20',
+  };
+
+  return `${baseClasses} ${categoryStyles[category]}`;
 }
 
 /**
@@ -81,24 +103,24 @@ export function KnowledgeModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-zinc-900 border border-white/10 shadow-2xl shadow-black/50">
         <DialogHeader>
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1">
-              <DialogTitle className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+              <DialogTitle className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100 tracking-tight mb-2">
                 {node.title}
               </DialogTitle>
               <div className="flex flex-wrap items-center gap-2 mt-2">
                 <Badge
                   variant="secondary"
-                  className="bg-[#2A2A2A] text-[#B0B0B0] border-0 rounded-md px-2.5 py-1 text-xs font-medium"
+                  className={getCategoryBadgeClasses(node.category)}
                 >
                   {node.category}
                 </Badge>
                 {node.level && (
                   <Badge
                     variant="default"
-                    className="bg-[#2A2A2A] text-[#B0B0B0] border-0 rounded-md px-2.5 py-1 text-xs font-medium"
+                    className="px-2.5 py-0.5 rounded-md text-xs font-medium bg-zinc-500/10 text-zinc-400 border border-zinc-500/20"
                   >
                     {node.level}
                   </Badge>
@@ -106,8 +128,7 @@ export function KnowledgeModal({
               </div>
             </div>
           </div>
-          <DialogDescription className="text-sm md:text-base text-gray-600 dark:text-gray-400 mt-2">
-          </DialogDescription>
+          <DialogDescription className="text-sm md:text-base text-gray-600 dark:text-gray-400 mt-2"></DialogDescription>
         </DialogHeader>
 
         <div className="mt-6">
@@ -158,7 +179,7 @@ export function KnowledgeModal({
  */
 function MarkdownContentWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <div className="markdown-content [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mt-8 [&_h1]:mb-4 [&_h1]:text-gray-900 dark:[&_h1]:text-gray-100 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-6 [&_h2]:mb-3 [&_h2]:text-gray-900 dark:[&_h2]:text-gray-100 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-5 [&_h3]:mb-2 [&_h3]:text-gray-900 dark:[&_h3]:text-gray-100 [&_p]:text-base [&_p]:leading-relaxed [&_p]:mb-4 [&_p]:text-gray-700 dark:[&_p]:text-gray-300 [&_ul]:list-none [&_ul]:mb-4 [&_ul]:pl-0 [&_li]:flex [&_li]:items-start [&_li]:text-base [&_li]:leading-relaxed [&_li]:mb-3 [&_li]:text-gray-700 dark:[&_li]:text-gray-300 [&_li]:before:content-[''] [&_li]:before:w-1.5 [&_li]:before:h-1.5 [&_li]:before:rounded-full [&_li]:before:bg-gray-400 dark:[&_li]:before:bg-gray-500 [&_li]:before:mr-3 [&_li]:before:mt-2 [&_li]:before:shrink-0 [&_strong]:font-semibold [&_strong]:text-gray-900 dark:[&_strong]:text-gray-100 [&_code]:bg-gray-100 dark:[&_code]:bg-gray-800 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm [&_code]:font-mono [&_pre]:bg-gray-100 dark:[&_pre]:bg-gray-800 [&_pre]:p-4 [&_pre]:rounded-lg [&_pre]:overflow-x-auto [&_pre]:mb-4 [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_a]:text-blue-500 dark:[&_a]:text-blue-400 [&_a]:underline [&_a]:hover:text-blue-600 dark:[&_a]:hover:text-blue-300">
+    <div className="markdown-content [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mt-8 [&_h1]:mb-4 [&_h1]:text-gray-900 dark:[&_h1]:text-gray-100 [&_h1]:tracking-tight [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-6 [&_h2]:mb-3 [&_h2]:text-gray-900 dark:[&_h2]:text-gray-100 [&_h2]:tracking-tight [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-5 [&_h3]:mb-2 [&_h3]:text-gray-900 dark:[&_h3]:text-gray-100 [&_h3]:tracking-tight [&_p]:text-base [&_p]:leading-relaxed [&_p]:mb-4 [&_p]:text-gray-700 dark:[&_p]:text-zinc-400 [&_ul]:list-none [&_ul]:mb-4 [&_ul]:pl-0 [&_li]:flex [&_li]:items-start [&_li]:text-base [&_li]:leading-relaxed [&_li]:mb-3 [&_li]:text-gray-700 dark:[&_li]:text-zinc-400 [&_li]:before:content-[''] [&_li]:before:w-1.5 [&_li]:before:h-1.5 [&_li]:before:rounded-full [&_li]:before:bg-gray-400 dark:[&_li]:before:bg-gray-500 [&_li]:before:mr-3 [&_li]:before:mt-2 [&_li]:before:shrink-0 [&_strong]:font-semibold [&_strong]:text-gray-900 dark:[&_strong]:text-gray-100 [&_code]:bg-gray-100 dark:[&_code]:bg-gray-800 dark:[&_code]:text-zinc-400 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm [&_code]:font-mono [&_pre]:bg-gray-100 dark:[&_pre]:bg-gray-800 [&_pre]:p-4 [&_pre]:rounded-lg [&_pre]:overflow-x-auto [&_pre]:mb-4 [&_pre]:leading-relaxed [&_pre_code]:bg-transparent [&_pre_code]:p-0 dark:[&_pre_code]:text-zinc-400 [&_a]:text-blue-500 dark:[&_a]:text-blue-400 [&_a]:underline [&_a]:hover:text-blue-600 dark:[&_a]:hover:text-blue-300">
       {children}
     </div>
   );

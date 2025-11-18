@@ -5,6 +5,11 @@
 @import 'tailwindcss/preflight.css' layer(base);
 @import 'tailwindcss/utilities.css' layer(utilities);
 
+/* Import React Flow styles in base layer for proper integration with Tailwind v4 */
+@layer base {
+  @import 'reactflow/dist/style.css';
+}
+
 @theme {
   /* shadcn/ui color mappings for Tailwind v4 */
   --color-background: hsl(var(--background));
@@ -121,11 +126,6 @@
   #root {
     width: 100%;
     min-height: 100vh;
-  }
-
-  :focus-visible {
-    outline: 2px solid #646cff;
-    outline-offset: 2px;
   }
 }
 

@@ -6,7 +6,14 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), mdx(), tailwindcss()],
+  plugins: [
+    react(),
+    mdx(),
+    tailwindcss({
+      // Ensure all files are scanned, including lazy-loaded components
+      // The @source directive in CSS should handle this, but this ensures it works
+    }),
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

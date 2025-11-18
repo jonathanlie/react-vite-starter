@@ -17,6 +17,15 @@ export class MarkdownLoadError extends Error {
 }
 
 /**
+ * Pre-load all MDX files using import.meta.glob for production builds
+ * This ensures Vite can statically analyze and bundle all MDX files
+ */
+const mdxModules = import.meta.glob<{ default: ComponentType }>(
+  '../content/knowledge/*.mdx',
+  { eager: false }
+);
+
+/**
  * Cache for loaded MDX modules to avoid re-importing the same file
  */
 const moduleCache = new Map<string, ComponentType>();
@@ -24,25 +33,16 @@ const moduleCache = new Map<string, ComponentType>();
 /**
  * Loads an MDX file dynamically and returns the React component.
  *
- * Uses Vite's dynamic import with template literals to enable true lazy loading.
- * The MDX files are processed by the @mdx-js/rollup plugin and exported as React components.
+ * Uses Vite's import.meta.glob to enable lazy loading while ensuring
+ * all MDX files are properly bundled in production builds.
  *
- * This implementation uses a relative path with template literals, which allows Vite to:
- * - Statically analyze the import pattern at build time
- * - Create separate code chunks for each MDX file
- * - Load files on-demand without pre-loading all content
- * - Scale efficiently as the number of MDX files grows
- *
- * Unlike import.meta.glob, this approach doesn't require enumerating all files upfront,
- * making it truly dynamic and sustainable for large content repositories.
- *
- * @param markdownFile - The filename of the MDX file (e.g., "kafka.mdx")
+ * @param markdownFile - The filename of the MDX file (e.g., "react.mdx")
  * @returns Promise resolving to the React component from the MDX file
  * @throws {MarkdownLoadError} If the file cannot be loaded or doesn't exist
  *
  * @example
  * ```ts
- * const Component = await loadMarkdownContent('kafka.mdx');
+ * const Component = await loadMarkdownContent('react.mdx');
  * <Component />
  * ```
  */
@@ -55,14 +55,23 @@ export const loadMarkdownContent: LoadMarkdownContent = async (
   }
 
   try {
-    // Dynamic import using template literal
-    // Vite will statically analyze this at build time and create separate chunks
-    // for each MDX file, enabling true lazy loading without pre-loading all files
-    // Using relative path from utils directory to content directory
-    // @vite-ignore: Intentionally using dynamic imports for lazy loading MDX files
-    const module = await import(
-      /* @vite-ignore */ `../content/knowledge/${markdownFile}`
-    );
+    // Construct the path that matches the glob pattern
+    const filePath = `../content/knowledge/${markdownFile}`;
+
+    // Get the loader function from the glob result
+    const loader = mdxModules[filePath];
+
+    if (!loader) {
+      throw new MarkdownLoadError(
+        markdownFile,
+        new Error(
+          `MDX file "${markdownFile}" not found in src/content/knowledge/. Please ensure the file exists.`
+        )
+      );
+    }
+
+    // Load the module (this is lazy - only loads when called)
+    const module = await loader();
 
     // MDX files export a default React component
     const Component = module.default;
@@ -79,6 +88,10 @@ export const loadMarkdownContent: LoadMarkdownContent = async (
     return Component;
   } catch (error) {
     // Provide more helpful error messages
+    if (error instanceof MarkdownLoadError) {
+      throw error;
+    }
+
     if (error instanceof Error) {
       // Check if it's a module not found error
       if (

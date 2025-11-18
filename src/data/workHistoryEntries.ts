@@ -27,7 +27,7 @@ I voluntarily transitioned to the backend team to understand the complete lifecy
 
 I built a system where backend logic dictates the frontend form. We used JSON Schemas to define what data a specific bank required (e.g., ID numbers, specific address formats). I wrote the service that validated this data and served the schema to the frontend, allowing us to onboard new partners without deploying new frontend code.
 
-**Reliability Engineering (The 200k Job):**
+**Improving Batch Job Reliability:**
 
 We had a critical monthly batch job for processing ~200,000 redemptions that was fragile and prone to crashing. I re-architected it to be idempotent and fault-tolerant. This meant if it crashed, we could simply retry it without duplicating transactions. This eliminated 100% of the manual data-patching work we used to do every month.
 

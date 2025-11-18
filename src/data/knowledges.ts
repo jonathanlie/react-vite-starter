@@ -163,17 +163,6 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     tags: ['frontend', 'optimization', 'lazy-loading', 'code-splitting'],
   },
   {
-    id: 'reliability-engineering',
-    title: 'Reliability & Idempotency',
-    category: 'concept',
-    content:
-      'Re-architecting a large-scale, fragile batch job (200k+ redemptions) to be fully idempotent and fault-tolerant, eliminating manual data patching.',
-    markdownFile: 'reliability-engineering.mdx',
-    related: 'concepts',
-    level: 'advanced',
-    tags: ['backend', 'idempotency', 'fault-tolerance', 'sidekiq'],
-  },
-  {
     id: 'internationalization-i18n',
     title: 'Internationalization (i18n)',
     category: 'concept',

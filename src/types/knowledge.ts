@@ -45,7 +45,7 @@ export interface Knowledge {
    * Short description (1-2 sentences)
    * Loaded immediately for performance. Used in cards, tooltips, and previews.
    */
-  content: string;
+  content?: string;
 
   /**
    * Path to external MDX file containing detailed markdown content

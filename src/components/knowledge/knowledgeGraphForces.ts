@@ -44,10 +44,10 @@ function calculateLinkDistance(link: SimulationLinkDatum<D3Node>): number {
       source.hubNode === undefined &&
       target.hubNode === undefined);
 
-  if (isParentChild) return 180;
-  if (isHubChild) return 120;
-  if (isSibling) return 140;
-  return 220;
+  if (isParentChild) return 250;
+  if (isHubChild) return 180;
+  if (isSibling) return 200;
+  return 300;
 }
 
 /**
@@ -134,21 +134,21 @@ function getTargetY(d: D3Node, context: ForceContext): number {
     }
 
     if (parentY !== undefined) {
-      return parentY + 100;
+      return parentY + 150;
     }
   }
 
   if (d.hubNode) {
     const hub = d3Nodes.find((n) => n.id === d.hubNode);
     if (hub?.y !== undefined) {
-      return hub.y + 50;
+      return hub.y + 80;
     }
   }
 
   if (d.parentRoot && d.category !== 'root') {
     const parentPos = rootPositions.get(d.parentRoot);
     if (parentPos) {
-      return parentPos.y + 120;
+      return parentPos.y + 180;
     }
   }
 
@@ -181,17 +181,17 @@ export function createForceSimulation(
   context: ForceContext
 ) {
   return forceSimulation<D3Node>(d3Nodes)
-    .force('charge', forceManyBody<D3Node>().strength(-1500))
+    .force('charge', forceManyBody<D3Node>().strength(-3000))
     .force(
       'link',
       forceLink<D3Node, SimulationLinkDatum<D3Node>>(d3Links)
         .id((d) => d.id)
         .distance(calculateLinkDistance)
-        .strength(0.3)
+        .strength(0.2)
     )
     .force(
       'collide',
-      forceCollide<D3Node>(LAYOUT_CONSTANTS.NODE_RADIUS * 2 + 15).strength(1.0)
+      forceCollide<D3Node>(LAYOUT_CONSTANTS.NODE_RADIUS * 2 + 40).strength(1.0)
     )
     .force(
       'categoryX',

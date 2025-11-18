@@ -122,11 +122,16 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
     expandedNodes.forEach((parentId) => {
       if (!visibleNodeIds.has(parentId)) return;
 
+      // Verify parent node exists
+      const parentNode = getKnowledgeById(parentId);
+      if (!parentNode) return;
+
       // Find all children (nodes that have this parent as their related)
       knowledges.forEach((childNode) => {
         if (
           childNode.related === parentId &&
-          visibleNodeIds.has(childNode.id)
+          visibleNodeIds.has(childNode.id) &&
+          childNode.id !== parentId // Prevent self-loops
         ) {
           const edgeKey = `${parentId}-${childNode.id}`;
 

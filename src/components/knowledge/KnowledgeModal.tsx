@@ -10,6 +10,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { loadMarkdownContent, MarkdownLoadError } from '@/utils/loadMarkdown';
 import { getKnowledgeById } from '@/data/knowledges';
+import { ProficiencyScore } from './ProficiencyScore';
 import type { ComponentType } from 'react';
 import type { KnowledgeCategory } from '@/types/knowledge';
 
@@ -124,6 +125,9 @@ export function KnowledgeModal({
                   >
                     {node.level}
                   </Badge>
+                )}
+                {node.proficiencyScore && (
+                  <ProficiencyScore score={node.proficiencyScore} />
                 )}
               </div>
             </div>

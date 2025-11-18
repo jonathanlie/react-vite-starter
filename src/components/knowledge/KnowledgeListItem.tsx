@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { ProficiencyScore } from './ProficiencyScore';
 
 interface KnowledgeListItemProps {
   node: Knowledge;
@@ -51,8 +52,8 @@ export function KnowledgeListItem({ node, onClick }: KnowledgeListItemProps) {
           {node.content}
         </CardDescription>
       </CardHeader>
-      {node.tags && node.tags.length > 0 && (
-        <CardFooter className="p-6 pt-0 mt-auto">
+      <CardFooter className="p-6 pt-0 mt-auto flex flex-col gap-3">
+        {node.tags && node.tags.length > 0 && (
           <div className="flex flex-wrap gap-2">
             {node.tags.map((tag) => (
               <Badge
@@ -64,8 +65,11 @@ export function KnowledgeListItem({ node, onClick }: KnowledgeListItemProps) {
               </Badge>
             ))}
           </div>
-        </CardFooter>
-      )}
+        )}
+        {node.proficiencyScore && (
+          <ProficiencyScore score={node.proficiencyScore} className="mt-auto" />
+        )}
+      </CardFooter>
     </Card>
   );
 }

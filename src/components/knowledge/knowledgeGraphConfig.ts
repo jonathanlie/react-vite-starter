@@ -1,29 +1,3 @@
-import { Knowledge } from '@/types/knowledge';
-
-export const categoryColors: Record<Knowledge['category'], string> = {
-  root: '#6366f1',
-  backend: '#3b82f6',
-  frontend: '#10b981',
-  devops: '#f59e0b',
-  database: '#8b5cf6',
-  tooling: '#ef4444',
-  concept: '#6b7280',
-};
-
-/**
- * Target X coordinates for each category to create visual clusters.
- * Root nodes override this with calculated positions.
- */
-export const categoryFocalPoints: Record<Knowledge['category'], number> = {
-  root: 400,
-  frontend: 300,
-  backend: 500,
-  devops: 450,
-  database: 550,
-  tooling: 350,
-  concept: 400,
-};
-
 export const LAYOUT_CONSTANTS = {
   NODE_RADIUS: 45,
   ROOT_SPACING: 700,
@@ -39,7 +13,5 @@ export const LAYOUT_CONSTANTS = {
 } as const;
 
 export function getRootNodes(nodes: Knowledge[]): string[] {
-  return nodes
-    .filter((node) => node.category === 'root')
-    .map((node) => node.id);
+  return nodes.filter((node) => node.isRoot).map((node) => node.id);
 }

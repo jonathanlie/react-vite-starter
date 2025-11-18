@@ -20,12 +20,12 @@ export function findRootForNode(
   if (!node) return null;
 
   // If it's a root node, return it
-  if (node.category === 'root') return nodeId;
+  if (node.isRoot) return nodeId;
 
   // Check if the related node is a root
   if (node.related && visibleNodeIds.has(node.related)) {
     const relatedNode = knowledges.find((n) => n.id === node.related);
-    if (relatedNode?.category === 'root') {
+    if (relatedNode?.isRoot) {
       return node.related;
     }
     // Recursively check related node
@@ -49,14 +49,14 @@ export function findHubNode(
   visibleNodeIds: Set<string>
 ): string | null {
   const node = knowledges.find((n) => n.id === nodeId);
-  if (!node || node.category === 'root') return null;
+  if (!node || node.isRoot) return null;
 
   // With single relationships, hub detection is simplified
   // A hub is a node that is referenced by multiple other nodes
   // Check if the related node is referenced by other visible nodes (making it a hub)
   if (node.related && visibleNodeIds.has(node.related)) {
     const relatedNode = knowledges.find((n) => n.id === node.related);
-    if (relatedNode && relatedNode.category !== 'root') {
+    if (relatedNode && !relatedNode.isRoot) {
       // Count how many visible nodes reference this related node
       const referencingNodes = knowledges.filter(
         (n) =>

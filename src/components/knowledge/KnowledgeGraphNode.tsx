@@ -1,6 +1,5 @@
-import { memo, useEffect, useRef, useMemo } from 'react';
+import { memo, useEffect, useRef } from 'react';
 import { Handle, Position, NodeProps } from 'reactflow';
-import { Knowledge } from '@/types/knowledge';
 
 interface KnowledgeGraphNodeData {
   label: string;
@@ -15,25 +14,16 @@ interface KnowledgeGraphNodeData {
 }
 
 /**
- * Get glow color based on category for glassmorphism effect
+ * Get glow color for glassmorphism effect
  */
-function getGlowColor(category: Knowledge['category']): string {
-  const glowColors: Record<Knowledge['category'], string> = {
-    root: 'rgba(99, 102, 241, 0.3)', // Indigo
-    backend: 'rgba(59, 130, 246, 0.3)', // Blue
-    frontend: 'rgba(16, 185, 129, 0.3)', // Green
-    devops: 'rgba(245, 158, 11, 0.3)', // Amber
-    database: 'rgba(139, 92, 246, 0.3)', // Purple
-    tooling: 'rgba(239, 68, 68, 0.3)', // Red
-    concept: 'rgba(107, 114, 128, 0.3)', // Gray
-  };
-  return glowColors[category] || glowColors.concept;
+function getGlowColor(): string {
+  return 'rgba(99, 102, 241, 0.3)'; // Indigo
 }
 
 /**
  * Custom Node Component for Knowledge Graph
  *
- * Displays a compact circular knowledge node with category-based styling.
+ * Displays a compact circular knowledge node with glassmorphism styling.
  * Shows only the title for a cleaner, less cluttered visualization.
  */
 export const KnowledgeGraphNode = memo(
@@ -43,11 +33,8 @@ export const KnowledgeGraphNode = memo(
     const hasAnimatedRef = useRef(false);
     const nodeIdRef = useRef<string | undefined>(undefined);
 
-    // Get glow color based on category
-    const glowColor = useMemo(
-      () => getGlowColor(data.category as Knowledge['category']),
-      [data.category]
-    );
+    // Get glow color
+    const glowColor = getGlowColor();
 
     // Animate node appearance when it's marked as new
     useEffect(() => {

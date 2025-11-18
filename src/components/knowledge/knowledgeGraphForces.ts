@@ -9,7 +9,7 @@ import {
   SimulationLinkDatum,
 } from 'd3-force';
 import { D3Node } from './knowledgeGraphTypes';
-import { LAYOUT_CONSTANTS, categoryFocalPoints } from './knowledgeGraphConfig';
+import { LAYOUT_CONSTANTS } from './knowledgeGraphConfig';
 import { knowledges } from '@/data/knowledges';
 
 interface ForceContext {
@@ -28,8 +28,8 @@ function calculateLinkDistance(link: SimulationLinkDatum<D3Node>): number {
   const target = link.target as D3Node;
 
   const isParentChild =
-    (source.category === 'root' && target.parentRoot === source.id) ||
-    (target.category === 'root' && source.parentRoot === target.id);
+    (source.isRoot && target.parentRoot === source.id) ||
+    (target.isRoot && source.parentRoot === target.id);
 
   const isHubChild =
     source.hubNode === target.id ||
@@ -68,10 +68,7 @@ function getTargetX(d: D3Node, context: ForceContext): number {
       return parentPos.x;
     }
     const parentKnowledge = knowledges.find((n) => n.id === directParentId);
-    if (
-      parentKnowledge?.category === 'root' &&
-      rootPositions.has(directParentId)
-    ) {
+    if (parentKnowledge?.isRoot && rootPositions.has(directParentId)) {
       return rootPositions.get(directParentId)!.x;
     }
   }
@@ -87,7 +84,7 @@ function getTargetX(d: D3Node, context: ForceContext): number {
     return d.targetX;
   }
 
-  return categoryFocalPoints[d.category] ?? LAYOUT_CONSTANTS.CENTER_X;
+  return LAYOUT_CONSTANTS.CENTER_X;
 }
 
 /**
@@ -124,10 +121,7 @@ function getTargetY(d: D3Node, context: ForceContext): number {
         parentY = parentPos.y;
       } else {
         const parentKnowledge = knowledges.find((n) => n.id === directParentId);
-        if (
-          parentKnowledge?.category === 'root' &&
-          rootPositions.has(directParentId)
-        ) {
+        if (parentKnowledge?.isRoot && rootPositions.has(directParentId)) {
           parentY = rootPositions.get(directParentId)!.y;
         }
       }
@@ -145,7 +139,7 @@ function getTargetY(d: D3Node, context: ForceContext): number {
     }
   }
 
-  if (d.parentRoot && d.category !== 'root') {
+  if (d.parentRoot && !d.isRoot) {
     const parentPos = rootPositions.get(d.parentRoot);
     if (parentPos) {
       return parentPos.y + 180;
@@ -161,7 +155,7 @@ function getForceYStrength(
 ): number {
   if (parentNodeMap.has(d.id)) return 0.4;
   if (d.hubNode) return 0.4;
-  if (d.parentRoot && d.category !== 'root') return 0.2;
+  if (d.parentRoot && !d.isRoot) return 0.2;
   return 0.05;
 }
 

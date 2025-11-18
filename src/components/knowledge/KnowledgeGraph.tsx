@@ -12,10 +12,9 @@ import ReactFlow, {
   BackgroundVariant,
 } from 'reactflow';
 import { SimulationLinkDatum } from 'd3-force';
-import { Knowledge } from '@/types/knowledge';
 import { knowledges, getKnowledgeById } from '@/data/knowledges';
 import { KnowledgeGraphNode } from './KnowledgeGraphNode';
-import { categoryColors, getRootNodes } from './knowledgeGraphConfig';
+import { getRootNodes } from './knowledgeGraphConfig';
 import { D3Node, KnowledgeGraphProps } from './knowledgeGraphTypes';
 import { findRootForNode, findHubNode } from './knowledgeGraphHierarchy';
 import {
@@ -187,7 +186,7 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
       }
     });
 
-    const rootNodes = visibleNodes.filter((n) => n.category === 'root');
+    const rootNodes = visibleNodes.filter((n) => n.isRoot);
     const rootPositions = calculateRootPositions(rootNodes);
 
     const d3Nodes: D3Node[] = visibleNodes.map((node) => {
@@ -199,16 +198,15 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
         parentNodeMap: parentNodeMap.current,
       });
 
-      const isRoot = node.category === 'root';
-      const hubNode = isRoot ? null : findHubNode(node.id, visibleNodeIds);
+      const hubNode = node.isRoot ? null : findHubNode(node.id, visibleNodeIds);
 
       return {
         id: node.id,
-        category: node.category,
+        isRoot: node.isRoot,
         x: position.initialX,
         y: position.initialY,
         targetX: position.targetX,
-        parentRoot: isRoot
+        parentRoot: node.isRoot
           ? node.id
           : findRootForNode(node.id, visibleNodeIds) || undefined,
         hubNode: hubNode || undefined,
@@ -257,9 +255,9 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
           },
           data: {
             label: knowledgeNode.title,
-            category: knowledgeNode.category,
+            category: knowledgeNode.isRoot ? 'root' : 'default',
             content: knowledgeNode.content,
-            color: categoryColors[knowledgeNode.category],
+            color: '#6366f1',
             onClick: () => onNodeClick(d3Node.id),
             isExpanded: expandedNodes.has(d3Node.id),
             onExpand: () => handleExpand(d3Node.id),
@@ -351,13 +349,7 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
         style={{ opacity: 0.2 }}
       />
       <Controls />
-      <MiniMap
-        nodeColor={(node) => {
-          const category = node.data?.category as Knowledge['category'];
-          return category ? categoryColors[category] : '#94a3b8';
-        }}
-        maskColor="rgba(0, 0, 0, 0.1)"
-      />
+      <MiniMap nodeColor={() => '#6366f1'} maskColor="rgba(0, 0, 0, 0.1)" />
     </ReactFlow>
   );
 }

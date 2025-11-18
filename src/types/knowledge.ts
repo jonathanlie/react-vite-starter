@@ -6,27 +6,10 @@
  */
 
 /**
- * Category classification for knowledge entities
- */
-export type KnowledgeCategory =
-  | 'root'
-  | 'backend'
-  | 'frontend'
-  | 'devops'
-  | 'database'
-  | 'tooling'
-  | 'concept';
-
-/**
- * Skill proficiency level (optional)
- */
-export type SkillLevel = 'beginner' | 'intermediate' | 'advanced';
-
-/**
  * Knowledge Schema
  *
  * Represents a single knowledge entity in the knowledge web with:
- * - Basic metadata (id, title, category)
+ * - Basic metadata (id, title, isRoot)
  * - Short description for initial load (performance optimization)
  * - External MDX file reference for detailed content (lazy-loaded)
  * - Relationship mapping to other knowledge entities
@@ -38,8 +21,11 @@ export interface Knowledge {
   /** Display title of the knowledge */
   title: string;
 
-  /** Category classification */
-  category: KnowledgeCategory;
+  /**
+   * Whether this is a root knowledge node
+   * Root nodes are top-level categories (e.g., Frontend, Backend, DevOps)
+   */
+  isRoot: boolean;
 
   /**
    * Short description (1-2 sentences)
@@ -60,11 +46,6 @@ export interface Knowledge {
    * Each knowledge entity can be related to one other knowledge entity.
    */
   related?: string;
-
-  /**
-   * Optional skill proficiency level
-   */
-  level?: SkillLevel;
 
   /**
    * Proficiency score on a scale of 1-10

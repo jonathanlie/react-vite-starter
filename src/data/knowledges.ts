@@ -5,9 +5,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'frontend',
     title: 'Frontend',
-    category: 'root',
+    isRoot: true,
     markdownFile: 'frontend.mdx',
-    level: 'advanced',
     proficiencyScore: 7,
   },
 
@@ -15,10 +14,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'frameworks-libraries',
     title: 'Frameworks / Libraries',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'frameworks-libraries.mdx',
     related: 'frontend',
-    level: 'intermediate',
     proficiencyScore: 10,
   },
 
@@ -26,10 +24,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'angular',
     title: 'Angular',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'angular.mdx',
     related: 'frameworks-libraries',
-    level: 'advanced',
     tags: ['frontend', 'framework'],
     proficiencyScore: 5,
   },
@@ -38,10 +35,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'angularjs',
     title: 'AngularJS',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'angularjs.mdx',
     related: 'frameworks-libraries',
-    level: 'intermediate',
     tags: ['frontend', 'framework', 'legacy'],
     proficiencyScore: 10,
   },
@@ -50,10 +46,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'react',
     title: 'React',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'react.mdx',
     related: 'frameworks-libraries',
-    level: 'intermediate',
     tags: ['frontend', 'framework', 'mobile'],
     proficiencyScore: 5,
   },
@@ -62,10 +57,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'react-native',
     title: 'React Native',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'react-native.mdx',
     related: 'frameworks-libraries',
-    level: 'intermediate',
     tags: ['frontend', 'framework', 'mobile'],
     proficiencyScore: 7,
   },
@@ -74,10 +68,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'vuejs',
     title: 'VueJS',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'vuejs.mdx',
     related: 'frameworks-libraries',
-    level: 'intermediate',
     tags: ['frontend', 'framework'],
     proficiencyScore: 3,
   },
@@ -86,10 +79,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'state-management',
     title: 'State Management',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'state-management.mdx',
     related: 'frontend',
-    level: 'intermediate',
     proficiencyScore: 3,
   },
 
@@ -97,10 +89,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'reflux',
     title: 'Reflux',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'reflux.mdx',
     related: 'state-management',
-    level: 'intermediate',
     tags: ['frontend', 'state-management'],
     proficiencyScore: 3,
   },
@@ -109,10 +100,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'ngrx',
     title: 'NgRx',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'ngrx.mdx',
     related: 'state-management',
-    level: 'intermediate',
     tags: ['frontend', 'state-management', 'angular'],
     proficiencyScore: 7,
   },
@@ -121,10 +111,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'redux',
     title: 'Redux',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'redux.mdx',
     related: 'state-management',
-    level: 'intermediate',
     tags: ['frontend', 'state-management'],
     proficiencyScore: 9,
   },
@@ -133,10 +122,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'zustand',
     title: 'Zustand',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'zustand.mdx',
     related: 'state-management',
-    level: 'intermediate',
     tags: ['frontend', 'state-management', 'react'],
     proficiencyScore: 10,
   },
@@ -145,10 +133,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'typescript',
     title: 'Typescript',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'typescript.mdx',
     related: 'frontend',
-    level: 'intermediate',
     proficiencyScore: 4,
   },
 
@@ -156,10 +143,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'typescript-generics',
     title: 'Generics',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'typescript-generics.mdx',
     related: 'typescript',
-    level: 'intermediate',
     tags: ['frontend', 'typescript'],
     proficiencyScore: 6,
   },
@@ -168,10 +154,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'typescript-utility-types',
     title: 'Utility Types',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'typescript-utility-types.mdx',
     related: 'typescript',
-    level: 'intermediate',
     tags: ['frontend', 'typescript'],
     proficiencyScore: 6,
   },
@@ -180,10 +165,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'typescript-type-guards',
     title: 'Type Guards',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'typescript-type-guards.mdx',
     related: 'typescript',
-    level: 'intermediate',
     tags: ['frontend', 'typescript'],
     proficiencyScore: 5,
   },
@@ -192,10 +176,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'styling',
     title: 'Styling',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'styling.mdx',
     related: 'frontend',
-    level: 'intermediate',
     proficiencyScore: 3,
   },
 
@@ -203,10 +186,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'tailwind-css',
     title: 'Tailwind CSS',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'tailwind-css.mdx',
     related: 'styling',
-    level: 'intermediate',
     tags: ['frontend', 'styling', 'css'],
     proficiencyScore: 3,
   },
@@ -215,10 +197,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'css-in-js',
     title: 'CSS-in-JS',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'css-in-js.mdx',
     related: 'styling',
-    level: 'intermediate',
     tags: ['frontend', 'styling'],
     proficiencyScore: 3,
   },
@@ -227,10 +208,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'css-preprocessors',
     title: 'CSS Preprocessors',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'css-preprocessors.mdx',
     related: 'styling',
-    level: 'intermediate',
     tags: ['frontend', 'styling', 'css'],
     proficiencyScore: 6,
   },
@@ -239,10 +219,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'build-tools',
     title: 'Build Tools',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'build-tools.mdx',
     related: 'frontend',
-    level: 'intermediate',
     proficiencyScore: 1,
   },
 
@@ -250,10 +229,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'vite',
     title: 'Vite',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'vite.mdx',
     related: 'build-tools',
-    level: 'intermediate',
     tags: ['frontend', 'build-tools'],
     proficiencyScore: 3,
   },
@@ -262,10 +240,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'webpack',
     title: 'Webpack',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'webpack.mdx',
     related: 'build-tools',
-    level: 'intermediate',
     tags: ['frontend', 'build-tools'],
     proficiencyScore: 3,
   },
@@ -274,10 +251,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'babel',
     title: 'Babel',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'babel.mdx',
     related: 'build-tools',
-    level: 'intermediate',
     tags: ['frontend', 'build-tools'],
     proficiencyScore: 1,
   },
@@ -286,10 +262,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'internationalization-i18n',
     title: 'Internationalization - i18n',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'internationalization-i18n.mdx',
     related: 'frontend',
-    level: 'advanced',
     tags: ['frontend', 'i18n', 'accessibility'],
     proficiencyScore: 10,
   },
@@ -298,10 +273,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'rtl-right-to-left',
     title: 'RTL (Right-to-Left)',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'rtl-right-to-left.mdx',
     related: 'internationalization-i18n',
-    level: 'advanced',
     tags: ['frontend', 'i18n', 'rtl', 'accessibility'],
     proficiencyScore: 9,
   },
@@ -310,10 +284,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'accessibility-a11y',
     title: 'Accessibility - a11y',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'accessibility-a11y.mdx',
     related: 'frontend',
-    level: 'intermediate',
     proficiencyScore: 7,
   },
 
@@ -321,10 +294,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'aria-attributes',
     title: 'aria attributes',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'aria-attributes.mdx',
     related: 'accessibility-a11y',
-    level: 'intermediate',
     tags: ['frontend', 'accessibility', 'a11y'],
     proficiencyScore: 1,
   },
@@ -333,10 +305,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'keyboard-navigation',
     title: 'keyboard navigation',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'keyboard-navigation.mdx',
     related: 'accessibility-a11y',
-    level: 'intermediate',
     tags: ['frontend', 'accessibility', 'a11y'],
     proficiencyScore: 5,
   },
@@ -345,10 +316,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'voiceover',
     title: 'voiceover',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'voiceover.mdx',
     related: 'accessibility-a11y',
-    level: 'intermediate',
     tags: ['frontend', 'accessibility', 'a11y'],
     proficiencyScore: 6,
   },
@@ -357,10 +327,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'semantic-html',
     title: 'semantic HTML',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'semantic-html.mdx',
     related: 'accessibility-a11y',
-    level: 'intermediate',
     tags: ['frontend', 'accessibility', 'a11y', 'html'],
     proficiencyScore: 9,
   },
@@ -369,10 +338,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'frontend-testing',
     title: 'Frontend Testing',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'frontend-testing.mdx',
     related: 'frontend',
-    level: 'intermediate',
     proficiencyScore: 6,
   },
 
@@ -380,10 +348,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'jest',
     title: 'Jest',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'jest.mdx',
     related: 'frontend-testing',
-    level: 'intermediate',
     tags: ['frontend', 'testing'],
     proficiencyScore: 3,
   },
@@ -392,10 +359,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'jasmine',
     title: 'Jasmine',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'jasmine.mdx',
     related: 'frontend-testing',
-    level: 'intermediate',
     tags: ['frontend', 'testing'],
     proficiencyScore: 4,
   },
@@ -404,10 +370,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'playwright',
     title: 'Playwright',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'playwright.mdx',
     related: 'frontend-testing',
-    level: 'intermediate',
     tags: ['frontend', 'testing', 'e2e'],
     proficiencyScore: 6,
   },
@@ -416,10 +381,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'web-performance',
     title: 'Web Performance',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'web-performance.mdx',
     related: 'frontend',
-    level: 'advanced',
     tags: ['frontend', 'optimization', 'performance'],
     proficiencyScore: 6,
   },
@@ -428,10 +392,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'code-splitting',
     title: 'Code splitting',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'code-splitting.mdx',
     related: 'web-performance',
-    level: 'advanced',
     tags: ['frontend', 'optimization', 'performance'],
     proficiencyScore: 1,
   },
@@ -440,10 +403,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'lazy-loading',
     title: 'Lazy loading',
-    category: 'frontend',
+    isRoot: false,
     markdownFile: 'lazy-loading.mdx',
     related: 'web-performance',
-    level: 'advanced',
     tags: ['frontend', 'optimization', 'performance'],
     proficiencyScore: 5,
   },
@@ -452,9 +414,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'backend',
     title: 'Backend',
-    category: 'root',
+    isRoot: true,
     markdownFile: 'backend.mdx',
-    level: 'intermediate',
     proficiencyScore: 5,
   },
 
@@ -462,10 +423,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'languages-runtimes',
     title: 'Languages / Runtimes',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'languages-runtimes.mdx',
     related: 'backend',
-    level: 'intermediate',
     proficiencyScore: 10,
   },
 
@@ -473,10 +433,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'ruby',
     title: 'Ruby',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'ruby.mdx',
     related: 'languages-runtimes',
-    level: 'intermediate',
     tags: ['backend', 'language'],
     proficiencyScore: 7,
   },
@@ -485,10 +444,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'python',
     title: 'Python',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'python.mdx',
     related: 'languages-runtimes',
-    level: 'intermediate',
     tags: ['backend', 'language'],
     proficiencyScore: 5,
   },
@@ -497,10 +455,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'frameworks-libraries-ruby',
     title: 'Frameworks / Libraries (Ruby)',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'frameworks-libraries-ruby.mdx',
     related: 'backend',
-    level: 'intermediate',
     proficiencyScore: 6,
   },
 
@@ -508,10 +465,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'ruby-on-rails',
     title: 'Ruby on Rails',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'ruby-on-rails.mdx',
     related: 'frameworks-libraries-ruby',
-    level: 'intermediate',
     tags: ['backend', 'framework', 'ruby'],
     proficiencyScore: 10,
   },
@@ -520,10 +476,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'sidekiq',
     title: 'Sidekiq',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'sidekiq.mdx',
     related: 'frameworks-libraries-ruby',
-    level: 'intermediate',
     tags: ['backend', 'ruby', 'background-jobs'],
     proficiencyScore: 3,
   },
@@ -532,10 +487,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'actioncable',
     title: 'ActionCable',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'actioncable.mdx',
     related: 'frameworks-libraries-ruby',
-    level: 'intermediate',
     tags: ['backend', 'ruby', 'rails', 'websocket'],
     proficiencyScore: 8,
   },
@@ -544,10 +498,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'dry-validation',
     title: 'Dry::Validation',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'dry-validation.mdx',
     related: 'frameworks-libraries-ruby',
-    level: 'intermediate',
     tags: ['backend', 'ruby', 'validation'],
     proficiencyScore: 8,
   },
@@ -556,10 +509,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'mjml-liquid',
     title: 'MJML - Liquid',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'mjml-liquid.mdx',
     related: 'frameworks-libraries-ruby',
-    level: 'intermediate',
     tags: ['backend', 'email', 'templates'],
     proficiencyScore: 3,
   },
@@ -568,10 +520,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'messaging-event-streaming',
     title: 'Messaging / Event Streaming',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'messaging-event-streaming.mdx',
     related: 'backend',
-    level: 'intermediate',
     proficiencyScore: 1,
   },
 
@@ -579,10 +530,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'kafka',
     title: 'Kafka',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'kafka.mdx',
     related: 'messaging-event-streaming',
-    level: 'intermediate',
     tags: ['backend', 'messaging', 'event-streaming'],
     proficiencyScore: 10,
   },
@@ -591,10 +541,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'authentication-authorization',
     title: 'Authentication / Authorization',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'authentication-authorization.mdx',
     related: 'backend',
-    level: 'intermediate',
     proficiencyScore: 4,
   },
 
@@ -602,10 +551,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'oauth2',
     title: 'OAuth2',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'oauth2.mdx',
     related: 'authentication-authorization',
-    level: 'intermediate',
     tags: ['backend', 'authentication', 'authorization'],
     proficiencyScore: 5,
   },
@@ -614,10 +562,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'jwt',
     title: 'JWT',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'jwt.mdx',
     related: 'authentication-authorization',
-    level: 'intermediate',
     tags: ['backend', 'authentication'],
     proficiencyScore: 3,
   },
@@ -626,10 +573,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'single-sign-on',
     title: 'Single Sign-On',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'single-sign-on.mdx',
     related: 'authentication-authorization',
-    level: 'intermediate',
     tags: ['backend', 'authentication', 'sso'],
     proficiencyScore: 10,
   },
@@ -638,10 +584,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'api-design',
     title: 'API Design',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'api-design.mdx',
     related: 'backend',
-    level: 'intermediate',
     tags: ['backend', 'api', 'openapi'],
     proficiencyScore: 10,
   },
@@ -650,10 +595,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'rest',
     title: 'REST',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'rest.mdx',
     related: 'api-design',
-    level: 'intermediate',
     tags: ['backend', 'api'],
     proficiencyScore: 1,
   },
@@ -662,10 +606,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'graphql',
     title: 'GraphQL',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'graphql.mdx',
     related: 'api-design',
-    level: 'intermediate',
     tags: ['backend', 'api'],
     proficiencyScore: 2,
   },
@@ -674,10 +617,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'grpc',
     title: 'gRPC',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'grpc.mdx',
     related: 'api-design',
-    level: 'intermediate',
     tags: ['backend', 'api'],
     proficiencyScore: 10,
   },
@@ -686,10 +628,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'backend-testing',
     title: 'Backend Testing',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'backend-testing.mdx',
     related: 'backend',
-    level: 'intermediate',
     proficiencyScore: 10,
   },
 
@@ -697,10 +638,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'rspec',
     title: 'RSpec',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'rspec.mdx',
     related: 'backend-testing',
-    level: 'intermediate',
     tags: ['backend', 'testing', 'ruby'],
     proficiencyScore: 1,
   },
@@ -709,10 +649,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'postman',
     title: 'Postman',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'postman.mdx',
     related: 'backend-testing',
-    level: 'intermediate',
     tags: ['backend', 'testing', 'api'],
     proficiencyScore: 10,
   },
@@ -721,10 +660,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'factorybot',
     title: 'FactoryBot',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'factorybot.mdx',
     related: 'backend-testing',
-    level: 'intermediate',
     tags: ['backend', 'testing', 'ruby'],
     proficiencyScore: 10,
   },
@@ -733,10 +671,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'gatling',
     title: 'Gatling',
-    category: 'backend',
+    isRoot: false,
     markdownFile: 'gatling.mdx',
     related: 'backend-testing',
-    level: 'intermediate',
     tags: ['backend', 'testing', 'performance'],
     proficiencyScore: 3,
   },
@@ -745,9 +682,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'devops',
     title: 'DevOps',
-    category: 'root',
+    isRoot: true,
     markdownFile: 'devops.mdx',
-    level: 'intermediate',
     proficiencyScore: 4,
   },
 
@@ -755,10 +691,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'infrastructure-as-code-iac',
     title: 'Infrastructure as Code (IaC)',
-    category: 'devops',
+    isRoot: false,
     markdownFile: 'infrastructure-as-code-iac.mdx',
     related: 'devops',
-    level: 'intermediate',
     proficiencyScore: 4,
   },
 
@@ -766,10 +701,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'terraform',
     title: 'Terraform',
-    category: 'devops',
+    isRoot: false,
     markdownFile: 'terraform.mdx',
     related: 'infrastructure-as-code-iac',
-    level: 'intermediate',
     tags: ['devops', 'iac'],
     proficiencyScore: 8,
   },
@@ -778,10 +712,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'containerization-orchestration',
     title: 'Containerization & Orchestration',
-    category: 'devops',
+    isRoot: false,
     markdownFile: 'containerization-orchestration.mdx',
     related: 'devops',
-    level: 'intermediate',
     proficiencyScore: 5,
   },
 
@@ -789,10 +722,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'docker',
     title: 'Docker',
-    category: 'devops',
+    isRoot: false,
     markdownFile: 'docker.mdx',
     related: 'containerization-orchestration',
-    level: 'intermediate',
     tags: ['devops', 'containerization'],
     proficiencyScore: 4,
   },
@@ -801,10 +733,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'docker-compose',
     title: 'Docker Compose',
-    category: 'devops',
+    isRoot: false,
     markdownFile: 'docker-compose.mdx',
     related: 'docker',
-    level: 'intermediate',
     tags: ['devops', 'containerization', 'docker'],
     proficiencyScore: 5,
   },
@@ -813,10 +744,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'kubernetes-k8s',
     title: 'Kubernetes (k8s)',
-    category: 'devops',
+    isRoot: false,
     markdownFile: 'kubernetes-k8s.mdx',
     related: 'containerization-orchestration',
-    level: 'intermediate',
     tags: ['devops', 'orchestration'],
     proficiencyScore: 7,
   },
@@ -825,10 +755,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'cloud',
     title: 'Cloud',
-    category: 'devops',
+    isRoot: false,
     markdownFile: 'cloud.mdx',
     related: 'devops',
-    level: 'intermediate',
     proficiencyScore: 8,
   },
 
@@ -836,10 +765,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'aws',
     title: 'AWS',
-    category: 'devops',
+    isRoot: false,
     markdownFile: 'aws.mdx',
     related: 'cloud',
-    level: 'intermediate',
     tags: ['devops', 'cloud'],
     proficiencyScore: 8,
   },
@@ -848,10 +776,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'ec2',
     title: 'EC2',
-    category: 'devops',
+    isRoot: false,
     markdownFile: 'ec2.mdx',
     related: 'aws',
-    level: 'intermediate',
     tags: ['devops', 'cloud', 'aws'],
     proficiencyScore: 2,
   },
@@ -860,10 +787,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 's3',
     title: 'S3',
-    category: 'devops',
+    isRoot: false,
     markdownFile: 's3.mdx',
     related: 'aws',
-    level: 'intermediate',
     tags: ['devops', 'cloud', 'aws'],
     proficiencyScore: 6,
   },
@@ -872,10 +798,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'rds',
     title: 'RDS',
-    category: 'devops',
+    isRoot: false,
     markdownFile: 'rds.mdx',
     related: 'aws',
-    level: 'intermediate',
     tags: ['devops', 'cloud', 'aws', 'database'],
     proficiencyScore: 7,
   },
@@ -884,10 +809,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'iam',
     title: 'IAM',
-    category: 'devops',
+    isRoot: false,
     markdownFile: 'iam.mdx',
     related: 'aws',
-    level: 'intermediate',
     tags: ['devops', 'cloud', 'aws', 'security'],
     proficiencyScore: 10,
   },
@@ -896,10 +820,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'vpc',
     title: 'VPC',
-    category: 'devops',
+    isRoot: false,
     markdownFile: 'vpc.mdx',
     related: 'aws',
-    level: 'intermediate',
     tags: ['devops', 'cloud', 'aws', 'networking'],
     proficiencyScore: 3,
   },
@@ -908,10 +831,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'ci-cd',
     title: 'CI/CD',
-    category: 'devops',
+    isRoot: false,
     markdownFile: 'ci-cd.mdx',
     related: 'devops',
-    level: 'intermediate',
     proficiencyScore: 6,
   },
 
@@ -919,10 +841,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'github-actions',
     title: 'Github Actions',
-    category: 'devops',
+    isRoot: false,
     markdownFile: 'github-actions.mdx',
     related: 'ci-cd',
-    level: 'intermediate',
     tags: ['devops', 'ci-cd'],
     proficiencyScore: 9,
   },
@@ -931,10 +852,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'jenkins',
     title: 'Jenkins',
-    category: 'devops',
+    isRoot: false,
     markdownFile: 'jenkins.mdx',
     related: 'ci-cd',
-    level: 'intermediate',
     tags: ['devops', 'ci-cd'],
     proficiencyScore: 6,
   },
@@ -943,10 +863,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'circleci',
     title: 'CircleCI',
-    category: 'devops',
+    isRoot: false,
     markdownFile: 'circleci.mdx',
     related: 'ci-cd',
-    level: 'intermediate',
     tags: ['devops', 'ci-cd'],
     proficiencyScore: 4,
   },
@@ -955,9 +874,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'tooling',
     title: 'Tooling',
-    category: 'root',
+    isRoot: true,
     markdownFile: 'tooling.mdx',
-    level: 'intermediate',
     proficiencyScore: 7,
   },
 
@@ -965,10 +883,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'version-control',
     title: 'Version Control',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'version-control.mdx',
     related: 'tooling',
-    level: 'intermediate',
     proficiencyScore: 10,
   },
 
@@ -976,10 +893,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'git',
     title: 'Git',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'git.mdx',
     related: 'version-control',
-    level: 'intermediate',
     tags: ['tooling', 'version-control'],
     proficiencyScore: 9,
   },
@@ -988,10 +904,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'observability',
     title: 'Observability',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'observability.mdx',
     related: 'tooling',
-    level: 'intermediate',
     tags: ['tooling', 'monitoring'],
     proficiencyScore: 8,
   },
@@ -1000,10 +915,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'grafana',
     title: 'Grafana',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'grafana.mdx',
     related: 'observability',
-    level: 'intermediate',
     tags: ['tooling', 'observability', 'monitoring'],
     proficiencyScore: 8,
   },
@@ -1012,10 +926,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'appsignal',
     title: 'Appsignal',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'appsignal.mdx',
     related: 'observability',
-    level: 'intermediate',
     tags: ['tooling', 'observability', 'monitoring'],
     proficiencyScore: 10,
   },
@@ -1024,10 +937,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'rollbar',
     title: 'Rollbar',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'rollbar.mdx',
     related: 'observability',
-    level: 'intermediate',
     tags: ['tooling', 'observability', 'monitoring'],
     proficiencyScore: 2,
   },
@@ -1036,10 +948,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'datadog',
     title: 'Datadog',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'datadog.mdx',
     related: 'observability',
-    level: 'intermediate',
     tags: ['tooling', 'observability', 'monitoring'],
     proficiencyScore: 6,
   },
@@ -1048,10 +959,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'prometheus',
     title: 'Prometheus',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'prometheus.mdx',
     related: 'observability',
-    level: 'intermediate',
     tags: ['tooling', 'observability', 'monitoring'],
     proficiencyScore: 6,
   },
@@ -1060,10 +970,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'content-headless-cms',
     title: 'Content (Headless CMS)',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'content-headless-cms.mdx',
     related: 'tooling',
-    level: 'intermediate',
     proficiencyScore: 1,
   },
 
@@ -1071,10 +980,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'phraseapp',
     title: 'PhraseApp',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'phraseapp.mdx',
     related: 'content-headless-cms',
-    level: 'intermediate',
     tags: ['tooling', 'i18n', 'cms'],
     proficiencyScore: 3,
   },
@@ -1083,10 +991,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'prismic',
     title: 'Prismic',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'prismic.mdx',
     related: 'content-headless-cms',
-    level: 'intermediate',
     tags: ['tooling', 'cms'],
     proficiencyScore: 2,
   },
@@ -1095,10 +1002,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'testing-cross-browser',
     title: 'Testing (Cross-Browser)',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'testing-cross-browser.mdx',
     related: 'tooling',
-    level: 'intermediate',
     proficiencyScore: 8,
   },
 
@@ -1106,10 +1012,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'browserstack',
     title: 'Browserstack',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'browserstack.mdx',
     related: 'testing-cross-browser',
-    level: 'intermediate',
     tags: ['tooling', 'testing'],
     proficiencyScore: 1,
   },
@@ -1118,10 +1023,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'third-party-apis-services',
     title: 'Third-Party APIs / Services',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'third-party-apis-services.mdx',
     related: 'tooling',
-    level: 'intermediate',
     proficiencyScore: 5,
   },
 
@@ -1129,10 +1033,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'geospatial',
     title: 'Geospatial',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'geospatial.mdx',
     related: 'third-party-apis-services',
-    level: 'intermediate',
     tags: ['tooling', 'api', 'maps'],
     proficiencyScore: 8,
   },
@@ -1141,10 +1044,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'google-maps',
     title: 'Google Maps',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'google-maps.mdx',
     related: 'geospatial',
-    level: 'intermediate',
     tags: ['tooling', 'api', 'maps', 'geospatial'],
     proficiencyScore: 1,
   },
@@ -1153,10 +1055,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'mapbox',
     title: 'Mapbox',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'mapbox.mdx',
     related: 'geospatial',
-    level: 'intermediate',
     tags: ['tooling', 'api', 'maps', 'geospatial'],
     proficiencyScore: 3,
   },
@@ -1165,10 +1066,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'payment',
     title: 'Payment',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'payment.mdx',
     related: 'third-party-apis-services',
-    level: 'intermediate',
     proficiencyScore: 10,
   },
 
@@ -1176,10 +1076,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'stripe',
     title: 'Stripe',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'stripe.mdx',
     related: 'payment',
-    level: 'intermediate',
     tags: ['tooling', 'api', 'payment'],
     proficiencyScore: 5,
   },
@@ -1188,10 +1087,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'communication',
     title: 'Communication',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'communication.mdx',
     related: 'third-party-apis-services',
-    level: 'intermediate',
     proficiencyScore: 9,
   },
 
@@ -1199,10 +1097,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'twilio',
     title: 'Twilio',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'twilio.mdx',
     related: 'communication',
-    level: 'intermediate',
     tags: ['tooling', 'api', 'communication'],
     proficiencyScore: 5,
   },
@@ -1211,10 +1108,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'mailgun',
     title: 'Mailgun',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'mailgun.mdx',
     related: 'communication',
-    level: 'intermediate',
     tags: ['tooling', 'api', 'communication', 'email'],
     proficiencyScore: 7,
   },
@@ -1223,10 +1119,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'ai',
     title: 'AI',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'ai.mdx',
     related: 'tooling',
-    level: 'intermediate',
     proficiencyScore: 6,
   },
 
@@ -1234,10 +1129,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'cursor',
     title: 'Cursor',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'cursor.mdx',
     related: 'ai',
-    level: 'intermediate',
     tags: ['tooling', 'ai', 'ide'],
     proficiencyScore: 8,
   },
@@ -1246,10 +1140,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'gemini',
     title: 'Gemini',
-    category: 'tooling',
+    isRoot: false,
     markdownFile: 'gemini.mdx',
     related: 'ai',
-    level: 'intermediate',
     tags: ['tooling', 'ai'],
     proficiencyScore: 7,
   },
@@ -1258,9 +1151,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'concepts',
     title: 'Concepts',
-    category: 'root',
+    isRoot: true,
     markdownFile: 'concepts.mdx',
-    level: 'advanced',
     proficiencyScore: 6,
   },
 
@@ -1268,10 +1160,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'general-principles',
     title: 'General Principles',
-    category: 'concept',
+    isRoot: false,
     markdownFile: 'general-principles.mdx',
     related: 'concepts',
-    level: 'advanced',
     proficiencyScore: 1,
   },
 
@@ -1279,10 +1170,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'idempotency',
     title: 'Idempotency',
-    category: 'concept',
+    isRoot: false,
     markdownFile: 'idempotency.mdx',
     related: 'general-principles',
-    level: 'advanced',
     tags: ['concept', 'principle'],
     proficiencyScore: 8,
   },
@@ -1291,10 +1181,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'solid',
     title: 'SOLID',
-    category: 'concept',
+    isRoot: false,
     markdownFile: 'solid.mdx',
     related: 'general-principles',
-    level: 'advanced',
     tags: ['concept', 'principle'],
     proficiencyScore: 8,
   },
@@ -1303,10 +1192,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'dry',
     title: 'DRY',
-    category: 'concept',
+    isRoot: false,
     markdownFile: 'dry.mdx',
     related: 'general-principles',
-    level: 'advanced',
     tags: ['concept', 'principle'],
     proficiencyScore: 5,
   },
@@ -1315,10 +1203,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'multitenancy',
     title: 'Multitenancy',
-    category: 'concept',
+    isRoot: false,
     markdownFile: 'multitenancy.mdx',
     related: 'general-principles',
-    level: 'advanced',
     tags: ['concept', 'architecture', 'saas'],
     proficiencyScore: 9,
   },
@@ -1327,10 +1214,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'design-patterns',
     title: 'Design Patterns',
-    category: 'concept',
+    isRoot: false,
     markdownFile: 'design-patterns.mdx',
     related: 'concepts',
-    level: 'advanced',
     proficiencyScore: 2,
   },
 
@@ -1338,10 +1224,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'chain-of-responsibility',
     title: 'Chain of Responsibility',
-    category: 'concept',
+    isRoot: false,
     markdownFile: 'chain-of-responsibility.mdx',
     related: 'design-patterns',
-    level: 'advanced',
     tags: ['concept', 'design-pattern'],
     proficiencyScore: 4,
   },
@@ -1350,10 +1235,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'adapter',
     title: 'Adapter',
-    category: 'concept',
+    isRoot: false,
     markdownFile: 'adapter.mdx',
     related: 'design-patterns',
-    level: 'advanced',
     tags: ['concept', 'design-pattern'],
     proficiencyScore: 2,
   },
@@ -1362,10 +1246,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'singleton',
     title: 'Singleton',
-    category: 'concept',
+    isRoot: false,
     markdownFile: 'singleton.mdx',
     related: 'design-patterns',
-    level: 'advanced',
     tags: ['concept', 'design-pattern'],
     proficiencyScore: 6,
   },
@@ -1374,10 +1257,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'factory',
     title: 'Factory',
-    category: 'concept',
+    isRoot: false,
     markdownFile: 'factory.mdx',
     related: 'design-patterns',
-    level: 'advanced',
     tags: ['concept', 'design-pattern'],
     proficiencyScore: 6,
   },
@@ -1386,10 +1268,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'observer',
     title: 'Observer',
-    category: 'concept',
+    isRoot: false,
     markdownFile: 'observer.mdx',
     related: 'design-patterns',
-    level: 'advanced',
     tags: ['concept', 'design-pattern'],
     proficiencyScore: 3,
   },
@@ -1398,10 +1279,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'decorators',
     title: 'Decorators',
-    category: 'concept',
+    isRoot: false,
     markdownFile: 'decorators.mdx',
     related: 'design-patterns',
-    level: 'advanced',
     tags: ['concept', 'design-pattern'],
     proficiencyScore: 7,
   },
@@ -1410,9 +1290,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'database',
     title: 'Database',
-    category: 'root',
+    isRoot: true,
     markdownFile: 'database.mdx',
-    level: 'intermediate',
     proficiencyScore: 6,
   },
 
@@ -1420,10 +1299,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'relational',
     title: 'Relational',
-    category: 'database',
+    isRoot: false,
     markdownFile: 'relational.mdx',
     related: 'database',
-    level: 'intermediate',
     proficiencyScore: 9,
   },
 
@@ -1431,10 +1309,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'postgresql',
     title: 'PostgreSQL',
-    category: 'database',
+    isRoot: false,
     markdownFile: 'postgresql.mdx',
     related: 'relational',
-    level: 'intermediate',
     tags: ['database', 'sql', 'relational'],
     proficiencyScore: 3,
   },
@@ -1443,10 +1320,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'indexing',
     title: 'Indexing',
-    category: 'database',
+    isRoot: false,
     markdownFile: 'indexing.mdx',
     related: 'relational',
-    level: 'intermediate',
     tags: ['database', 'sql', 'relational', 'optimization'],
     proficiencyScore: 9,
   },
@@ -1455,10 +1331,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'locking',
     title: 'Locking',
-    category: 'database',
+    isRoot: false,
     markdownFile: 'locking.mdx',
     related: 'relational',
-    level: 'intermediate',
     tags: ['database', 'sql', 'relational'],
     proficiencyScore: 9,
   },
@@ -1467,10 +1342,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'transactions-acid',
     title: 'Transactions (ACID)',
-    category: 'database',
+    isRoot: false,
     markdownFile: 'transactions-acid.mdx',
     related: 'relational',
-    level: 'intermediate',
     tags: ['database', 'sql', 'relational'],
     proficiencyScore: 7,
   },
@@ -1479,10 +1353,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'sharding',
     title: 'Sharding',
-    category: 'database',
+    isRoot: false,
     markdownFile: 'sharding.mdx',
     related: 'relational',
-    level: 'intermediate',
     tags: ['database', 'sql', 'relational', 'scaling'],
     proficiencyScore: 9,
   },
@@ -1491,10 +1364,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'in-memory',
     title: 'In-Memory',
-    category: 'database',
+    isRoot: false,
     markdownFile: 'in-memory.mdx',
     related: 'database',
-    level: 'intermediate',
     proficiencyScore: 9,
   },
 
@@ -1502,10 +1374,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'redis',
     title: 'Redis',
-    category: 'database',
+    isRoot: false,
     markdownFile: 'redis.mdx',
     related: 'in-memory',
-    level: 'intermediate',
     tags: ['database', 'nosql', 'caching', 'queues'],
     proficiencyScore: 3,
   },
@@ -1514,10 +1385,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'cache-keys',
     title: 'Cache Keys',
-    category: 'database',
+    isRoot: false,
     markdownFile: 'cache-keys.mdx',
     related: 'in-memory',
-    level: 'intermediate',
     tags: ['database', 'caching'],
     proficiencyScore: 6,
   },
@@ -1526,10 +1396,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'caching-strategies',
     title: 'Caching Strategies',
-    category: 'database',
+    isRoot: false,
     markdownFile: 'caching-strategies.mdx',
     related: 'in-memory',
-    level: 'intermediate',
     tags: ['database', 'caching'],
     proficiencyScore: 9,
   },
@@ -1538,10 +1407,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'nosql',
     title: 'NoSQL',
-    category: 'database',
+    isRoot: false,
     markdownFile: 'nosql.mdx',
     related: 'database',
-    level: 'intermediate',
     proficiencyScore: 2,
   },
 
@@ -1549,10 +1417,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'mongodb',
     title: 'MongoDB',
-    category: 'database',
+    isRoot: false,
     markdownFile: 'mongodb.mdx',
     related: 'nosql',
-    level: 'intermediate',
     tags: ['database', 'nosql'],
     proficiencyScore: 2,
   },
@@ -1561,10 +1428,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'dynamodb',
     title: 'DynamoDB',
-    category: 'database',
+    isRoot: false,
     markdownFile: 'dynamodb.mdx',
     related: 'nosql',
-    level: 'intermediate',
     tags: ['database', 'nosql', 'aws'],
     proficiencyScore: 10,
   },
@@ -1603,18 +1469,6 @@ export function getRelatedKnowledges(id: string): Knowledge[] {
 }
 
 /**
- * Get all knowledge items filtered by category
- *
- * @param category - The category to filter by
- * @returns Array of knowledge items in the specified category
- */
-export function getKnowledgesByCategory(
-  category: Knowledge['category']
-): Knowledge[] {
-  return KNOWLEDGE_DATA.filter((knowledge) => knowledge.category === category);
-}
-
-/**
  * Get all knowledge items filtered by tag
  *
  * @param tag - The tag to filter by
@@ -1626,17 +1480,6 @@ export function getKnowledgesByTag(tag: string): Knowledge[] {
   );
 }
 
-/**
- * Get all unique categories from all knowledge items
- *
- * @returns Array of unique category values
- */
-export function getAllCategories(): Knowledge['category'][] {
-  return Array.from(
-    new Set(KNOWLEDGE_DATA.map((knowledge) => knowledge.category))
-  ) as Knowledge['category'][];
-}
-
 // Export alias for backward compatibility
 export const knowledges = KNOWLEDGE_DATA;
 
@@ -1644,5 +1487,4 @@ export const knowledges = KNOWLEDGE_DATA;
 export const knowledgeNodes = KNOWLEDGE_DATA;
 export const getNodeById = getKnowledgeById;
 export const getRelatedNodes = getRelatedKnowledges;
-export const getNodesByCategory = getKnowledgesByCategory;
 export const getNodesByTag = getKnowledgesByTag;

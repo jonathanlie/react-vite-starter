@@ -3,7 +3,7 @@ import { Knowledge } from '@/types/knowledge';
 
 export interface D3Node extends SimulationNodeDatum {
   id: string;
-  category: Knowledge['category'];
+  isRoot: boolean;
   targetX?: number;
   parentRoot?: string;
   hubNode?: string;

@@ -32,7 +32,7 @@ export function calculateNodePosition(
   } = context;
 
   const existingPos = previousPositions.get(node.id);
-  const isRoot = node.category === 'root';
+  const isRoot = node.isRoot;
 
   if (existingPos) {
     return {
@@ -58,10 +58,7 @@ export function calculateNodePosition(
     let parentPos = previousPositions.get(directParentId);
     if (!parentPos) {
       const parentKnowledge = knowledges.find((n) => n.id === directParentId);
-      if (
-        parentKnowledge?.category === 'root' &&
-        rootPositions.has(directParentId)
-      ) {
+      if (parentKnowledge?.isRoot && rootPositions.has(directParentId)) {
         parentPos = rootPositions.get(directParentId)!;
       }
     }
@@ -104,7 +101,7 @@ export function calculateNodePosition(
     const hubPos = previousPositions.get(hubNode);
     if (hubPos) {
       const hubSiblings = visibleNodes.filter((n) => {
-        if (n.category === 'root' || n.id === hubNode) return false;
+        if (n.isRoot || n.id === hubNode) return false;
         return findHubNode(n.id, visibleNodeIds) === hubNode;
       });
       const siblingIndex = hubSiblings.findIndex((n) => n.id === node.id);
@@ -124,7 +121,7 @@ export function calculateNodePosition(
     const parentPos = rootPositions.get(parentRoot)!;
 
     const childrenOfRoot = visibleNodes.filter((n) => {
-      if (n.category === 'root') return false;
+      if (n.isRoot) return false;
       return findRootForNode(n.id, visibleNodeIds) === parentRoot;
     });
     const childIndex = childrenOfRoot.findIndex((n) => n.id === node.id);

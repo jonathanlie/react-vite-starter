@@ -7,12 +7,10 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { Badge } from '@/components/ui/badge';
 import { loadMarkdownContent, MarkdownLoadError } from '@/utils/loadMarkdown';
 import { getKnowledgeById } from '@/data/knowledges';
 import { ProficiencyScore } from './ProficiencyScore';
 import type { ComponentType } from 'react';
-import type { KnowledgeCategory } from '@/types/knowledge';
 
 interface KnowledgeModalProps {
   /** The ID of the knowledge node to display */
@@ -21,27 +19,6 @@ interface KnowledgeModalProps {
   isOpen: boolean;
   /** Callback when the modal should be closed */
   onClose: () => void;
-}
-
-/**
- * Get cyber-style badge classes based on category
- *
- * Returns Tailwind classes for low-opacity colored backgrounds with matching borders.
- */
-function getCategoryBadgeClasses(category: KnowledgeCategory): string {
-  const baseClasses = 'px-2.5 py-0.5 rounded-md text-xs font-medium border';
-
-  const categoryStyles: Record<KnowledgeCategory, string> = {
-    concept: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
-    frontend: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-    backend: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
-    devops: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
-    database: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/20',
-    tooling: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20',
-    root: 'bg-gray-500/10 text-gray-400 border-gray-500/20',
-  };
-
-  return `${baseClasses} ${categoryStyles[category]}`;
 }
 
 /**
@@ -112,20 +89,6 @@ export function KnowledgeModal({
                 {node.title}
               </DialogTitle>
               <div className="flex flex-wrap items-center gap-2 mt-2">
-                <Badge
-                  variant="secondary"
-                  className={getCategoryBadgeClasses(node.category)}
-                >
-                  {node.category}
-                </Badge>
-                {node.level && (
-                  <Badge
-                    variant="default"
-                    className="px-2.5 py-0.5 rounded-md text-xs font-medium bg-zinc-500/10 text-zinc-400 border border-zinc-500/20"
-                  >
-                    {node.level}
-                  </Badge>
-                )}
                 {node.proficiencyScore && (
                   <ProficiencyScore score={node.proficiencyScore} />
                 )}

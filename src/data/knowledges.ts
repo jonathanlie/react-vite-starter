@@ -17,7 +17,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     markdownFile: 'frameworks-libraries.mdx',
     related: 'frontend',
-    proficiencyScore: 10,
+    proficiencyScore: 9,
   },
 
   // Frontend - Frameworks / Libraries - Angular
@@ -28,7 +28,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'angular.mdx',
     related: 'frameworks-libraries',
     tags: ['frontend', 'framework'],
-    proficiencyScore: 5,
+    proficiencyScore: 9,
+    content:
+      'Architected the core Rewards Dashboard from greenfield, scaling the platform to serve over 1 million multi-tenant users.',
   },
 
   // Frontend - Frameworks / Libraries - AngularJS
@@ -39,7 +41,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'angularjs.mdx',
     related: 'frameworks-libraries',
     tags: ['frontend', 'framework', 'legacy'],
-    proficiencyScore: 10,
+    proficiencyScore: 5,
+    content:
+      'Maintained and refactored monolithic controllers into smaller components, preparing legacy systems for eventual migration.',
   },
 
   // Frontend - Frameworks / Libraries - React
@@ -50,7 +54,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'react.mdx',
     related: 'frameworks-libraries',
     tags: ['frontend', 'framework', 'mobile'],
-    proficiencyScore: 5,
+    proficiencyScore: 7,
+    content:
+      'Core contributor to the VersaFleet logistics dashboard. Built geospatial mapping and a full-stack bulk order import feature.',
   },
 
   // Frontend - Frameworks / Libraries - React Native
@@ -62,6 +68,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'frameworks-libraries',
     tags: ['frontend', 'framework', 'mobile'],
     proficiencyScore: 7,
+    content:
+      'Developed the Driver Mobile App, implementing offline-first state logic and digital E-Signature capture for mission-critical operations.',
   },
 
   // Frontend - Frameworks / Libraries - VueJS
@@ -72,7 +80,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'vuejs.mdx',
     related: 'frameworks-libraries',
     tags: ['frontend', 'framework'],
-    proficiencyScore: 3,
+    proficiencyScore: 2,
+    content:
+      'Conceptual familiarity with the framework; used for small internal tools or prototypes outside of core production systems.',
   },
 
   // Frontend - State Management
@@ -82,7 +92,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     markdownFile: 'state-management.mdx',
     related: 'frontend',
-    proficiencyScore: 3,
+    proficiencyScore: 6,
   },
 
   // Frontend - State Management - Reflux
@@ -93,7 +103,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'reflux.mdx',
     related: 'state-management',
     tags: ['frontend', 'state-management'],
-    proficiencyScore: 3,
+    proficiencyScore: 5,
+    content:
+      'Maintained legacy state management stores before successfully planning and executing the strategic migration to Redux.',
   },
 
   // Frontend - State Management - NgRx
@@ -104,7 +116,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'ngrx.mdx',
     related: 'state-management',
     tags: ['frontend', 'state-management', 'angular'],
-    proficiencyScore: 7,
+    proficiencyScore: 6,
+    content:
+      'Consumed and utilized advanced state management patterns (e.g., side effects and reducers) within the large Angular architecture.',
   },
 
   // Frontend - State Management - Redux
@@ -115,7 +129,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'redux.mdx',
     related: 'state-management',
     tags: ['frontend', 'state-management'],
-    proficiencyScore: 9,
+    proficiencyScore: 7,
+    content:
+      'Established the core unidirectional data flow architecture at VersaFleet after leading the strategic migration from Reflux.',
   },
 
   // Frontend - State Management - Zustand
@@ -126,7 +142,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'zustand.mdx',
     related: 'state-management',
     tags: ['frontend', 'state-management', 'react'],
-    proficiencyScore: 10,
+    proficiencyScore: 3,
+    content:
+      "Conceptual familiarity with the library's design; experimented with its minimalist API for internal tooling concepts.",
   },
 
   // Frontend - Typescript
@@ -136,7 +154,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     markdownFile: 'typescript.mdx',
     related: 'frontend',
-    proficiencyScore: 4,
+    proficiencyScore: 7,
+    content:
+      'Enforced strict, scalable type definitions across large Angular applications, enabling collaboration among 5+ engineers without major regression.',
   },
 
   // Frontend - Typescript - Generics
@@ -386,6 +406,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'frontend',
     tags: ['frontend', 'optimization', 'performance'],
     proficiencyScore: 6,
+    content:
+      'Led efforts to improve Core Web Vitals, reducing initial load time through bundle analysis and implementing route-level code splitting.',
   },
 
   // Frontend - Web Performance - Code splitting
@@ -416,7 +438,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Backend',
     isRoot: true,
     markdownFile: 'backend.mdx',
-    proficiencyScore: 5,
+    proficiencyScore: 6,
   },
 
   // Backend - Languages / Runtimes
@@ -426,7 +448,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     markdownFile: 'languages-runtimes.mdx',
     related: 'backend',
-    proficiencyScore: 10,
+    proficiencyScore: 7,
   },
 
   // Backend - Languages / Runtimes - Ruby
@@ -469,7 +491,22 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'ruby-on-rails.mdx',
     related: 'frameworks-libraries-ruby',
     tags: ['backend', 'framework', 'ruby'],
-    proficiencyScore: 10,
+    proficiencyScore: 8,
+    content:
+      'Re-architected a critical batch job (200K redemptions/month) to be idempotent and fault-tolerant, eliminating 100% of manual data patching.',
+  },
+
+  // Backend - Microservices
+  {
+    id: 'microservices',
+    title: 'Microservices',
+    isRoot: false,
+    markdownFile: 'microservices.mdx',
+    related: 'backend',
+    tags: ['backend', 'architecture'],
+    proficiencyScore: 5,
+    content:
+      'Participated in on-call rotation, debugging production incidents and tracing errors across multiple decoupled services.',
   },
 
   // Backend - Frameworks / Libraries (Ruby) - Sidekiq
@@ -588,7 +625,20 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'api-design.mdx',
     related: 'backend',
     tags: ['backend', 'api', 'openapi'],
-    proficiencyScore: 10,
+    proficiencyScore: 5,
+  },
+
+  // Backend - API Design - OpenAPI
+  {
+    id: 'openapi',
+    title: 'OpenAPI',
+    isRoot: false,
+    markdownFile: 'openapi.mdx',
+    related: 'api-design',
+    tags: ['backend', 'api', 'documentation'],
+    proficiencyScore: 3,
+    content:
+      'Documented several public-facing Partner APIs using OpenAPI, focusing on API design best practices and external integration requirements.',
   },
 
   // Backend - API Design - REST
@@ -684,7 +734,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'DevOps',
     isRoot: true,
     markdownFile: 'devops.mdx',
-    proficiencyScore: 4,
+    proficiencyScore: 5,
+    content:
+      "Set up the team's first automated deployment pipeline using Grunt scripts and managed CI/CD processes for core applications.",
   },
 
   // Devops - Infrastructure as Code (IaC)
@@ -705,7 +757,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'terraform.mdx',
     related: 'infrastructure-as-code-iac',
     tags: ['devops', 'iac'],
-    proficiencyScore: 8,
+    proficiencyScore: 4,
+    content:
+      'Safely consumed and maintained existing configuration for AWS infrastructure, executing controlled changes (e.g., Sidekiq resource scaling).',
   },
 
   // Devops - Containerization & Orchestration
@@ -1290,8 +1344,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
   {
     id: 'database',
     title: 'Database',
-    isRoot: true,
+    isRoot: false,
     markdownFile: 'database.mdx',
+    related: 'backend',
     proficiencyScore: 6,
   },
 
@@ -1311,9 +1366,11 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'PostgreSQL',
     isRoot: false,
     markdownFile: 'postgresql.mdx',
-    related: 'relational',
-    tags: ['database', 'sql', 'relational'],
-    proficiencyScore: 3,
+    related: 'database',
+    tags: ['backend', 'database', 'sql'],
+    proficiencyScore: 6,
+    content:
+      'Designed robust schemas for multi-tenant loyalty systems and performed advanced indexing for query optimization on transaction data.',
   },
 
   // Database - Relational - Indexing

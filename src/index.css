@@ -156,4 +156,30 @@
   .react-flow__controls-button {
     @apply bg-white/30 rounded-full;
   }
+
+  /* Modern Dark Mode Scrollbar */
+  .scroll-container {
+    scrollbar-width: thin;
+    scrollbar-color: #333 #000; /* Thumb Color / Track Color */
+  }
+
+  /* For Webkit browsers (Chrome, Safari, Edge) */
+  .scroll-container::-webkit-scrollbar {
+    width: 10px; /* Slimmer than default */
+  }
+
+  .scroll-container::-webkit-scrollbar-track {
+    background: transparent; /* Blends with your dark background */
+  }
+
+  .scroll-container::-webkit-scrollbar-thumb {
+    background-color: #333; /* Dark grey thumb */
+    border-radius: 5px; /* Rounded edges look softer */
+    border: 2px solid #000; /* Creates padding around the thumb so it floats */
+  }
+
+  /* Hover effect to indicate it's interactive */
+  .scroll-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
 }

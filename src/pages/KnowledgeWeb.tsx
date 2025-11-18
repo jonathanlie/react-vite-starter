@@ -7,7 +7,6 @@ import { KnowledgeList } from '@/components/knowledge/KnowledgeList';
 import { KnowledgeModal } from '@/components/knowledge/KnowledgeModal';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { SearchInput } from '@/components/common/SearchInput';
-import { PaginationControls } from '@/components/common/PaginationControls';
 import { knowledges } from '@/data/knowledges';
 
 /**
@@ -28,23 +27,15 @@ type ViewMode = 'cards' | 'graph';
  * Displays knowledge items in both card grid and graph visualization formats.
  * Supports switching between views and opening detailed markdown content in modals.
  */
-const ITEMS_PER_PAGE = 12;
-
 export function KnowledgeWeb() {
   const { t } = useTranslation();
   const [viewMode, setViewMode] = useState<ViewMode>('cards');
   const [searchTerm, setSearchTerm] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Reset to page 1 when search term changes
   const handleSearchChange = (debouncedValue: string) => {
-    const searchChanged = searchTerm !== debouncedValue;
     setSearchTerm(debouncedValue);
-    if (searchChanged && currentPage !== 1) {
-      setCurrentPage(1);
-    }
   };
 
   // Fuzzy search configuration
@@ -67,14 +58,6 @@ export function KnowledgeWeb() {
     const results = fuse.search(searchTerm);
     return results.map((result) => result.item);
   }, [searchTerm, fuse]);
-
-  // Calculate pagination
-  const totalPages = Math.ceil(filteredKnowledges.length / ITEMS_PER_PAGE);
-  const paginatedKnowledges = useMemo(() => {
-    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-    const endIndex = startIndex + ITEMS_PER_PAGE;
-    return filteredKnowledges.slice(startIndex, endIndex);
-  }, [filteredKnowledges, currentPage]);
 
   const handleKnowledgeClick = (knowledgeId: string) => {
     setSelectedNodeId(knowledgeId);
@@ -134,15 +117,12 @@ export function KnowledgeWeb() {
                 className="w-full max-w-md"
               />
             </div>
-            <KnowledgeList
-              nodes={paginatedKnowledges}
-              onNodeClick={handleKnowledgeClick}
-            />
-            <PaginationControls
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={setCurrentPage}
-            />
+            <div className="h-[calc(100vh-400px)] min-h-[600px]">
+              <KnowledgeList
+                nodes={filteredKnowledges}
+                onNodeClick={handleKnowledgeClick}
+              />
+            </div>
           </>
         )}
 

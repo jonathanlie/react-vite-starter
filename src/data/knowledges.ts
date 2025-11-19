@@ -6,10 +6,11 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     id: 'frontend',
     title: 'Frontend',
     isRoot: true,
+    tags: ['frontend'],
     proficiencyScore: 8,
     markdownFile: 'frontend.md',
     content:
-      '6 years of experience with various products and frontend libraries. Production experience with React, React Native, AngularJS, Angular. Architected greenfield projects and scaled to multiple tenant builds.',
+      '6 years of experience with various products and frontend libraries.',
   },
 
   // Frontend - Frameworks / Libraries
@@ -18,6 +19,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Frameworks / Libraries',
     isRoot: false,
     related: 'frontend',
+    tags: ['frameworks-libraries'],
     proficiencyScore: 8,
     content:
       'Confident in picking up new frameworks and libraries. Versatile and adaptable to different stacks.',
@@ -89,6 +91,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'State Management',
     isRoot: false,
     related: 'frontend',
+    tags: ['state-management'],
     proficiencyScore: 7,
     content:
       'Experienced with various state management solutions. Migrated from Reflux to Redux at VersaFleet. Used NgRx for Rewards Dashboard in Ascenda.',
@@ -147,6 +150,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Typescript',
     isRoot: false,
     related: 'frontend',
+    tags: ['typescript'],
     proficiencyScore: 6,
     content:
       'Enforced strict, scalable type definitions across a large Angular application (Rewards Dashboard) in Ascenda.',
@@ -193,6 +197,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Styling',
     isRoot: false,
     related: 'frontend',
+    tags: ['styling'],
     proficiencyScore: 6,
     content:
       'Used vanilla CSS with naming conventions like BEM, CSS pre-processors (SASS), framework mechanisms (e.g. Angular ViewEncapsulation). Currently learning Tailwind.',
@@ -240,6 +245,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Build Tools',
     isRoot: false,
     related: 'frontend',
+    tags: ['build-tools'],
     proficiencyScore: 5,
     content:
       'Operational familarity and experience with various build tools. Able to pick up and modify to requirements as needed.',
@@ -311,6 +317,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Accessibility - a11y',
     isRoot: false,
     related: 'frontend',
+    tags: ['accessibility-a11y'],
     proficiencyScore: 6,
     content:
       'Enforced aria attributes, keyboard navigation support, and semantic HTML in Ascenda. Mostly used Lighthouse and WAVE to test.',
@@ -370,6 +377,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Frontend Testing',
     isRoot: false,
     related: 'frontend',
+    tags: ['frontend-testing'],
     proficiencyScore: 6,
     content:
       'Dealt with unit and integration tests. Jest was the main framework used in Angular projects in Ascenda.',
@@ -453,6 +461,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Backend',
     isRoot: true,
     markdownFile: 'backend.md',
+    tags: ['backend'],
     proficiencyScore: 6,
     content:
       '3+ years of production experience with Ruby on Rails on a microservices architecture, with multitenancy as the main challenge and the focal point.',
@@ -464,6 +473,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Languages / Runtimes',
     isRoot: false,
     related: 'backend',
+    tags: ['languages-runtimes'],
     proficiencyScore: 4,
     content:
       'Used Ruby on Rails professionally. Learned Python on the side to solve DSA problems.',
@@ -567,6 +577,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Messaging / Event Streaming',
     isRoot: false,
     related: 'backend',
+    tags: ['messaging-event-streaming'],
     proficiencyScore: 4,
     content:
       'Used Kafka as the messaging system in Ascenda to handle event-driven communication between microservices.',
@@ -642,6 +653,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Backend Testing',
     isRoot: false,
     related: 'backend',
+    tags: ['backend-testing'],
     proficiencyScore: 6,
     content:
       'Able to utilize existing tools and languages to write tests. Delved into load test with Galing, integration tests with Rspec, and API test suite management with Postman.',
@@ -696,6 +708,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     id: 'devops',
     title: 'DevOps',
     isRoot: true,
+    tags: ['devops'],
     proficiencyScore: 5,
     content:
       "Set up the team's first automated deployment pipeline using Grunt scripts and managed CI/CD processes for core applications.",
@@ -707,6 +720,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Infrastructure as Code (IaC)',
     isRoot: false,
     related: 'devops',
+    tags: ['infrastructure-as-code-iac'],
     proficiencyScore: 4,
   },
 
@@ -728,6 +742,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Containerization & Orchestration',
     isRoot: false,
     related: 'devops',
+    tags: ['containerization-orchestration'],
     proficiencyScore: 4,
     content:
       'Understood the usage of docker containers and was able to debug issues if there are issues blocking deployment.',
@@ -770,6 +785,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Cloud',
     isRoot: false,
     related: 'devops',
+    tags: ['cloud'],
     proficiencyScore: 2,
   },
 
@@ -845,6 +861,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'CI/CD',
     isRoot: false,
     related: 'devops',
+    tags: ['ci-cd'],
     proficiencyScore: 4,
   },
 
@@ -887,6 +904,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     id: 'tooling',
     title: 'Tooling',
     isRoot: true,
+    tags: ['tooling'],
     proficiencyScore: 6,
   },
 
@@ -896,6 +914,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Version Control',
     isRoot: false,
     related: 'tooling',
+    tags: ['version-control'],
     proficiencyScore: 6,
   },
 
@@ -982,6 +1001,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Content (Headless CMS)',
     isRoot: false,
     related: 'tooling',
+    tags: ['content-headless-cms'],
     proficiencyScore: 5,
   },
 
@@ -1016,6 +1036,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Testing (Cross-Browser)',
     isRoot: false,
     related: 'tooling',
+    tags: ['testing-cross-browser'],
     proficiencyScore: 6,
   },
 
@@ -1037,6 +1058,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Third-Party APIs / Services',
     isRoot: false,
     related: 'tooling',
+    tags: ['third-party-apis-services'],
     proficiencyScore: 5,
     content:
       'Proficient in picking up third-party APIs and services, and getting them to setup and work, no matter the application and complexity.',
@@ -1082,6 +1104,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Payment',
     isRoot: false,
     related: 'third-party-apis-services',
+    tags: ['payment'],
     proficiencyScore: 4,
   },
 
@@ -1101,6 +1124,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Communication',
     isRoot: false,
     related: 'third-party-apis-services',
+    tags: ['communication'],
     proficiencyScore: 4,
   },
 
@@ -1130,6 +1154,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'AI',
     isRoot: false,
     related: 'tooling',
+    tags: ['ai'],
     proficiencyScore: 5,
   },
 
@@ -1162,6 +1187,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     id: 'concepts',
     title: 'Concepts',
     isRoot: true,
+    tags: ['concepts'],
     proficiencyScore: 6,
   },
 
@@ -1171,6 +1197,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'General Principles',
     isRoot: false,
     related: 'concepts',
+    tags: ['general-principles'],
     proficiencyScore: 1,
   },
 
@@ -1221,6 +1248,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'concepts',
     markdownFile: 'authentication-authorization-integration.md',
+    tags: ['authentication-authorization-integration'],
     proficiencyScore: 5,
     content:
       'Integrated centralized Identity Providers into applications using internal SDKs.',
@@ -1262,6 +1290,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Design Patterns',
     isRoot: false,
     related: 'concepts',
+    tags: ['design-patterns'],
     proficiencyScore: 2,
   },
 
@@ -1325,6 +1354,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Database',
     isRoot: false,
     related: 'backend',
+    tags: ['database'],
     proficiencyScore: 6,
     content:
       'Used PostgreSQL, Redis in production. Able to navigate the schema, debug production issues, create indexes, new schemas, and the sort.',
@@ -1398,6 +1428,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'In-Memory',
     isRoot: false,
     related: 'database',
+    tags: ['in-memory'],
     proficiencyScore: 4,
   },
 
@@ -1427,6 +1458,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'NoSQL',
     isRoot: false,
     related: 'database',
+    tags: ['nosql'],
     proficiencyScore: 2,
   },
 

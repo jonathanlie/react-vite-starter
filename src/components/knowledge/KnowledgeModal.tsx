@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Loader2, AlertCircle } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import type { Components } from 'react-markdown';
@@ -110,8 +110,26 @@ export function KnowledgeModal({
   const [markdownContent, setMarkdownContent] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
 
   const node = nodeId ? getKnowledgeById(nodeId) : null;
+
+  // Capture focus when modal opens, restore when it closes
+  useEffect(() => {
+    if (isOpen) {
+      previousFocusRef.current =
+        (document.activeElement as HTMLElement) || null;
+    } else {
+      const timeoutId = setTimeout(() => {
+        if (previousFocusRef.current) {
+          previousFocusRef.current.focus();
+          previousFocusRef.current = null;
+        }
+      }, 100);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [isOpen]);
 
   useEffect(() => {
     if (!isOpen || !node) {

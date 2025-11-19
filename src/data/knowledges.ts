@@ -1240,7 +1240,6 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'design-patterns',
     tags: ['concept', 'design-pattern'],
     proficiencyScore: 5,
-    content: '',
   },
 
   // Concepts - Design Patterns - Adapter
@@ -1263,8 +1262,6 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'design-patterns',
     tags: ['concept', 'design-pattern'],
     proficiencyScore: 6,
-    content:
-      "Objects like Redux stores, services that we use everyday are essentially singletons. It's everywhere.",
   },
 
   // Concepts - Design Patterns - Factory
@@ -1296,6 +1293,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'backend',
     proficiencyScore: 6,
+    content:
+      'Used PostgreSQL, Redis in production. Able to navigate the schema, debug production issues, create indexes, new schemas, and the sort.',
   },
 
   // Database - Relational
@@ -1304,7 +1303,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Relational',
     isRoot: false,
     related: 'database',
-    proficiencyScore: 9,
+    tags: ['database', 'relational', 'postgresql', 'sql'],
+    proficiencyScore: 6,
   },
 
   // Database - Relational - PostgreSQL
@@ -1316,7 +1316,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     tags: ['backend', 'database', 'sql'],
     proficiencyScore: 6,
     content:
-      'Designed robust schemas for multi-tenant loyalty systems and performed advanced indexing for query optimization on transaction data.',
+      'Able to navigate the schema, debug production issues, create indexes, new schemas.',
   },
 
   // Database - Relational - Indexing
@@ -1326,7 +1326,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'relational',
     tags: ['database', 'sql', 'relational', 'optimization'],
-    proficiencyScore: 9,
+    proficiencyScore: 5,
   },
 
   // Database - Relational - Locking
@@ -1346,7 +1346,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'relational',
     tags: ['database', 'sql', 'relational'],
-    proficiencyScore: 7,
+    proficiencyScore: 5,
   },
 
   // Database - Relational - Sharding
@@ -1356,7 +1356,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'relational',
     tags: ['database', 'sql', 'relational', 'scaling'],
-    proficiencyScore: 9,
+    proficiencyScore: 2,
   },
 
   // Database - In-Memory
@@ -1365,7 +1365,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'In-Memory',
     isRoot: false,
     related: 'database',
-    proficiencyScore: 9,
+    proficiencyScore: 4,
   },
 
   // Database - In-Memory - Redis
@@ -1375,7 +1375,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'in-memory',
     tags: ['database', 'nosql', 'caching', 'queues'],
-    proficiencyScore: 3,
+    proficiencyScore: 4,
   },
 
   // Database - In-Memory - Cache Keys
@@ -1385,17 +1385,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'in-memory',
     tags: ['database', 'caching'],
-    proficiencyScore: 6,
-  },
-
-  // Database - In-Memory - Caching Strategies
-  {
-    id: 'caching-strategies',
-    title: 'Caching Strategies',
-    isRoot: false,
-    related: 'in-memory',
-    tags: ['database', 'caching'],
-    proficiencyScore: 9,
+    proficiencyScore: 4,
   },
 
   // Database - NoSQL
@@ -1424,7 +1414,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'nosql',
     tags: ['database', 'nosql', 'aws'],
-    proficiencyScore: 10,
+    proficiencyScore: 2,
   },
 ];
 

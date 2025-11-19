@@ -636,15 +636,15 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     proficiencyScore: 2,
   },
 
-  // // Backend - API Design - gRPC
-  // {
-  //   id: 'grpc',
-  //   title: 'gRPC',
-  //   isRoot: false,
-  //   related: 'api-design',
-  //   tags: ['backend', 'api'],
-  //   proficiencyScore: 10,
-  // },
+  // Backend - API Design - gRPC
+  {
+    id: 'grpc',
+    title: 'gRPC',
+    isRoot: false,
+    related: 'api-design',
+    tags: ['backend', 'api'],
+    proficiencyScore: 2,
+  },
 
   // Backend - Backend Testing
   {
@@ -652,7 +652,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Backend Testing',
     isRoot: false,
     related: 'backend',
-    proficiencyScore: 10,
+    proficiencyScore: 6,
+    content:
+      'Able to utilize existing tools and languages to write tests. Delved into load test with Galing, integration tests with Rspec, and API test suite management with Postman.',
   },
 
   // Backend - Backend Testing - RSpec
@@ -662,7 +664,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'backend-testing',
     tags: ['backend', 'testing', 'ruby'],
-    proficiencyScore: 1,
+    proficiencyScore: 6,
+    content:
+      'Wrote integration tests that covered edge cases for a large-scale batch job, effectively introducing idempotency and fault-tolerance to said job. Wrote RSpec tests as part of day-to-day work shipping features.',
   },
 
   // Backend - Backend Testing - Postman
@@ -672,7 +676,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'backend-testing',
     tags: ['backend', 'testing', 'api'],
-    proficiencyScore: 10,
+    proficiencyScore: 5,
+    content:
+      'Able to setup environments, write basic scripts for API testing, and manage collections.',
   },
 
   // Backend - Backend Testing - FactoryBot
@@ -682,7 +688,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'backend-testing',
     tags: ['backend', 'testing', 'ruby'],
-    proficiencyScore: 10,
+    proficiencyScore: 6,
   },
 
   // Backend - Backend Testing - Gatling

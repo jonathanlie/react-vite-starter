@@ -250,7 +250,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     tags: ['frontend', 'styling', 'css'],
     proficiencyScore: 6,
     content:
-      'Used Stylus in Versafleet (logistics dashboard), SCSS in Ascenda (kaligo.com).',
+      'Used Stylus in Versafleet (logistics dashboard), SASS / SCSS in Ascenda (kaligo.com, Rewards Dashboard).',
   },
 
   // Frontend - Build Tools
@@ -260,7 +260,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     markdownFile: 'build-tools.mdx',
     related: 'frontend',
-    proficiencyScore: 1,
+    proficiencyScore: 5,
+    content:
+      'Operational familarity and experience with various build tools. Able to pick up and modify to requirements as needed.',
   },
 
   // Frontend - Build Tools - Vite
@@ -272,6 +274,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'build-tools',
     tags: ['frontend', 'build-tools'],
     proficiencyScore: 3,
+    content:
+      'Used in this portfolio site. Finding it extensible; I can imagine it being scalable due to its simplicity.',
   },
 
   // Frontend - Build Tools - Webpack
@@ -282,7 +286,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'webpack.mdx',
     related: 'build-tools',
     tags: ['frontend', 'build-tools'],
-    proficiencyScore: 3,
+    proficiencyScore: 4,
+    content:
+      'Used in Versafleet (SPA) and Ascenda (Rails with Webpacker, monolithic).',
   },
 
   // Frontend - Build Tools - Babel
@@ -293,7 +299,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'babel.mdx',
     related: 'build-tools',
     tags: ['frontend', 'build-tools'],
-    proficiencyScore: 1,
+    proficiencyScore: 4,
+    content:
+      'Configured custom babel preset in 2015 on Versafleet to transpile its corporate site.',
   },
 
   // Frontend - Internationalization - i18n

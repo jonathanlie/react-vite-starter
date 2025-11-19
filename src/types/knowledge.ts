@@ -37,8 +37,9 @@ export interface Knowledge {
    * Path to external MDX file containing detailed markdown content
    * Format: relative path from src/content/knowledge/ (e.g., "kafka.mdx")
    * The modal will lazy-load this content when the knowledge is clicked.
+   * If undefined or null, the knowledge item is non-clickable (concept/stub).
    */
-  markdownFile: string;
+  markdownFile?: string;
 
   /**
    * Related knowledge ID (optional)

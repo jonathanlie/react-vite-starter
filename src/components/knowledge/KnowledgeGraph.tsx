@@ -264,6 +264,7 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
             relatedCount,
             isNew: newNodesSet.has(d3Node.id),
             hasModalContent: !!knowledgeNode.markdownFile,
+            proficiencyScore: knowledgeNode.proficiencyScore,
           },
         };
       });

@@ -508,7 +508,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     tags: ['backend', 'framework', 'ruby'],
     proficiencyScore: 6,
     content:
-      'Refactored a critical batch job (200K redemptions in 4 hours) to be idempotent and retryable. Built schema-based validation to support differing data formats.',
+      'Built various features on orchestration layer that coordinates multiple microservices with multitenancy as the focal point.',
   },
 
   // Backend - Microservices
@@ -579,7 +579,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'backend',
     proficiencyScore: 4,
     content:
-      'Used Kafka as the primary messaging system in Ascenda to handle event-driven communication between microservices.',
+      'Used Kafka as the messaging system in Ascenda to handle event-driven communication between microservices.',
   },
 
   // Backend - Messaging / Event Streaming - Kafka
@@ -592,45 +592,6 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     proficiencyScore: 4,
     content:
       'Wrote several consumers and producers for small-scale data synchronizations in between other microservices.',
-  },
-
-  // Backend - Authentication / Authorization
-  {
-    id: 'authentication-authorization',
-    title: 'Authentication / Authorization',
-    isRoot: false,
-    related: 'backend',
-    proficiencyScore: 4,
-  },
-
-  // Backend - Authentication / Authorization - OAuth2
-  {
-    id: 'oauth2',
-    title: 'OAuth2',
-    isRoot: false,
-    related: 'authentication-authorization',
-    tags: ['backend', 'authentication', 'authorization'],
-    proficiencyScore: 5,
-  },
-
-  // Backend - Authentication / Authorization - JWT
-  {
-    id: 'jwt',
-    title: 'JWT',
-    isRoot: false,
-    related: 'authentication-authorization',
-    tags: ['backend', 'authentication'],
-    proficiencyScore: 3,
-  },
-
-  // Backend - Authentication / Authorization - Single Sign-On
-  {
-    id: 'single-sign-on',
-    title: 'Single Sign-On',
-    isRoot: false,
-    related: 'authentication-authorization',
-    tags: ['backend', 'authentication', 'sso'],
-    proficiencyScore: 10,
   },
 
   // Backend - API Design
@@ -675,15 +636,15 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     proficiencyScore: 2,
   },
 
-  // Backend - API Design - gRPC
-  {
-    id: 'grpc',
-    title: 'gRPC',
-    isRoot: false,
-    related: 'api-design',
-    tags: ['backend', 'api'],
-    proficiencyScore: 10,
-  },
+  // // Backend - API Design - gRPC
+  // {
+  //   id: 'grpc',
+  //   title: 'gRPC',
+  //   isRoot: false,
+  //   related: 'api-design',
+  //   tags: ['backend', 'api'],
+  //   proficiencyScore: 10,
+  // },
 
   // Backend - Backend Testing
   {
@@ -1220,6 +1181,48 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     proficiencyScore: 9,
   },
 
+  // Concepts - Authentication / Authorization Integration
+  {
+    id: 'authentication-authorization-integration',
+    title: 'Authentication / Authorization Integration',
+    isRoot: false,
+    related: 'concepts',
+    markdownFile: 'authentication-authorization-integration.mdx',
+    proficiencyScore: 5,
+    content:
+      'Integrated centralized Identity Providers into applications using internal SDKs.',
+  },
+
+  // Concepts - Authentication / Authorization - OAuth2
+  {
+    id: 'oauth2',
+    title: 'OAuth2',
+    isRoot: false,
+    related: 'authentication-authorization',
+    tags: ['concepts', 'authentication', 'authorization'],
+    proficiencyScore: 4,
+  },
+
+  // Concepts - Authentication / Authorization - JWT
+  {
+    id: 'jwt',
+    title: 'JWT',
+    isRoot: false,
+    related: 'authentication-authorization',
+    tags: ['concepts', 'authentication', 'authorization'],
+    proficiencyScore: 4,
+  },
+
+  // Concepts - Authentication / Authorization - Single Sign-On
+  {
+    id: 'single-sign-on',
+    title: 'Single Sign-On',
+    isRoot: false,
+    related: 'authentication-authorization',
+    tags: ['concepts', 'authentication', 'authorization', 'sso'],
+    proficiencyScore: 4,
+  },
+
   // Concepts - Design Patterns
   {
     id: 'design-patterns',
@@ -1236,7 +1239,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'design-patterns',
     tags: ['concept', 'design-pattern'],
-    proficiencyScore: 4,
+    proficiencyScore: 5,
+    content: '',
   },
 
   // Concepts - Design Patterns - Adapter
@@ -1246,7 +1250,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'design-patterns',
     tags: ['concept', 'design-pattern'],
-    proficiencyScore: 2,
+    proficiencyScore: 5,
+    content:
+      'Used a lot on integration layers for example, to abstract away API contracts for different providers, or to abstract the implementation details of a third-party library or service.',
   },
 
   // Concepts - Design Patterns - Singleton
@@ -1257,6 +1263,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'design-patterns',
     tags: ['concept', 'design-pattern'],
     proficiencyScore: 6,
+    content:
+      "Objects like Redux stores, services that we use everyday are essentially singletons. It's everywhere.",
   },
 
   // Concepts - Design Patterns - Factory
@@ -1276,17 +1284,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'design-patterns',
     tags: ['concept', 'design-pattern'],
-    proficiencyScore: 3,
-  },
-
-  // Concepts - Design Patterns - Decorators
-  {
-    id: 'decorators',
-    title: 'Decorators',
-    isRoot: false,
-    related: 'design-patterns',
-    tags: ['concept', 'design-pattern'],
-    proficiencyScore: 7,
+    proficiencyScore: 5,
+    content:
+      'An example would be the notification system in the orchestration layer. An observer registers for this event, emitting notifications such as success or failure e-mails.',
   },
 
   // Database

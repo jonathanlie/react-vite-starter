@@ -9,6 +9,7 @@ import { ProficiencyScaleExplanation } from '@/components/knowledge/ProficiencyS
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { SearchInput } from '@/components/common/SearchInput';
 import { knowledges } from '@/data/knowledges';
+import { CONTENT_PADDING } from '@/config/spacing';
 
 /**
  * Lazy-loaded KnowledgeGraph component
@@ -80,7 +81,7 @@ export function KnowledgeWeb() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
-      className="max-w-7xl mx-auto px-3 md:px-4 lg:px-6 py-8 lg:py-12"
+      className={`max-w-7xl mx-auto ${CONTENT_PADDING.horizontal} py-8 lg:py-12`}
     >
       <div className="mb-8 lg:mb-12">
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">

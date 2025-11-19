@@ -502,7 +502,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     markdownFile: 'languages-runtimes.mdx',
     related: 'backend',
-    proficiencyScore: 6,
+    proficiencyScore: 4,
+    content:
+      'Used Ruby on Rails professionally. Learned Python on the side to solve DSA problems.',
   },
 
   // Backend - Languages / Runtimes - Ruby
@@ -513,7 +515,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'ruby.mdx',
     related: 'languages-runtimes',
     tags: ['backend', 'language'],
-    proficiencyScore: 7,
+    proficiencyScore: 6,
+    content:
+      'Able to write production code in Ruby on Rails. Experienced with Ruby language features.',
   },
 
   // Backend - Languages / Runtimes - Python
@@ -545,9 +549,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'ruby-on-rails.mdx',
     related: 'frameworks-libraries-ruby',
     tags: ['backend', 'framework', 'ruby'],
-    proficiencyScore: 8,
+    proficiencyScore: 6,
     content:
-      'Re-architected a critical batch job (200K redemptions/month) to be idempotent and fault-tolerant, eliminating 100% of manual data patching.',
+      'Refactored a critical batch job (200K redemptions in 4 hours) to be idempotent and retryable. Built schema-based validation to support differing data formats.',
   },
 
   // Backend - Microservices
@@ -560,7 +564,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     tags: ['backend', 'architecture'],
     proficiencyScore: 5,
     content:
-      'Participated in on-call rotation, debugging production incidents and tracing errors across multiple decoupled services.',
+      'Wrote API layer that coordinated calls to several downstream services, and ensured the logic can handle different multi-tenant configurations.',
   },
 
   // Backend - Frameworks / Libraries (Ruby) - Sidekiq
@@ -571,7 +575,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'sidekiq.mdx',
     related: 'frameworks-libraries-ruby',
     tags: ['backend', 'ruby', 'background-jobs'],
-    proficiencyScore: 3,
+    proficiencyScore: 5,
+    content:
+      'Refactored a batch job to be idempotent and retryable. Wrote scheduled background jobs to handle data synchronizations from downstream services.',
   },
 
   // Backend - Frameworks / Libraries (Ruby) - ActionCable
@@ -582,7 +588,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'actioncable.mdx',
     related: 'frameworks-libraries-ruby',
     tags: ['backend', 'ruby', 'rails', 'websocket'],
-    proficiencyScore: 8,
+    proficiencyScore: 2,
+    content:
+      'Familiar that it is used for 2-way client-server communication , but never used in production.',
   },
 
   // Backend - Frameworks / Libraries (Ruby) - Dry::Validation
@@ -593,7 +601,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'dry-validation.mdx',
     related: 'frameworks-libraries-ruby',
     tags: ['backend', 'ruby', 'validation'],
-    proficiencyScore: 8,
+    proficiencyScore: 5,
+    content:
+      'Extensively used in custom schema validation logic to support differing data formats between bank partners.',
   },
 
   // Backend - Frameworks / Libraries (Ruby) - MJML - Liquid
@@ -604,7 +614,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'mjml-liquid.mdx',
     related: 'frameworks-libraries-ruby',
     tags: ['backend', 'email', 'templates'],
-    proficiencyScore: 3,
+    proficiencyScore: 5,
+    content:
+      'Used MJML as the primary engine in Ascenda to send email notifications with custom layouts and content across multiple tenants.',
   },
 
   // Backend - Messaging / Event Streaming
@@ -614,7 +626,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     markdownFile: 'messaging-event-streaming.mdx',
     related: 'backend',
-    proficiencyScore: 1,
+    proficiencyScore: 4,
+    content:
+      'Used Kafka as the primary messaging system in Ascenda to handle event-driven communication between microservices.',
   },
 
   // Backend - Messaging / Event Streaming - Kafka
@@ -625,7 +639,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'kafka.mdx',
     related: 'messaging-event-streaming',
     tags: ['backend', 'messaging', 'event-streaming'],
-    proficiencyScore: 10,
+    proficiencyScore: 4,
+    content:
+      'Wrote several consumers and producers for small-scale data synchronizations in between other microservices.',
   },
 
   // Backend - Authentication / Authorization

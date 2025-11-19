@@ -1,3 +1,5 @@
+import { Knowledge } from '@/types/knowledge';
+
 export const LAYOUT_CONSTANTS = {
   NODE_RADIUS: 45,
   ROOT_SPACING: 700,

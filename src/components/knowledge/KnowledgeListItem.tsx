@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ProficiencyScore } from './ProficiencyScore';
+import { KnowledgeTag } from './KnowledgeTag';
 
 interface KnowledgeListItemProps {
   node: Knowledge;
@@ -89,22 +90,23 @@ export function KnowledgeListItem({ node, onClick }: KnowledgeListItemProps) {
         )}
       </CardHeader>
       <CardFooter className="p-6 pt-0 mt-auto flex flex-col gap-3">
-        {isClickable && node.tags && node.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2">
-            {node.tags.map((tag) => (
-              <Badge
-                key={tag}
-                variant="outline"
-                className="bg-transparent border-[#2A2A2A] text-[#B0B0B0] rounded-md px-2 py-0.5 text-xs"
-              >
-                {tag}
-              </Badge>
-            ))}
-          </div>
-        )}
-        {node.proficiencyScore && (
-          <div className="flex items-center justify-between w-full">
-            <ProficiencyScore score={node.proficiencyScore} showLabel={true} />
+        {(node.proficiencyScore || (node.tags && node.tags.length > 0)) && (
+          <div className="flex items-center justify-between w-full gap-4">
+            <div className="flex items-center flex-wrap gap-4">
+              {node.proficiencyScore && (
+                <ProficiencyScore
+                  score={node.proficiencyScore}
+                  showLabel={true}
+                />
+              )}
+              {node.tags && node.tags.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {node.tags.map((tag) => (
+                    <KnowledgeTag key={tag} tag={tag} />
+                  ))}
+                </div>
+              )}
+            </div>
             {isClickable && (
               <div className="text-l text-[#B0B0B0] dark:text-[#B0B0B0] opacity-0 group-hover:opacity-100 transition-opacity">
                 →

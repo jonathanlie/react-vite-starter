@@ -8,10 +8,10 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { Badge } from '@/components/ui/badge';
 import { loadMarkdownContent, MarkdownLoadError } from '@/utils/loadMarkdown';
 import { getKnowledgeById } from '@/data/knowledges';
 import { ProficiencyScore } from './ProficiencyScore';
+import { KnowledgeTag } from './KnowledgeTag';
 
 /**
  * Modal-specific markdown components with role card styling
@@ -181,13 +181,7 @@ export function KnowledgeModal({
               {node.tags && node.tags.length > 0 && (
                 <div className="flex flex-wrap gap-2">
                   {node.tags.map((tag) => (
-                    <Badge
-                      key={tag}
-                      variant="outline"
-                      className="bg-white/10 border-white/20 text-white/90 rounded-full px-3 py-0.5 text-xs uppercase tracking-wider font-normal"
-                    >
-                      {tag}
-                    </Badge>
+                    <KnowledgeTag key={tag} tag={tag} />
                   ))}
                 </div>
               )}

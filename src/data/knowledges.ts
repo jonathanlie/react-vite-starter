@@ -455,7 +455,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     tags: ['frontend', 'optimization', 'performance'],
     proficiencyScore: 6,
     content:
-      'Led efforts to improve Core Web Vitals, reducing initial load time through bundle analysis and implementing route-level code splitting.',
+      'Old browser support was a theme across my career in Ascenda. Had to support IE8 in the legacy AngularJS project (kaligo.com), and IE11 in the Angular project (Rewards Dashboard)',
   },
 
   // Frontend - Web Performance - Code splitting
@@ -466,7 +466,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'code-splitting.mdx',
     related: 'web-performance',
     tags: ['frontend', 'optimization', 'performance'],
-    proficiencyScore: 1,
+    proficiencyScore: 6,
+    content:
+      'Implemented code splitting whilst navigating the complexities of shared libraries and multiple tenant builds.',
   },
 
   // Frontend - Web Performance - Lazy loading
@@ -477,7 +479,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'lazy-loading.mdx',
     related: 'web-performance',
     tags: ['frontend', 'optimization', 'performance'],
-    proficiencyScore: 5,
+    proficiencyScore: 6,
+    content:
+      'Implemented lazy loading of whitelabel-specific components in Angular project inAscenda (Rewards Dashboard). Lazy loaded the niche components in pages that were rarely used.',
   },
 
   // Backend
@@ -487,6 +491,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: true,
     markdownFile: 'backend.mdx',
     proficiencyScore: 6,
+    content:
+      '3+ years of production experience with Ruby on Rails on a microservices architecture, with multitenancy as the main challenge and the focal point.',
   },
 
   // Backend - Languages / Runtimes
@@ -496,7 +502,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     markdownFile: 'languages-runtimes.mdx',
     related: 'backend',
-    proficiencyScore: 7,
+    proficiencyScore: 6,
   },
 
   // Backend - Languages / Runtimes - Ruby

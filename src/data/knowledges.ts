@@ -477,6 +477,16 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'languages-runtimes',
     tags: ['backend', 'language'],
     proficiencyScore: 6,
+  },
+
+  // Backend - Languages / Runtimes - Ruby
+  {
+    id: 'ruby-on-rails',
+    title: 'Ruby on Rails',
+    isRoot: false,
+    related: 'languages-runtimes',
+    tags: ['backend', 'language'],
+    proficiencyScore: 6,
     content:
       'Able to write production code in Ruby on Rails. Experienced with Ruby language features.',
   },
@@ -489,27 +499,6 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'languages-runtimes',
     tags: ['backend', 'language'],
     proficiencyScore: 5,
-  },
-
-  // Backend - Frameworks / Libraries (Ruby)
-  {
-    id: 'frameworks-libraries-ruby',
-    title: 'Frameworks / Libraries (Ruby)',
-    isRoot: false,
-    related: 'backend',
-    proficiencyScore: 6,
-  },
-
-  // Backend - Frameworks / Libraries (Ruby) - Ruby on Rails
-  {
-    id: 'ruby-on-rails',
-    title: 'Ruby on Rails',
-    isRoot: false,
-    related: 'frameworks-libraries-ruby',
-    tags: ['backend', 'framework', 'ruby'],
-    proficiencyScore: 6,
-    content:
-      'Built various features on orchestration layer that coordinates multiple microservices with multitenancy as the focal point.',
   },
 
   // Backend - Microservices

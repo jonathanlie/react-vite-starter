@@ -61,8 +61,11 @@ export function KnowledgeWeb() {
   }, [searchTerm, fuse]);
 
   const handleKnowledgeClick = (knowledgeId: string) => {
-    setSelectedNodeId(knowledgeId);
-    setIsModalOpen(true);
+    const knowledge = knowledges.find((k) => k.id === knowledgeId);
+    if (knowledge?.markdownFile) {
+      setSelectedNodeId(knowledgeId);
+      setIsModalOpen(true);
+    }
   };
 
   const handleModalClose = () => {

@@ -49,13 +49,20 @@ export function KnowledgeModal({
       return;
     }
 
+    // If no markdownFile, don't try to load
+    if (!node.markdownFile) {
+      setError('This knowledge item does not have detailed content available.');
+      setIsLoading(false);
+      return;
+    }
+
     const loadContent = async () => {
       setIsLoading(true);
       setError(null);
       setMarkdownComponent(null);
 
       try {
-        const Component = await loadMarkdownContent(node.markdownFile);
+        const Component = await loadMarkdownContent(node.markdownFile!);
         setMarkdownComponent(() => Component);
       } catch (err) {
         if (err instanceof MarkdownLoadError) {

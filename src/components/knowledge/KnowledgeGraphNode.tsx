@@ -11,13 +11,7 @@ interface KnowledgeGraphNodeData {
   onExpand?: () => void;
   relatedCount?: number;
   isNew?: boolean; // Flag for animation
-}
-
-/**
- * Get glow color for glassmorphism effect
- */
-function getGlowColor(): string {
-  return 'rgba(99, 102, 241, 0.3)'; // Indigo
+  hasModalContent?: boolean; // Whether this node has modal content (clickable)
 }
 
 /**
@@ -33,8 +27,7 @@ export const KnowledgeGraphNode = memo(
     const hasAnimatedRef = useRef(false);
     const nodeIdRef = useRef<string | undefined>(undefined);
 
-    // Get glow color
-    const glowColor = getGlowColor();
+    const isClickable = data.hasModalContent ?? false;
 
     // Animate node appearance when it's marked as new
     useEffect(() => {
@@ -65,7 +58,6 @@ export const KnowledgeGraphNode = memo(
           });
         });
       } else if (!data.isNew && hasAnimatedRef.current) {
-        // Node is no longer "new" - ensure it's visible
         if (innerRef.current) {
           innerRef.current.style.opacity = '1';
           innerRef.current.style.transform = 'scale(1)';
@@ -80,37 +72,67 @@ export const KnowledgeGraphNode = memo(
           width: `${nodeSize}px`,
           height: `${nodeSize}px`,
         }}
-        onClick={data.onClick}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            data.onClick();
-          }
-        }}
+        onClick={isClickable ? data.onClick : undefined}
+        role={isClickable ? 'button' : undefined}
+        tabIndex={isClickable ? 0 : undefined}
+        onKeyDown={
+          isClickable
+            ? (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  data.onClick();
+                }
+              }
+            : undefined
+        }
+        title={!isClickable ? 'Concept' : undefined}
       >
         {/* Inner wrapper for animation - React Flow controls outer div positioning */}
         <div
           ref={innerRef}
-          className="relative flex items-center justify-center rounded-full cursor-pointer backdrop-blur-md border transition-all duration-300 hover:scale-110"
+          className={`relative flex items-center justify-center rounded-full backdrop-blur-md transition-all duration-300 ${
+            isClickable ? 'cursor-pointer hover:scale-110' : 'cursor-default'
+          }`}
           style={{
             width: '100%',
             height: '100%',
-            backgroundColor: 'rgba(0, 0, 0, 0.4)',
-            borderColor: 'rgba(255, 255, 255, 0.1)',
-            borderWidth: '1px',
-            boxShadow: `0 0 15px ${glowColor}`,
+            backgroundColor: isClickable
+              ? '#2A2A35' // Solid, lighter dark tone for active
+              : 'rgba(255, 255, 255, 0.03)', // Ultra-low opacity for dormant
+            boxShadow: isClickable
+              ? '0 0 12px rgba(120, 80, 255, 0.5)' // Outer glow for active
+              : 'none',
+            filter: isClickable ? 'none' : 'none', // Will be used for brightness on hover
             // Animation handled by useEffect, but ensure transition is always present
             transition:
-              'opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease-in-out',
+              'opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, filter 0.3s ease-in-out',
           }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.boxShadow = `0 0 25px ${glowColor.replace('0.3', '0.6')}`;
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.boxShadow = `0 0 15px ${glowColor}`;
-          }}
+          onMouseEnter={
+            isClickable
+              ? (e) => {
+                  // Glow expands to 20px and brightness increases
+                  e.currentTarget.style.boxShadow =
+                    '0 0 20px rgba(120, 80, 255, 0.7)';
+                  e.currentTarget.style.filter = 'brightness(1.1)';
+                }
+              : (e) => {
+                  // Opacity increases slightly for legibility, but not button-like
+                  e.currentTarget.style.backgroundColor =
+                    'rgba(255, 255, 255, 0.1)';
+                }
+          }
+          onMouseLeave={
+            isClickable
+              ? (e) => {
+                  e.currentTarget.style.boxShadow =
+                    '0 0 12px rgba(120, 80, 255, 0.5)';
+                  e.currentTarget.style.filter = 'none';
+                }
+              : (e) => {
+                  e.currentTarget.style.backgroundColor =
+                    'rgba(255, 255, 255, 0.03)';
+                }
+          }
         >
           {/* Hidden handles for read-only graph */}
           <Handle type="target" position={Position.Top} className="opacity-0" />
@@ -119,7 +141,16 @@ export const KnowledgeGraphNode = memo(
             className="flex items-center justify-center px-2 py-1 text-center"
             style={{ width: '100%', height: '100%' }}
           >
-            <div className="text-xs font-medium leading-tight px-1 text-white">
+            <div
+              className={`text-xs leading-tight px-1 ${
+                isClickable ? 'font-bold text-white' : 'font-normal'
+              }`}
+              style={{
+                color: isClickable
+                  ? '#FFFFFF' // Bright white for active
+                  : 'rgba(255, 255, 255, 0.5)', // Semi-transparent white for dormant (alternative: #6B7280)
+              }}
+            >
               {data.label}
             </div>
           </div>

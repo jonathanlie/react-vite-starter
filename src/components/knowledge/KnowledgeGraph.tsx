@@ -263,6 +263,7 @@ function LayoutFlow({ onNodeClick }: KnowledgeGraphProps) {
             onExpand: () => handleExpand(d3Node.id),
             relatedCount,
             isNew: newNodesSet.has(d3Node.id),
+            hasModalContent: !!knowledgeNode.markdownFile,
           },
         };
       });

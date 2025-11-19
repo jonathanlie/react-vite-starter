@@ -85,7 +85,7 @@ export function KnowledgeModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-zinc-900 border border-white/10 shadow-2xl shadow-black/50">
+      <DialogContent className="scroll-container max-w-4xl max-h-[90vh] overflow-y-auto bg-zinc-900 border border-white/10 shadow-2xl shadow-black/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:shadow-[0_0_0_2px_rgba(255,255,255,0.1)] [&>button]:cursor-pointer [&>button]:focus-visible:outline-none [&>button]:focus-visible:ring-0 [&>button]:focus-visible:ring-offset-0">
         <DialogHeader>
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1">

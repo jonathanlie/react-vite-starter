@@ -6,7 +6,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { ProficiencyScore } from './ProficiencyScore';
 import { KnowledgeTag } from './KnowledgeTag';
 
@@ -74,41 +73,33 @@ export function KnowledgeListItem({ node, onClick }: KnowledgeListItemProps) {
             {node.content}
           </CardDescription>
         ) : (
-          <div className="mt-2">
-            <Badge
-              variant="outline"
-              className="bg-transparent border-[#2A2A2A] text-[#6B7280] rounded-md px-2 py-0.5 text-xs"
-            >
-              Concept
-            </Badge>
-            {node.content && (
-              <CardDescription className="text-sm md:text-base text-[#6B7280] dark:text-[#6B7280] leading-relaxed mt-2">
-                {node.content}
-              </CardDescription>
-            )}
-          </div>
+          node.content && (
+            <CardDescription className="text-sm md:text-base text-[#6B7280] dark:text-[#6B7280] leading-relaxed mt-2">
+              {node.content}
+            </CardDescription>
+          )
         )}
       </CardHeader>
       <CardFooter className="p-6 pt-0 mt-auto flex flex-col gap-3">
         {(node.proficiencyScore || (node.tags && node.tags.length > 0)) && (
           <div className="flex items-center justify-between w-full gap-4">
-            <div className="flex items-center flex-wrap gap-4">
+            <div className="flex flex-col gap-3 flex-1 min-w-0">
+              {node.tags && node.tags.length > 0 && (
+                <div className="flex flex-wrap gap-2 w-full">
+                  {node.tags.map((tag) => (
+                    <KnowledgeTag key={tag} tag={tag} />
+                  ))}
+                </div>
+              )}
               {node.proficiencyScore && (
                 <ProficiencyScore
                   score={node.proficiencyScore}
                   showLabel={true}
                 />
               )}
-              {node.tags && node.tags.length > 0 && (
-                <div className="flex flex-wrap gap-2">
-                  {node.tags.map((tag) => (
-                    <KnowledgeTag key={tag} tag={tag} />
-                  ))}
-                </div>
-              )}
             </div>
             {isClickable && (
-              <div className="text-l text-[#B0B0B0] dark:text-[#B0B0B0] opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="text-l text-[#B0B0B0] dark:text-[#B0B0B0] opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
                 →
               </div>
             )}

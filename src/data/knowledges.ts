@@ -312,7 +312,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'internationalization-i18n.mdx',
     related: 'frontend',
     tags: ['frontend', 'i18n', 'accessibility'],
-    proficiencyScore: 10,
+    proficiencyScore: 7,
+    content:
+      'i18n was a theme across my entire career. Every project had some form of i18n, from locales / translations, language detection, date/time formatting, to RTL support.',
   },
 
   // Frontend - Internationalization - i18n - RTL (Right-to-Left)
@@ -323,7 +325,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'rtl-right-to-left.mdx',
     related: 'internationalization-i18n',
     tags: ['frontend', 'i18n', 'rtl', 'accessibility'],
-    proficiencyScore: 9,
+    proficiencyScore: 7,
+    content:
+      'Implemented RTL support in Ascenda, in kaligo.com and Rewards Dashboard. Used a mix of RTL-specific CSS properties and CSS logical properties.',
   },
 
   // Frontend - Accessibility - a11y
@@ -333,7 +337,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     markdownFile: 'accessibility-a11y.mdx',
     related: 'frontend',
-    proficiencyScore: 7,
+    proficiencyScore: 6,
+    content:
+      'Enforced aria attributes, keyboard navigation support, and semantic HTML in Ascenda. Mostly used Lighthouse and WAVE to test.',
   },
 
   // Frontend - Accessibility - a11y - aria attributes
@@ -344,7 +350,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'aria-attributes.mdx',
     related: 'accessibility-a11y',
     tags: ['frontend', 'accessibility', 'a11y'],
-    proficiencyScore: 1,
+    proficiencyScore: 5,
+    content:
+      'Used aria attributes sparingly in Ascenda, the principle was to never overspecify attributes.',
   },
 
   // Frontend - Accessibility - a11y - keyboard navigation
@@ -355,7 +363,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'keyboard-navigation.mdx',
     related: 'accessibility-a11y',
     tags: ['frontend', 'accessibility', 'a11y'],
-    proficiencyScore: 5,
+    proficiencyScore: 6,
+    content:
+      'Enforced full keyboard navigation support in Ascenda (Rewards Dashboard). Supported on every component including date pickers, dropdowns, modals, etc.',
   },
 
   // Frontend - Accessibility - a11y - voiceover
@@ -366,7 +376,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'voiceover.mdx',
     related: 'accessibility-a11y',
     tags: ['frontend', 'accessibility', 'a11y'],
-    proficiencyScore: 6,
+    proficiencyScore: 3,
+    content:
+      'Comes in with aria attributes usage, but voiceover support was never a theme across my career.',
   },
 
   // Frontend - Accessibility - a11y - semantic HTML
@@ -377,7 +389,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'semantic-html.mdx',
     related: 'accessibility-a11y',
     tags: ['frontend', 'accessibility', 'a11y', 'html'],
-    proficiencyScore: 9,
+    proficiencyScore: 6,
+    content:
+      'Used semantic HTML whenever possible across my career. One of the quickest wins for a11y.',
   },
 
   // Frontend - Frontend Testing
@@ -388,6 +402,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'frontend-testing.mdx',
     related: 'frontend',
     proficiencyScore: 6,
+    content:
+      'Dealt with unit and integration tests. Jest was the main framework used in Angular projects in Ascenda.',
   },
 
   // Frontend - Frontend Testing - Jest
@@ -398,7 +414,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'jest.mdx',
     related: 'frontend-testing',
     tags: ['frontend', 'testing'],
-    proficiencyScore: 3,
+    proficiencyScore: 6,
+    content:
+      'Wrote unit and integration tests in Angular project in Ascenda (Rewards Dashboard). Wired the setup and set the conventions for the team.',
   },
 
   // Frontend - Frontend Testing - Jasmine
@@ -410,6 +428,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'frontend-testing',
     tags: ['frontend', 'testing'],
     proficiencyScore: 4,
+    content:
+      'Jasmine was used in the legacy AngularJS project in Ascenda (kaligo.com). Had to maintain and write unit tests for newly refactored components.',
   },
 
   // Frontend - Frontend Testing - Playwright
@@ -420,7 +440,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'playwright.mdx',
     related: 'frontend-testing',
     tags: ['frontend', 'testing', 'e2e'],
-    proficiencyScore: 6,
+    proficiencyScore: 2,
+    content:
+      'Familiar with the tool. Was introduced in Ascenda when I transitioend to backend, never had the chance to write E2E tests with Playwright.',
   },
 
   // Frontend - Web Performance

@@ -174,4 +174,29 @@
   .scroll-container::-webkit-scrollbar-thumb:hover {
     background-color: #555;
   }
+
+  /* Knowledge Card Styles */
+  .knowledge-card-active {
+    background: linear-gradient(
+      to bottom,
+      rgba(120, 80, 255, 0.1),
+      rgba(0, 0, 0, 0.3)
+    );
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: none;
+  }
+
+  .knowledge-card-active:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  .knowledge-card-dormant {
+    background: rgba(255, 255, 255, 0.02);
+    box-shadow: none;
+    border: 1px dashed #333;
+  }
+
+  .knowledge-card-dormant:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
 }

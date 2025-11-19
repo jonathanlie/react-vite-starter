@@ -8,6 +8,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: true,
     markdownFile: 'frontend.mdx',
     proficiencyScore: 7,
+    content:
+      '6 years of experience with various products and frontend libraries. Production experience with React, React Native, AngularJS, Angular. Architected greenfield projects and scaled to multiple tenant builds.',
   },
 
   // Frontend - Frameworks / Libraries
@@ -18,6 +20,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'frameworks-libraries.mdx',
     related: 'frontend',
     proficiencyScore: 9,
+    content:
+      'Confident in picking up new frameworks and libraries. Versatile and adaptable to different stacks.',
   },
 
   // Frontend - Frameworks / Libraries - Angular
@@ -28,7 +32,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'angular.mdx',
     related: 'frameworks-libraries',
     tags: ['frontend', 'framework'],
-    proficiencyScore: 9,
+    proficiencyScore: 8,
     content:
       'Architected the core Rewards Dashboard from greenfield, scaling the platform to serve over 1 million multi-tenant users.',
   },
@@ -54,9 +58,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'react.mdx',
     related: 'frameworks-libraries',
     tags: ['frontend', 'framework', 'mobile'],
-    proficiencyScore: 7,
+    proficiencyScore: 6,
     content:
-      'Core contributor to the VersaFleet logistics dashboard. Built geospatial mapping and a full-stack bulk order import feature.',
+      'Core contributor to the VersaFleet logistics dashboard. Built complex forms and geospatial mapping.',
   },
 
   // Frontend - Frameworks / Libraries - React Native
@@ -67,9 +71,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'react-native.mdx',
     related: 'frameworks-libraries',
     tags: ['frontend', 'framework', 'mobile'],
-    proficiencyScore: 7,
+    proficiencyScore: 5,
     content:
-      'Developed the Driver Mobile App, implementing offline-first state logic and digital E-Signature capture for mission-critical operations.',
+      'Core contributor to the Driver Mobile App. Implemented state management logic and  digital E-Signature.',
   },
 
   // Frontend - Frameworks / Libraries - VueJS
@@ -82,7 +86,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     tags: ['frontend', 'framework'],
     proficiencyScore: 2,
     content:
-      'Conceptual familiarity with the framework; used for small internal tools or prototypes outside of core production systems.',
+      'Conceptual familiarity with the framework. Fixed bugs on a small standalone redemption page in Ascenda.',
   },
 
   // Frontend - State Management
@@ -92,7 +96,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     markdownFile: 'state-management.mdx',
     related: 'frontend',
-    proficiencyScore: 6,
+    proficiencyScore: 7,
+    content:
+      'Experienced with various state management solutions. Migrated from Reflux to Redux at VersaFleet. Used NgRx for Rewards Dashboard in Ascenda.',
   },
 
   // Frontend - State Management - Reflux
@@ -103,7 +109,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'reflux.mdx',
     related: 'state-management',
     tags: ['frontend', 'state-management'],
-    proficiencyScore: 5,
+    proficiencyScore: 3,
     content:
       'Maintained legacy state management stores before successfully planning and executing the strategic migration to Redux.',
   },
@@ -116,9 +122,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'ngrx.mdx',
     related: 'state-management',
     tags: ['frontend', 'state-management', 'angular'],
-    proficiencyScore: 6,
+    proficiencyScore: 7,
     content:
-      'Consumed and utilized advanced state management patterns (e.g., side effects and reducers) within the large Angular architecture.',
+      'Consumed and utilized advanced state management patterns such as side effects and reducers within Angular architecture.',
   },
 
   // Frontend - State Management - Redux
@@ -129,9 +135,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'redux.mdx',
     related: 'state-management',
     tags: ['frontend', 'state-management'],
-    proficiencyScore: 7,
+    proficiencyScore: 6,
     content:
-      'Established the core unidirectional data flow architecture at VersaFleet after leading the strategic migration from Reflux.',
+      'Established the store patterns at VersaFleet after finishing the strategic migration from Reflux.',
   },
 
   // Frontend - State Management - Zustand
@@ -142,9 +148,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'zustand.mdx',
     related: 'state-management',
     tags: ['frontend', 'state-management', 'react'],
-    proficiencyScore: 3,
-    content:
-      "Conceptual familiarity with the library's design; experimented with its minimalist API for internal tooling concepts.",
+    proficiencyScore: 2,
+    content: 'Experimented with its minimalist API for personal projects.',
   },
 
   // Frontend - Typescript
@@ -154,9 +159,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     markdownFile: 'typescript.mdx',
     related: 'frontend',
-    proficiencyScore: 7,
+    proficiencyScore: 6,
     content:
-      'Enforced strict, scalable type definitions across large Angular applications, enabling collaboration among 5+ engineers without major regression.',
+      'Enforced strict, scalable type definitions across a large Angular application (Rewards Dashboard) in Ascenda.',
   },
 
   // Frontend - Typescript - Generics
@@ -167,7 +172,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'typescript-generics.mdx',
     related: 'typescript',
     tags: ['frontend', 'typescript'],
-    proficiencyScore: 6,
+    proficiencyScore: 4,
+    content: 'Used generics in Angular, prominently in NgRx effects.',
   },
 
   // Frontend - Typescript - Utility Types
@@ -178,7 +184,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'typescript-utility-types.mdx',
     related: 'typescript',
     tags: ['frontend', 'typescript'],
-    proficiencyScore: 6,
+    proficiencyScore: 5,
+    content:
+      'Used Partials the most, particularly in NgRx stores and presentational components.',
   },
 
   // Frontend - Typescript - Type Guards
@@ -189,7 +197,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     markdownFile: 'typescript-type-guards.mdx',
     related: 'typescript',
     tags: ['frontend', 'typescript'],
-    proficiencyScore: 5,
+    proficiencyScore: 6,
+    content:
+      'Used in whitelabelling logic to dynamically render components. Also used a lot in utility functions to make validations stricter.',
   },
 
   // Frontend - Styling
@@ -199,7 +209,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     markdownFile: 'styling.mdx',
     related: 'frontend',
-    proficiencyScore: 3,
+    proficiencyScore: 6,
+    content:
+      'Used various concepts, ranging from vanilla CSS with naming conventions like BEM, to CSS pre-processors (SASS), to built-in framework mechanisms (e.g. Angular ViewEncapsulation). Currently learning Tailwind. ',
   },
 
   // Frontend - Styling - Tailwind CSS
@@ -211,6 +223,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'styling',
     tags: ['frontend', 'styling', 'css'],
     proficiencyScore: 3,
+    content:
+      'Used in this portfolio site, and finding it pleasant to use. Looks to be a scalable solution provided some enforcements in place.',
   },
 
   // Frontend - Styling - CSS-in-JS
@@ -222,6 +236,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'styling',
     tags: ['frontend', 'styling'],
     proficiencyScore: 3,
+    content:
+      'Conceptual familiarity with the concept. Never used in personal experiments or production.',
   },
 
   // Frontend - Styling - CSS Preprocessors
@@ -233,6 +249,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'styling',
     tags: ['frontend', 'styling', 'css'],
     proficiencyScore: 6,
+    content:
+      'Used Stylus in Versafleet (logistics dashboard), SCSS in Ascenda (kaligo.com).',
   },
 
   // Frontend - Build Tools

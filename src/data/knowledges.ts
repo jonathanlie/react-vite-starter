@@ -732,7 +732,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Containerization & Orchestration',
     isRoot: false,
     related: 'devops',
-    proficiencyScore: 5,
+    proficiencyScore: 4,
+    content:
+      'Understood the usage of docker containers and was able to debug issues if there are issues blocking deployment.',
   },
 
   // Devops - Containerization & Orchestration - Docker
@@ -742,7 +744,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'containerization-orchestration',
     tags: ['devops', 'containerization'],
-    proficiencyScore: 4,
+    proficiencyScore: 5,
   },
 
   // Devops - Containerization & Orchestration - Docker - Docker Compose
@@ -762,7 +764,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'containerization-orchestration',
     tags: ['devops', 'orchestration'],
-    proficiencyScore: 7,
+    proficiencyScore: 3,
+    content: 'Used kubernetes operationally to ssh into pods and debug issues.',
   },
 
   // Devops - Cloud
@@ -771,7 +774,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Cloud',
     isRoot: false,
     related: 'devops',
-    proficiencyScore: 8,
+    proficiencyScore: 2,
   },
 
   // Devops - Cloud - AWS
@@ -781,7 +784,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'cloud',
     tags: ['devops', 'cloud'],
-    proficiencyScore: 8,
+    proficiencyScore: 2,
+    content:
+      'I have not had the chance to manage infrastructure in production yet, but I do have some basic understand of the blocks that make up the AWS stack.',
   },
 
   // Devops - Cloud - AWS - EC2
@@ -792,6 +797,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'aws',
     tags: ['devops', 'cloud', 'aws'],
     proficiencyScore: 2,
+    content:
+      'I understand the purpose of security groups (for network traffic isolation) and auto-scaling groups to handle surging traffic, along with load balancers.',
   },
 
   // Devops - Cloud - AWS - S3
@@ -801,7 +808,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'aws',
     tags: ['devops', 'cloud', 'aws'],
-    proficiencyScore: 6,
+    proficiencyScore: 3,
+    content:
+      'Used S3 to manage image assets and static files. Did not delve into cost optimization or access control, but I understand that lifecycle rules and bucket policies exist to address these concerns.',
   },
 
   // Devops - Cloud - AWS - RDS
@@ -811,7 +820,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'aws',
     tags: ['devops', 'cloud', 'aws', 'database'],
-    proficiencyScore: 7,
+    proficiencyScore: 2,
   },
 
   // Devops - Cloud - AWS - IAM
@@ -821,7 +830,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'aws',
     tags: ['devops', 'cloud', 'aws', 'security'],
-    proficiencyScore: 10,
+    proficiencyScore: 2,
   },
 
   // Devops - Cloud - AWS - VPC
@@ -831,7 +840,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'aws',
     tags: ['devops', 'cloud', 'aws', 'networking'],
-    proficiencyScore: 3,
+    proficiencyScore: 2,
   },
 
   // Devops - CI/CD
@@ -840,7 +849,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'CI/CD',
     isRoot: false,
     related: 'devops',
-    proficiencyScore: 6,
+    proficiencyScore: 4,
   },
 
   // Devops - CI/CD - Github Actions
@@ -850,7 +859,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'ci-cd',
     tags: ['devops', 'ci-cd'],
-    proficiencyScore: 9,
+    proficiencyScore: 4,
   },
 
   // Devops - CI/CD - Jenkins
@@ -860,7 +869,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'ci-cd',
     tags: ['devops', 'ci-cd'],
-    proficiencyScore: 6,
+    proficiencyScore: 3,
+    content:
+      'Jenkins was used in Ascenda for the deployment pipeline. I did not write the pipelines from scratch, but am able to debug issues and fix as needed.',
   },
 
   // Devops - CI/CD - CircleCI
@@ -871,6 +882,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'ci-cd',
     tags: ['devops', 'ci-cd'],
     proficiencyScore: 4,
+    content:
+      'Wrote the initial pipline for Rewards Dashboard (Ascenda) in CircleCI. It was a basic pipeline that could build and deploy for multiple tenants.',
   },
 
   // Tooling
@@ -878,7 +891,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     id: 'tooling',
     title: 'Tooling',
     isRoot: true,
-    proficiencyScore: 7,
+    proficiencyScore: 6,
   },
 
   // Tooling - Version Control
@@ -887,7 +900,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Version Control',
     isRoot: false,
     related: 'tooling',
-    proficiencyScore: 10,
+    proficiencyScore: 6,
   },
 
   // Tooling - Version Control - Git
@@ -897,7 +910,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'version-control',
     tags: ['tooling', 'version-control'],
-    proficiencyScore: 9,
+    proficiencyScore: 7,
+    content:
+      'Used Git in all day-to-day tasks. Dealt with issues such as urgent rollbacks, cherry-picking, branching, and the sort.',
   },
 
   // Tooling - Observability

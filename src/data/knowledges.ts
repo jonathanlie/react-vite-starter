@@ -6,7 +6,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     id: 'frontend',
     title: 'Frontend',
     isRoot: true,
-    proficiencyScore: 7,
+    proficiencyScore: 8,
     markdownFile: 'frontend.md',
     content:
       '6 years of experience with various products and frontend libraries. Production experience with React, React Native, AngularJS, Angular. Architected greenfield projects and scaled to multiple tenant builds.',
@@ -18,7 +18,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Frameworks / Libraries',
     isRoot: false,
     related: 'frontend',
-    proficiencyScore: 9,
+    proficiencyScore: 8,
     content:
       'Confident in picking up new frameworks and libraries. Versatile and adaptable to different stacks.',
   },
@@ -195,7 +195,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     related: 'frontend',
     proficiencyScore: 6,
     content:
-      'Used various concepts, ranging from vanilla CSS with naming conventions like BEM, to CSS pre-processors (SASS), to built-in framework mechanisms (e.g. Angular ViewEncapsulation). Currently learning Tailwind. ',
+      'Used vanilla CSS with naming conventions like BEM, CSS pre-processors (SASS), framework mechanisms (e.g. Angular ViewEncapsulation). Currently learning Tailwind.',
   },
 
   // Frontend - Styling - Tailwind CSS
@@ -612,7 +612,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'api-design',
     tags: ['backend', 'api', 'documentation'],
-    proficiencyScore: 3,
+    proficiencyScore: 4,
     content:
       'Documented several public-facing Partner APIs using OpenAPI, focusing on API design best practices and external integration requirements.',
   },
@@ -624,7 +624,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'api-design',
     tags: ['backend', 'api'],
-    proficiencyScore: 1,
+    proficiencyScore: 6,
   },
 
   // Backend - API Design - GraphQL

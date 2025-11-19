@@ -822,7 +822,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     tags: ['devops', 'cloud', 'aws'],
     proficiencyScore: 3,
     content:
-      'Used S3 to manage image assets and static files. Did not delve into cost optimization or access control, but I understand that lifecycle rules and bucket policies exist to address these concerns.',
+      'Used S3 to manage image assets and static files. Aware of lifecycle rules and bucket policies.',
   },
 
   // Devops - Cloud - AWS - RDS

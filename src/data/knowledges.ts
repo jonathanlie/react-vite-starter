@@ -997,7 +997,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'content-headless-cms',
     tags: ['tooling', 'i18n', 'cms'],
-    proficiencyScore: 3,
+    proficiencyScore: 6,
+    content:
+      'Wrote a script to automate the process of syncing translations, and setup dev workflow in Rewards Dashboard to deal with translations.',
   },
 
   // Tooling - Content (Headless CMS) - Prismic
@@ -1007,7 +1009,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'content-headless-cms',
     tags: ['tooling', 'cms'],
-    proficiencyScore: 2,
+    proficiencyScore: 4,
+    content:
+      'Used Prismic to manage markdown content for different clients, with the content being managed by the product team or the client.',
   },
 
   // Tooling - Testing (Cross-Browser)
@@ -1016,7 +1020,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Testing (Cross-Browser)',
     isRoot: false,
     related: 'tooling',
-    proficiencyScore: 8,
+    proficiencyScore: 6,
   },
 
   // Tooling - Testing (Cross-Browser) - Browserstack
@@ -1026,7 +1030,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'testing-cross-browser',
     tags: ['tooling', 'testing'],
-    proficiencyScore: 1,
+    proficiencyScore: 6,
+    content:
+      'Used Browserstack extensively to test for IE compatibility in Ascenda, on legacy and greenfield projects.',
   },
 
   // Tooling - Third-Party APIs / Services
@@ -1036,6 +1042,8 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'tooling',
     proficiencyScore: 5,
+    content:
+      'Proficient in picking up third-party APIs and services, and getting them to setup and work, no matter the application and complexity.',
   },
 
   // Tooling - Third-Party APIs / Services - Geospatial
@@ -1045,7 +1053,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'third-party-apis-services',
     tags: ['tooling', 'api', 'maps'],
-    proficiencyScore: 8,
+    proficiencyScore: 5,
   },
 
   // Tooling - Third-Party APIs / Services - Geospatial - Google Maps
@@ -1055,7 +1063,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'geospatial',
     tags: ['tooling', 'api', 'maps', 'geospatial'],
-    proficiencyScore: 1,
+    proficiencyScore: 5,
+    content:
+      'Able to render custom components on maps. Able to maintain component lifecycle and state and wire it to different interactions such as zooming, panning, and clicking. Used to render logistics site, assigned tasks, driver locations.',
   },
 
   // Tooling - Third-Party APIs / Services - Geospatial - Mapbox
@@ -1065,7 +1075,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'geospatial',
     tags: ['tooling', 'api', 'maps', 'geospatial'],
-    proficiencyScore: 3,
+    proficiencyScore: 5,
+    content:
+      'Able to render custom components on maps, such as hotel and car locations. Able to maintain component lifecycle and state and wire it to different interactions such as zooming, panning, and clicking.',
   },
 
   // Tooling - Third-Party APIs / Services - Payment
@@ -1074,7 +1086,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Payment',
     isRoot: false,
     related: 'third-party-apis-services',
-    proficiencyScore: 10,
+    proficiencyScore: 4,
   },
 
   // Tooling - Third-Party APIs / Services - Payment - Stripe
@@ -1084,7 +1096,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'payment',
     tags: ['tooling', 'api', 'payment'],
-    proficiencyScore: 5,
+    proficiencyScore: 4,
   },
 
   // Tooling - Third-Party APIs / Services - Communication
@@ -1093,7 +1105,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Communication',
     isRoot: false,
     related: 'third-party-apis-services',
-    proficiencyScore: 9,
+    proficiencyScore: 4,
   },
 
   // Tooling - Third-Party APIs / Services - Communication - Twilio
@@ -1103,7 +1115,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'communication',
     tags: ['tooling', 'api', 'communication'],
-    proficiencyScore: 5,
+    proficiencyScore: 4,
   },
 
   // Tooling - Third-Party APIs / Services - Communication - Mailgun
@@ -1113,7 +1125,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'communication',
     tags: ['tooling', 'api', 'communication', 'email'],
-    proficiencyScore: 7,
+    proficiencyScore: 4,
   },
 
   // Tooling - AI
@@ -1122,7 +1134,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'AI',
     isRoot: false,
     related: 'tooling',
-    proficiencyScore: 6,
+    proficiencyScore: 5,
   },
 
   // Tooling - AI - Cursor
@@ -1132,7 +1144,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'ai',
     tags: ['tooling', 'ai', 'ide'],
-    proficiencyScore: 8,
+    proficiencyScore: 4,
+    content:
+      "In Ascenda, used Cursor to cut down typing time in writing features and tests, understand foreign codebases quicker. Learning to utilize and fine tune agent rules to increaes prompt speed and its results' accuracy.",
   },
 
   // Tooling - AI - Gemini
@@ -1142,7 +1156,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'ai',
     tags: ['tooling', 'ai'],
-    proficiencyScore: 7,
+    proficiencyScore: 4,
+    content:
+      "Used in tandem with Cursor. Gemini is very useful to generate high level understanding and ideas. It can also be used to double check against Cursor's suggestions. Found it the best to use both tools in parallel to eliminate biases.",
   },
 
   // Concepts

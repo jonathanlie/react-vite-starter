@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ACTION_COLORS, CONTACT_COLORS } from '@/config/colors';
+import { ACTION_COLORS } from '@/config/colors';
 import { CONTENT_PADDING } from '@/config/spacing';
 
 /**

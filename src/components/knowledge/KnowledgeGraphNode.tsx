@@ -2,7 +2,6 @@ import { memo, useEffect, useRef, useState, useMemo, useCallback } from 'react';
 import { Handle, Position, NodeProps } from 'reactflow';
 import {
   getProficiencyColor,
-  PROFICIENCY_COLORS,
   ACTION_COLORS,
 } from '@/config/colors';
 

@@ -1,4 +1,4 @@
-import { getProficiencyColor, PROFICIENCY_COLORS } from '@/config/colors';
+import { getProficiencyColor } from '@/config/colors';
 
 interface ProficiencyScoreProps {
   /** Proficiency score from 1-10 */

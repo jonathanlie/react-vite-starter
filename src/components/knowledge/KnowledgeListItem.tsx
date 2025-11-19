@@ -103,14 +103,16 @@ export function KnowledgeListItem({ node, onClick }: KnowledgeListItemProps) {
           </div>
         )}
         {node.proficiencyScore && (
-          <ProficiencyScore score={node.proficiencyScore} className="mt-auto" />
+          <div className="flex items-center justify-between w-full">
+            <ProficiencyScore score={node.proficiencyScore} showLabel={true} />
+            {isClickable && (
+              <div className="text-l text-[#B0B0B0] dark:text-[#B0B0B0] opacity-0 group-hover:opacity-100 transition-opacity">
+                →
+              </div>
+            )}
+          </div>
         )}
       </CardFooter>
-      {isClickable && (
-        <div className="absolute bottom-4 right-4 text-l text-[#B0B0B0] dark:text-[#B0B0B0] opacity-0 group-hover:opacity-100 transition-opacity">
-          →
-        </div>
-      )}
     </Card>
   );
 }

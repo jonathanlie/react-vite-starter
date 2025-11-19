@@ -3,14 +3,10 @@ interface ProficiencyScoreProps {
   score: number;
   /** Optional className for styling */
   className?: string;
+  /** Whether to show text label (e.g., "8/10" or "Expert") */
+  showLabel?: boolean;
 }
 
-/**
- * Get the number of segments to light up based on proficiency score
- *
- * @param score - Proficiency score (1-10)
- * @returns Number of segments to light up (1-4)
- */
 function getSegmentsForScore(score: number): number {
   if (score >= 1 && score <= 2) return 1; // Conceptual
   if (score >= 3 && score <= 5) return 2; // Operational
@@ -19,18 +15,25 @@ function getSegmentsForScore(score: number): number {
   return 0; // Invalid score
 }
 
-/**
- * Get the color for the segments based on proficiency score (FFLogs color scheme)
- *
- * @param score - Proficiency score (1-10)
- * @returns Hex color code for the segments
- */
 function getColorForScore(score: number): string {
   if (score >= 1 && score <= 2) return '#1eff00'; // Green - Conceptual
   if (score >= 3 && score <= 5) return '#0070ff'; // Blue - Operational
   if (score >= 6 && score <= 7) return '#a335ee'; // Purple - Proficient
   if (score >= 8 && score <= 10) return '#ff8000'; // Orange - Architectural
   return '#808080'; // Invalid score
+}
+
+/**
+ * Get proficiency label text
+ *
+ * @param score - Proficiency score (1-10)
+ * @returns Label text
+ */
+function getProficiencyLabel(score: number): string {
+  if (score >= 8 && score <= 10) return 'Architectural';
+  if (score >= 6 && score <= 7) return 'Proficient';
+  if (score >= 3 && score <= 5) return 'Operational';
+  return 'Conceptual';
 }
 
 /**
@@ -46,6 +49,7 @@ function getColorForScore(score: number): string {
 export function ProficiencyScore({
   score,
   className = '',
+  showLabel = false,
 }: ProficiencyScoreProps) {
   if (!score || score < 1 || score > 10) {
     return null;
@@ -53,29 +57,39 @@ export function ProficiencyScore({
 
   const segmentsToLight = getSegmentsForScore(score);
   const segmentColor = getColorForScore(score);
+  const label = getProficiencyLabel(score);
 
   return (
     <div
-      className={`flex gap-1 ${className}`}
+      className={`flex items-center gap-2 ${className}`}
       aria-label={`Proficiency score: ${score}`}
     >
-      {[1, 2, 3, 4].map((segment) => (
-        <div
-          key={segment}
-          className={`w-8 h-2 rounded transition-colors ${
-            !(segment <= segmentsToLight) ? 'bg-gray-300 dark:bg-gray-600' : ''
-          }`}
-          style={{
-            backgroundColor:
-              segment <= segmentsToLight ? segmentColor : undefined,
-          }}
-          aria-label={
-            segment <= segmentsToLight
-              ? `Segment ${segment} active`
-              : `Segment ${segment} inactive`
-          }
-        />
-      ))}
+      <div className="flex gap-1">
+        {[1, 2, 3, 4].map((segment) => (
+          <div
+            key={segment}
+            className={`w-5 h-1.5 rounded transition-colors ${
+              !(segment <= segmentsToLight)
+                ? 'bg-gray-300 dark:bg-gray-600'
+                : ''
+            }`}
+            style={{
+              backgroundColor:
+                segment <= segmentsToLight ? segmentColor : undefined,
+            }}
+            aria-label={
+              segment <= segmentsToLight
+                ? `Segment ${segment} active`
+                : `Segment ${segment} inactive`
+            }
+          />
+        ))}
+      </div>
+      {showLabel && (
+        <span className="text-xs font-mono text-gray-400">
+          {score}/10 • {label}
+        </span>
+      )}
     </div>
   );
 }

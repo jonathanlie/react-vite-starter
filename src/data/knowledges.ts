@@ -1458,7 +1458,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'NoSQL',
     isRoot: false,
     related: 'database',
-    tags: ['nosql'],
+    tags: ['database'],
     proficiencyScore: 2,
   },
 

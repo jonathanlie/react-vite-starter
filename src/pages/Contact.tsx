@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { ACTION_COLORS, CONTACT_COLORS } from '@/config/colors';
 
 /**
  * Contact Page
@@ -66,7 +67,10 @@ export function Contact() {
           <div className="flex flex-col md:flex-row gap-6 md:gap-8">
             {/* Email Card */}
             <div className="flex-1 bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-[0_4px_6px_0_hsla(0,0%,0%,0.2)] flex flex-col">
-              <div className="h-1 bg-blue-600"></div>
+              <div
+                className="h-1"
+                style={{ backgroundColor: ACTION_COLORS.primary }}
+              ></div>
               <div className="p-6 md:p-8 flex flex-col flex-1">
                 <h2 className="text-xl md:text-2xl font-semibold mb-2">
                   {t('contact.emailTitle', 'Get in Touch')}
@@ -79,7 +83,17 @@ export function Contact() {
                 </p>
                 <Button
                   onClick={handleCopyEmail}
-                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium mt-auto w-auto self-start"
+                  className="px-6 py-3 text-white font-medium mt-auto w-auto self-start transition-colors"
+                  style={{
+                    backgroundColor: ACTION_COLORS.primary,
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = ACTION_COLORS.hover;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor =
+                      ACTION_COLORS.primary;
+                  }}
                 >
                   {copied
                     ? t('contact.emailCopied', 'Copied!')

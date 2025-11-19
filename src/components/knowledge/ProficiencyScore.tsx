@@ -1,3 +1,5 @@
+import { getProficiencyColor, PROFICIENCY_COLORS } from '@/config/colors';
+
 interface ProficiencyScoreProps {
   /** Proficiency score from 1-10 */
   score: number;
@@ -16,11 +18,7 @@ function getSegmentsForScore(score: number): number {
 }
 
 function getColorForScore(score: number): string {
-  if (score >= 1 && score <= 2) return '#1eff00'; // Green - Conceptual
-  if (score >= 3 && score <= 5) return '#0070ff'; // Blue - Operational
-  if (score >= 6 && score <= 7) return '#a335ee'; // Purple - Proficient
-  if (score >= 8 && score <= 10) return '#ff8000'; // Orange - Architectural
-  return '#808080'; // Invalid score
+  return getProficiencyColor(score);
 }
 
 /**

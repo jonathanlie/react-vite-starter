@@ -12,6 +12,7 @@ import { loadMarkdownContent, MarkdownLoadError } from '@/utils/loadMarkdown';
 import { getKnowledgeById } from '@/data/knowledges';
 import { ProficiencyScore } from './ProficiencyScore';
 import { KnowledgeTag } from './KnowledgeTag';
+import { PROFICIENCY_COLORS } from '@/config/colors';
 
 /**
  * Modal-specific markdown components with role card styling
@@ -24,7 +25,10 @@ const modalMarkdownComponents: Components = {
     </h1>
   ),
   h2: ({ children }) => (
-    <div className="mb-8 last:mb-0 border-l-2 border-[#ff8000] pl-4">
+    <div
+      className="mb-8 last:mb-0 border-l-2 pl-4"
+      style={{ borderColor: PROFICIENCY_COLORS.architectural }}
+    >
       <h2 className="text-lg md:text-xl font-bold text-white mb-3">
         {children}
       </h2>
@@ -78,7 +82,16 @@ const modalMarkdownComponents: Components = {
   a: ({ children, href }) => (
     <a
       href={href}
-      className="text-[#ff8000] underline hover:text-[#ff9500]"
+      className="underline"
+      style={{
+        color: PROFICIENCY_COLORS.architectural,
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.color = '#ff9500';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.color = PROFICIENCY_COLORS.architectural;
+      }}
       target="_blank"
       rel="noopener noreferrer"
     >

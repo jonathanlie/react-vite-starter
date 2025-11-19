@@ -1,5 +1,10 @@
 import { memo, useEffect, useRef, useState, useMemo, useCallback } from 'react';
 import { Handle, Position, NodeProps } from 'reactflow';
+import {
+  getProficiencyColor,
+  PROFICIENCY_COLORS,
+  ACTION_COLORS,
+} from '@/config/colors';
 
 interface KnowledgeGraphNodeData {
   label: string;
@@ -15,12 +20,9 @@ interface KnowledgeGraphNodeData {
   proficiencyScore?: number; // Proficiency score (1-10) for visual styling
 }
 
-function getProficiencyColor(score?: number): string {
+function getProficiencyColorForNode(score?: number): string {
   if (!score) return '#6366f1'; // Default fallback
-  if (score >= 8 && score <= 10) return '#F97316'; // Sunset Orange - Architectural
-  if (score >= 6 && score <= 7) return '#A855F7'; // Vivid Purple - Proficient
-  if (score >= 3 && score <= 5) return '#3B82F6'; // Electric Blue - Operational
-  return '#4ADE80'; // Neon Green - Conceptual
+  return getProficiencyColor(score);
 }
 
 function getNodeSize(score?: number): number {
@@ -40,7 +42,7 @@ function getGlowEffect(
   isClickable: boolean
 ): string {
   if (!score || !isClickable) return 'none';
-  const color = getProficiencyColor(score);
+  const color = getProficiencyColorForNode(score);
   const baseOpacity =
     score >= 8 ? 0.8 : score >= 6 ? 0.6 : score >= 3 ? 0.4 : 0;
   const hoverOpacity = isHovered ? Math.min(baseOpacity + 0.3, 1) : baseOpacity;
@@ -71,7 +73,10 @@ export const KnowledgeGraphNode = memo(
     const score = data.proficiencyScore;
     const isClickable = data.hasModalContent ?? false;
     const nodeSize = useMemo(() => getNodeSize(score), [score]);
-    const proficiencyColor = useMemo(() => getProficiencyColor(score), [score]);
+    const proficiencyColor = useMemo(
+      () => getProficiencyColorForNode(score),
+      [score]
+    );
     const isArchitectural = useMemo(
       () => score !== undefined && score >= 8 && score <= 10,
       [score]
@@ -274,7 +279,16 @@ export const KnowledgeGraphNode = memo(
             <button
               type="button"
               onClick={handleExpandClick}
-              className="absolute -bottom-2 -right-2 w-6 h-6 rounded-full bg-blue-600 text-white text-xs font-bold shadow-md hover:bg-blue-700 transition-colors flex items-center justify-center"
+              className="absolute -bottom-2 -right-2 w-6 h-6 rounded-full text-white text-xs font-bold shadow-md transition-colors flex items-center justify-center"
+              style={{
+                backgroundColor: ACTION_COLORS.primary,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = ACTION_COLORS.hover;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = ACTION_COLORS.primary;
+              }}
               aria-label={data.isExpanded ? 'Collapse' : 'Expand'}
               title={`${data.isExpanded ? 'Collapse' : 'Expand'} related nodes`}
             >

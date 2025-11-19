@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { WorkHistoryEntry } from '@/types/workHistory';
 import { WorkHistoryEntry as WorkHistoryEntryComponent } from './WorkHistoryEntry';
+import { ACTION_COLORS } from '@/config/colors';
 
 interface WorkHistoryTimelineProps {
   entries: WorkHistoryEntry[];
@@ -28,7 +29,12 @@ function TimelineEntry({ entry, index }: TimelineEntryProps) {
           transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
           className="relative z-10 mb-2 flex justify-center items-center"
         >
-          <div className="w-3 h-3 aspect-square rounded-full bg-blue-600 dark:bg-blue-500 border-2 border-white dark:border-gray-900 shadow-md" />
+          <div
+            className="w-3 h-3 aspect-square rounded-full border-2 border-white dark:border-gray-900 shadow-md"
+            style={{
+              backgroundColor: ACTION_COLORS.primary,
+            }}
+          />
         </motion.div>
       </div>
 

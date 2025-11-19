@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { PROFICIENCY_COLORS } from '@/config/colors';
 
 /**
  * Proficiency Scale Explanation Component
@@ -16,28 +17,28 @@ export function ProficiencyScaleExplanation() {
       range: '1-2',
       descriptionKey: 'proficiencyScale.conceptual.description',
       segments: 1,
-      color: '#1eff00', // Green - Conceptual
+      color: PROFICIENCY_COLORS.conceptual,
     },
     {
       nameKey: 'proficiencyScale.operational.name',
       range: '3-5',
       descriptionKey: 'proficiencyScale.operational.description',
       segments: 2,
-      color: '#0070ff', // Blue - Operational
+      color: PROFICIENCY_COLORS.operational,
     },
     {
       nameKey: 'proficiencyScale.proficient.name',
       range: '6-7',
       descriptionKey: 'proficiencyScale.proficient.description',
       segments: 3,
-      color: '#a335ee', // Purple - Proficient
+      color: PROFICIENCY_COLORS.proficient,
     },
     {
       nameKey: 'proficiencyScale.architectural.name',
       range: '8-10',
       descriptionKey: 'proficiencyScale.architectural.description',
       segments: 4,
-      color: '#ff8000', // Orange - Architectural
+      color: PROFICIENCY_COLORS.architectural,
     },
   ];
 

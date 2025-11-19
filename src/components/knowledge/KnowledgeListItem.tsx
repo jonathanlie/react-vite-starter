@@ -107,8 +107,8 @@ export function KnowledgeListItem({ node, onClick }: KnowledgeListItemProps) {
         )}
       </CardFooter>
       {isClickable && (
-        <div className="absolute bottom-4 right-4 text-xs text-[#B0B0B0] dark:text-[#B0B0B0] opacity-0 group-hover:opacity-100 transition-opacity">
-          Read Story →
+        <div className="absolute bottom-4 right-4 text-l text-[#B0B0B0] dark:text-[#B0B0B0] opacity-0 group-hover:opacity-100 transition-opacity">
+          →
         </div>
       )}
     </Card>

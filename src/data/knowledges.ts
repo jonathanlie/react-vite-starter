@@ -928,7 +928,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'tooling',
     tags: ['tooling', 'monitoring'],
-    proficiencyScore: 8,
+    proficiencyScore: 5,
   },
 
   // Tooling - Observability - Grafana
@@ -938,7 +938,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'observability',
     tags: ['tooling', 'observability', 'monitoring'],
-    proficiencyScore: 8,
+    proficiencyScore: 5,
+    content:
+      'Created custom panels and setup alerts to monitor errors mostly. Vital in large-scale batch jobs where no errors are absolutely allowed, and I had to make sure the jobs were running on pace to meet SLA.',
   },
 
   // Tooling - Observability - Appsignal
@@ -948,7 +950,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'observability',
     tags: ['tooling', 'observability', 'monitoring'],
-    proficiencyScore: 10,
+    proficiencyScore: 5,
+    content:
+      'Used AppSignal to monitor traffic, error occurrences. AppSignal was vital to day-to-day operations in Ascenda during my stint as a backend engineer.',
   },
 
   // Tooling - Observability - Rollbar
@@ -958,7 +962,9 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'observability',
     tags: ['tooling', 'observability', 'monitoring'],
-    proficiencyScore: 2,
+    proficiencyScore: 5,
+    content:
+      'Used Rollbar and setup source map to debug production issues in Ascenda (Rewards Dashboard).',
   },
 
   // Tooling - Observability - Datadog
@@ -968,7 +974,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'observability',
     tags: ['tooling', 'observability', 'monitoring'],
-    proficiencyScore: 6,
+    proficiencyScore: 2,
   },
 
   // Tooling - Observability - Prometheus
@@ -978,16 +984,15 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'observability',
     tags: ['tooling', 'observability', 'monitoring'],
-    proficiencyScore: 6,
+    proficiencyScore: 2,
   },
-
   // Tooling - Content (Headless CMS)
   {
     id: 'content-headless-cms',
     title: 'Content (Headless CMS)',
     isRoot: false,
     related: 'tooling',
-    proficiencyScore: 1,
+    proficiencyScore: 5,
   },
 
   // Tooling - Content (Headless CMS) - PhraseApp

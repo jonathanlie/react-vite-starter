@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import { WorkHistoryEntry as WorkHistoryEntryType } from '@/types/workHistory';
+import { markdownComponents } from '@/components/common/MarkdownComponents';
 
 interface WorkHistoryEntryProps {
   entry: WorkHistoryEntryType;
@@ -49,29 +50,7 @@ export function WorkHistoryEntry({ entry, index }: WorkHistoryEntryProps) {
         </div>
 
         {/* Markdown Content */}
-        <ReactMarkdown
-          components={{
-            ul: ({ children }) => (
-              <ul className="space-y-3 list-none mb-4">{children}</ul>
-            ),
-            li: ({ children }) => (
-              <li className="flex items-start text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                <span className="mr-3 mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-500" />
-                <span>{children}</span>
-              </li>
-            ),
-            p: ({ children }) => (
-              <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4 last:mb-0">
-                {children}
-              </p>
-            ),
-            strong: ({ children }) => (
-              <strong className="font-semibold text-gray-900 dark:text-gray-100">
-                {children}
-              </strong>
-            ),
-          }}
-        >
+        <ReactMarkdown components={markdownComponents}>
           {entry.content}
         </ReactMarkdown>
       </div>

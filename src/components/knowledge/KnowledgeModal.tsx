@@ -1,5 +1,6 @@
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import { Loader2, AlertCircle } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 import {
   Dialog,
   DialogContent,
@@ -10,7 +11,7 @@ import {
 import { loadMarkdownContent, MarkdownLoadError } from '@/utils/loadMarkdown';
 import { getKnowledgeById } from '@/data/knowledges';
 import { ProficiencyScore } from './ProficiencyScore';
-import type { ComponentType } from 'react';
+import { markdownComponents } from '@/components/common/MarkdownComponents';
 
 interface KnowledgeModalProps {
   /** The ID of the knowledge node to display */
@@ -25,31 +26,27 @@ interface KnowledgeModalProps {
  * Knowledge Modal Component
  *
  * Displays detailed markdown content for a knowledge node in a modal dialog.
- * Handles loading states, error states, and dynamically imports MDX content.
+ * Handles loading states, error states, and dynamically imports markdown content.
  */
 export function KnowledgeModal({
   nodeId,
   isOpen,
   onClose,
 }: KnowledgeModalProps) {
-  const [MarkdownComponent, setMarkdownComponent] =
-    useState<ComponentType | null>(null);
+  const [markdownContent, setMarkdownContent] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const node = nodeId ? getKnowledgeById(nodeId) : null;
 
-  // Load MDX content when nodeId changes and modal is open
   useEffect(() => {
     if (!isOpen || !node) {
-      // Reset state when modal closes
-      setMarkdownComponent(null);
+      setMarkdownContent(null);
       setError(null);
       setIsLoading(false);
       return;
     }
 
-    // If no markdownFile, don't try to load
     if (!node.markdownFile) {
       setError('This knowledge item does not have detailed content available.');
       setIsLoading(false);
@@ -59,11 +56,11 @@ export function KnowledgeModal({
     const loadContent = async () => {
       setIsLoading(true);
       setError(null);
-      setMarkdownComponent(null);
+      setMarkdownContent(null);
 
       try {
-        const Component = await loadMarkdownContent(node.markdownFile!);
-        setMarkdownComponent(() => Component);
+        const content = await loadMarkdownContent(node.markdownFile!);
+        setMarkdownContent(content);
       } catch (err) {
         if (err instanceof MarkdownLoadError) {
           setError(
@@ -124,37 +121,13 @@ export function KnowledgeModal({
             </div>
           )}
 
-          {!isLoading && !error && MarkdownComponent && (
-            <div className="prose prose-gray dark:prose-invert max-w-none">
-              <Suspense
-                fallback={
-                  <div className="flex items-center justify-center py-8">
-                    <Loader2 className="h-6 w-6 animate-spin text-gray-400" />
-                  </div>
-                }
-              >
-                <MarkdownContentWrapper>
-                  <MarkdownComponent />
-                </MarkdownContentWrapper>
-              </Suspense>
-            </div>
+          {!isLoading && !error && markdownContent && (
+            <ReactMarkdown components={markdownComponents}>
+              {markdownContent}
+            </ReactMarkdown>
           )}
         </div>
       </DialogContent>
     </Dialog>
-  );
-}
-
-/**
- * Wrapper component for MDX content with consistent styling
- *
- * Applies markdown styling similar to WorkHistoryEntry for consistency.
- * Uses Tailwind classes with global CSS for MDX-generated elements.
- */
-function MarkdownContentWrapper({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="markdown-content [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mt-8 [&_h1]:mb-4 [&_h1]:text-gray-900 dark:[&_h1]:text-gray-100 [&_h1]:tracking-tight [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-6 [&_h2]:mb-3 [&_h2]:text-gray-900 dark:[&_h2]:text-gray-100 [&_h2]:tracking-tight [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-5 [&_h3]:mb-2 [&_h3]:text-gray-900 dark:[&_h3]:text-gray-100 [&_h3]:tracking-tight [&_p]:text-base [&_p]:leading-relaxed [&_p]:mb-4 [&_p]:text-gray-700 dark:[&_p]:text-zinc-400 [&_ul]:list-none [&_ul]:mb-4 [&_ul]:pl-0 [&_li]:relative [&_li]:pl-5 [&_li]:text-base [&_li]:leading-relaxed [&_li]:mb-3 [&_li]:text-gray-700 dark:[&_li]:text-zinc-400 [&_li]:before:content-[''] [&_li]:before:absolute [&_li]:before:left-0 [&_li]:before:top-2 [&_li]:before:w-1.5 [&_li]:before:h-1.5 [&_li]:before:rounded-full [&_li]:before:bg-gray-400 dark:[&_li]:before:bg-gray-500 [&_strong]:font-semibold [&_strong]:text-gray-900 dark:[&_strong]:text-gray-100 [&_code]:bg-gray-100 dark:[&_code]:bg-gray-800 dark:[&_code]:text-zinc-400 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm [&_code]:font-mono [&_pre]:bg-gray-100 dark:[&_pre]:bg-gray-800 [&_pre]:p-4 [&_pre]:rounded-lg [&_pre]:overflow-x-auto [&_pre]:mb-4 [&_pre]:leading-relaxed [&_pre_code]:bg-transparent [&_pre_code]:p-0 dark:[&_pre_code]:text-zinc-400 [&_a]:text-blue-500 dark:[&_a]:text-blue-400 [&_a]:underline [&_a]:hover:text-blue-600 dark:[&_a]:hover:text-blue-300">
-      {children}
-    </div>
   );
 }

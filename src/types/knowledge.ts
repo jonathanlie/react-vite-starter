@@ -34,8 +34,8 @@ export interface Knowledge {
   content?: string;
 
   /**
-   * Path to external MDX file containing detailed markdown content
-   * Format: relative path from src/content/knowledge/ (e.g., "kafka.mdx")
+   * Path to external markdown file containing detailed content
+   * Format: relative path from src/content/knowledge/ (e.g., "kafka.md")
    * The modal will lazy-load this content when the knowledge is clicked.
    * If undefined or null, the knowledge item is non-clickable (concept/stub).
    */
@@ -61,19 +61,8 @@ export interface Knowledge {
 }
 
 /**
- * Knowledge with loaded markdown content
- *
- * Extended interface for knowledge entities that have had their markdown content loaded.
- * Used internally by components that render the detailed content.
- */
-export interface KnowledgeWithContent extends Knowledge {
-  /** Loaded markdown content (React component from MDX) */
-  markdownComponent: React.ComponentType;
-}
-
-/**
  * Helper function type for loading markdown content
+ *
+ * Returns the raw markdown text content from the file.
  */
-export type LoadMarkdownContent = (
-  markdownFile: string
-) => Promise<React.ComponentType>;
+export type LoadMarkdownContent = (markdownFile: string) => Promise<string>;

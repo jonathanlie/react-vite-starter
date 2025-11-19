@@ -7,7 +7,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Frontend',
     isRoot: true,
     proficiencyScore: 7,
-    markdownFile: 'frontend.mdx',
+    markdownFile: 'frontend.md',
     content:
       '6 years of experience with various products and frontend libraries. Production experience with React, React Native, AngularJS, Angular. Architected greenfield projects and scaled to multiple tenant builds.',
   },
@@ -452,6 +452,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     id: 'backend',
     title: 'Backend',
     isRoot: true,
+    markdownFile: 'backend.md',
     proficiencyScore: 6,
     content:
       '3+ years of production experience with Ruby on Rails on a microservices architecture, with multitenancy as the main challenge and the focal point.',
@@ -1002,6 +1003,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     isRoot: false,
     related: 'content-headless-cms',
     tags: ['tooling', 'i18n', 'cms'],
+    markdownFile: 'phraseapp.md',
     proficiencyScore: 6,
     content:
       'Wrote a script to automate the process of syncing translations, and setup dev workflow in Rewards Dashboard to deal with translations.',
@@ -1229,7 +1231,7 @@ export const KNOWLEDGE_DATA: Knowledge[] = [
     title: 'Authentication / Authorization Integration',
     isRoot: false,
     related: 'concepts',
-    markdownFile: 'authentication-authorization-integration.mdx',
+    markdownFile: 'authentication-authorization-integration.md',
     proficiencyScore: 5,
     content:
       'Integrated centralized Identity Providers into applications using internal SDKs.',

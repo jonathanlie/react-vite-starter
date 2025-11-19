@@ -228,8 +228,8 @@ export const KnowledgeGraphNode = memo(
     );
 
     const textClassName = useMemo(() => {
-      if (isArchitectural) return 'text-sm font-bold uppercase';
-      if (isProficient) return 'text-xs font-bold';
+      if (isArchitectural) return 'text-sm font-normal';
+      if (isProficient) return 'text-xs font-normal';
       if (isOperational) return 'text-xs font-normal';
       return 'text-[10px] font-normal';
     }, [isArchitectural, isProficient, isOperational]);

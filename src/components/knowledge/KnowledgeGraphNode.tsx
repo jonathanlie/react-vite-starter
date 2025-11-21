@@ -1,9 +1,6 @@
 import { memo, useEffect, useRef, useState, useMemo, useCallback } from 'react';
 import { Handle, Position, NodeProps } from 'reactflow';
-import {
-  getProficiencyColor,
-  ACTION_COLORS,
-} from '@/config/colors';
+import { getProficiencyColor, ACTION_COLORS } from '@/config/colors';
 
 interface KnowledgeGraphNodeData {
   label: string;

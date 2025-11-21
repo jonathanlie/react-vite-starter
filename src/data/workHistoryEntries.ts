@@ -16,7 +16,7 @@ export const workHistoryEntries: WorkHistoryEntry[] = [
     location: 'Singapore',
     workModel: 'Hybrid',
     role: 'Software Engineer (Backend)',
-    startDate: '2021',
+    startDate: 'Jun 2021',
     endDate: 'Mar 2025',
     duration: '3 yrs 10 mos',
     content: `**Team Size:** ~8 Engineers | **Tech:** Ruby on Rails, PostgreSQL, Microservices, RSpec
@@ -45,8 +45,8 @@ I participated in the team's weekly on-call rotation, debugging production incid
     location: 'Singapore',
     workModel: 'Hybrid',
     role: 'Senior Software Engineer (Frontend)',
-    startDate: '2020',
-    endDate: '2021',
+    startDate: 'Mar 2020',
+    endDate: 'May 2021',
     duration: '1 yr 3 mos',
     content: `**Team Size:** 4 Engineers | **Tech:** Angular, TypeScript, Jest
 
@@ -70,8 +70,8 @@ Continued to oversee the technical stability of the Rewards Dashboard as it scal
     location: 'Singapore',
     workModel: 'Hybrid',
     role: 'Software Engineer (Frontend)',
-    startDate: '2017',
-    endDate: '2020',
+    startDate: 'Oct 2017',
+    endDate: 'Feb 2020',
     duration: '2 yrs 5 mos',
     content: `**Team Size:** 8-10 Engineers | **Tech:** Angular, AngularJS, Mapbox, RxJS
 
@@ -103,8 +103,8 @@ My initial work involved maintaining kaligo.com (AngularJS). I refactored monoli
     location: 'Singapore',
     workModel: 'On-site',
     role: 'Software Engineer',
-    startDate: '2016',
-    endDate: '2017',
+    startDate: 'Aug 2016',
+    endDate: 'Sep 2017',
     duration: '1 yr',
     content: `**Tech:** React, React Native, Redux, Ruby on Rails
 
@@ -130,21 +130,28 @@ I implemented the geospatial features, such as visualizing delivery clusters on 
 I helped migrate the legacy application from Reflux to Redux. This involved rewriting the data layer to use Reducers, ensuring a unidirectional data flow that was much easier to debug.`,
   },
   {
-    id: 'versafleet-autodesk-intern',
-    company: 'VersaFleet & Autodesk',
+    id: 'versafleet-intern',
+    company: 'VersaFleet',
     location: 'Singapore',
     workModel: 'On-site',
     role: 'Software Engineer Intern',
-    startDate: '2015',
-    endDate: '2016',
-    duration: '1 yr',
-    content: `**VersaFleet:**
-
+    startDate: 'Dec 2015',
+    endDate: 'May 2016',
+    duration: '6 mos',
+    content: `
 - **Corporate Site:** I worked with a designer to rebuild the company marketing site from scratch using HTML/Bootstrap.
-- **DevOps:** I set up the team's first automated deployment pipeline using Grunt scripts to remove manual build steps.
-
-**Autodesk:**
-
+- **DevOps:** I set up the team's first automated deployment pipeline using Grunt scripts to remove manual build steps.`,
+  },
+  {
+    id: 'autodesk-intern',
+    company: 'Autodesk',
+    location: 'Singapore',
+    workModel: 'On-site',
+    role: 'Software Engineer Intern',
+    startDate: 'Jan 2015',
+    endDate: 'May 2015',
+    duration: '5 mos',
+    content: `
 - **R&D Prototype:** I built a proof-of-concept to add touchscreen capabilities to AutoCAD.
 - **Touch Input:** I used the Windows Touch API to interpret 1-to-5 finger gestures, mapping them to specific CAD navigation commands (pan, zoom, rotate).`,
   },
